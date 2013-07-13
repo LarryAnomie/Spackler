@@ -1,0 +1,716 @@
+/*  
+Theme Name: Lawrence Naman
+Theme URI: http://www.lawrencenaman.com/
+Description: Portfolio Theme based on SimplePortfolio Theme
+Version: 3.1
+Author: Lawrence Naman 
+Author URI: http://www.lawrencenaman.com/
+*/
+
+
+/*
+=======================================================
+Contents:
+0. Foundation
+1. Base & Resets - standard, HTML5, WP, Colours
+2. Links
+3. Layout
+4. Typography
+5. Header
+6. Specific
+    6a. Home page
+    6b. Portfolio
+    6c. Blog
+7. Sidebar
+8. Footer
+9. 404
+10. Mobile
+*/
+
+// Boilerplate and WP resets
+@import "partials/resets";
+
+// Your custom settings file to override Foundation defaults
+@import "partials/settings";
+
+// Comment out this import if you are customizing you imports below
+@import "foundation";
+
+// ----------------------------------------
+// Import specific parts of Foundation by commenting the import "foundation"
+// and uncommenting what you want below. You must uncomment the following if customizing
+
+//@import "compass/css3";
+@import "foundation/settings";
+
+//@import "foundation/functions/all";
+//@import "foundation/common/globals";
+//@import "foundation/mixins/clearfix";
+//@import "modular-scale";
+
+// Control which mixins you have access too
+
+//@import "foundation/mixins/css-triangle";
+//@import "foundation/mixins/font-size";
+
+// Must include next two for semantic grid to work
+
+//@import "foundation/mixins/respond-to";
+//@import "foundation/mixins/semantic-grid";
+
+// Must include the grid for any responsiveness
+
+//@import "foundation/components/grid";
+
+// Control which common styles get compiled
+
+// @import "foundation/common/typography";
+// @import "foundation/common/forms";
+
+// Control which components you get if customizing
+
+// @import "foundation/components/modules/buttons";
+// @import "foundation/components/modules/tabs";
+// @import "foundation/components/modules/ui";
+// @import "foundation/components/modules/navbar";
+// @import "foundation/components/modules/orbit";
+// @import "foundation/components/modules/reveal";
+// @import "foundation/components/modules/offcanvas";
+
+
+//base variables etc.
+@import "modules/base";
+
+//link styles
+@import "partials/links";
+
+
+/*====================================================
+Layout 
+*/
+
+html, 
+body, 
+#wrapper {
+    height: 100%;       
+}
+body > #wrapper {
+    height: auto;
+    min-height: 100%;
+}
+body {
+    background: #e7e7e2 image_url("bg.jpg") repeat;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#333;
+    border-top: 4px solid #113c77;
+    overflow-x:hidden;
+}
+#wrapper {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#main {
+    padding-bottom: 340px; /* must be same height as the footer */
+}
+header {
+    padding: 0;     
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    border-bottom: 1px solid #fff;
+    display: block;
+}
+#content {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    margin-bottom:20px;
+}
+footer {
+    margin-top: -340px;
+    position: relative;
+    background-color: $deepBlue;
+    color: #f6f6f6;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.9) inset, 0 0 16px rgba(0, 0, 0, 0.5);
+    min-height: 340px;
+}
+
+//Typography
+@import "partials/typography";
+
+/*====================================================
+Forms
+*/
+label {
+    display:block;
+    margin-bottom:5px;
+}
+input,
+textarea,
+select {
+    padding:5px; 
+    margin:0 0 10px 0;
+    border:1px solid #ccc;
+    max-width: 100%;
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1) inset, 0 0 16px rgba(0, 0, 0, 0.1);
+    color:#333;
+}
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #909af5;
+}
+.button, 
+#searchsubmit {
+    background:#d92f30;
+    border:1px solid #ba2222;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    margin: 0;
+    min-width:inherit;
+}
+.button:hover,
+.button:focus,
+#searchsubmit:hover,
+#searchsubmi:focus  {
+    background:#f13334!important;
+    border-color: #b21b1b;
+    text-decoration: underline;
+}
+/*====================================================
+Tables 
+*/
+table {
+    background: #fff;   
+}
+
+/*====================================================
+Header 
+*/
+
+#logo {
+    margin: 10px auto;
+    font-size: 20px;
+    width: 50px;
+
+    a {
+        background: none; 
+        border: none; 
+        padding: 0;
+        display: block;
+        text-indent: -9999px;
+        height: 50px;
+    }
+    a:hover {
+        color: #113c77;     
+    }
+
+    #larry {
+        background: transparent image_url("mobile-logo.png") no-repeat left center;
+        width: 50px;
+        height: 50px;
+        display: block;
+    }
+    span {
+        display: none;
+    }
+}
+#designer {
+    color:#113c77;
+    margin-right: 3px;
+}
+#dev {
+    color: #d92f30;
+    margin-left: 3px;
+}
+
+/*nav*/
+#access {
+    text-align:center;
+}
+#nav {
+    padding:0;
+    list-style:none;
+
+    li {
+        display:inline-block;
+    }
+    a {
+        display:block; 
+        padding: 20px 20px;
+        text-decoration:none; 
+        background: none; 
+        border: none;
+        font-family: 'Oswald', sans-serif;
+        word-spacing: 0;
+        text-transform: uppercase;
+        font-size: 1.2em;
+    }
+    a:link  { 
+        color: #113c77; 
+        text-shadow: 1px 1px 1px #ccc; 
+        background: none; 
+        border: none;
+    }
+    a:visited {
+        color: #113c77; 
+    }
+    .current_page_item a,
+    .current-portfolio .page-item-279 a {
+        color: #fff;
+        background-color: rgba(12, 43, 87, 0.6);
+        text-shadow: 1px 1px 1px #061e3f;
+        -webkit-box-shadow: inset 0px 0px 85px rgba(12, 43, 87, 0.8);
+        -moz-box-shadow:    inset 0px 0px 100px rgba(12, 43, 87, 0.8);
+        box-shadow:         inset 0px 0px 85px rgba(12, 43, 87, 0.8);
+    }
+    .current_page_item a:hover, 
+    .current_page_item a:focus {
+        cursor: default;    
+        text-decoration: none;
+        color: #fff;
+        background-color: rgba(12, 43, 87, 0.7);
+    }
+    li a:hover, 
+    li a:focus { 
+        color: #d92f30; 
+        text-decoration: underline;
+        background: none; 
+        border: none;
+    }
+}//end #nav
+#nav.current-portfolio .page-item-279 a,
+#nav.current-portfolio .page-item-3 a,
+#nav.current-blog .page-item-47 a {
+    color: #fff;
+    background-color: rgba(12, 43, 87, 0.7);
+    text-shadow: 1px 1px 1px #061e3f;
+    -webkit-box-shadow: inset 0px 0px 85px rgba(12, 43, 87, 0.8);
+    -moz-box-shadow:    inset 0px 0px 100px rgba(12, 43, 87, 0.8);
+    box-shadow:         inset 0px 0px 85px rgba(12, 43, 87, 0.8);
+}
+/*====================================================
+page title 
+*/
+
+h1.title {
+    font-size: 2em; 
+    margin-bottom: 20px;
+}
+
+/*====================================================
+Home Page
+*/
+@import "partials/flexSlider";
+
+/*Strapline*/
+
+.slogan {
+    margin-bottom:10px;
+
+    h2 {
+        text-align: center;
+        color:#666;
+        margin: 0 0 10px 0;
+    }
+    ul {
+        list-style: none;
+    }
+    i {
+
+    }
+}
+
+/*==============================================================
+Portfolio
+*/
+.portfolio h1 {
+    margin-top: 0;
+}
+.portfolio .title h2 {
+    color:#333;
+    font-size:2.5em;
+    line-height: 1.5em;
+}
+.portfnav {
+    overflow:hidden;
+    padding: 0;
+    //border-bottom:1px solid #e3e3e3;
+
+    ul {
+        padding: 0;
+    }
+    li {
+        display:inline;
+        float: left;
+    }
+    a {
+        padding: 10px;
+        border-bottom: none;
+        display: block;
+    }
+    li.active a {
+        background: #143855;
+        color: #fff;
+    }
+    a:hover {
+        border-color: #143855;
+    }
+}
+#folio {
+    margin: 20px 0 0 -20px;
+    list-style: none;
+    display: block;
+    padding: 0;
+    overflow: hidden;
+
+    .project {
+        //width: 320px;
+        //height: 199px;
+        width: 100%;
+        display: block;
+        float: left;
+        position: relative;
+        background: #fff;
+        border: 1px solid #CCC;
+        -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+        -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+        margin: 0 0 20px 20px;
+
+        .overlay {
+            position: absolute;
+            background: $blue;
+            top: 0;
+            opacity: 0;
+            width:100%;
+            height: 100%;
+                        -webkit-transition:all .2s ease-in-out;  
+           -moz-transition:all .2s ease-in-out;  
+           -o-transition:all .2s ease-in-out;  
+           transition:all .2s ease-in-out; 
+
+            h2 a, p {
+                color: #fff;
+            }
+
+            a {
+                display: inline;
+                border-bottom: 1px solid #fff;
+
+                &:hover {
+                    border-color: $blue;
+                }
+            }
+        }
+
+        .overlay.fade {
+            opacity: 1;
+            -webkit-transition:all .2s ease-in-out;  
+           -moz-transition:all .2s ease-in-out;  
+           -o-transition:all .2s ease-in-out;  
+           transition:all .2s ease-in-out;  
+        }
+        img {
+            //border:1px solid #dddddd;
+            //background:#ededed;
+            //padding:5px;
+            width:100%;
+          -webkit-transition:all .2s ease-in;  
+           -moz-transition:all 1s ease-in;  
+           -o-transition:all 1s ease-in;  
+           transition:all 1s ease-in;  
+            &:hover {
+                opacity: .5;
+            }
+        }
+        h2 {
+            font-size:1.2em;
+            margin-bottom:10px;
+            padding: 0 20px;
+        }
+        p {
+            padding: 0 20px;
+        }
+        a {
+            background: none; 
+            padding: 0; 
+            border: none;
+            display: block;
+        }
+    }
+}//#folio
+
+@import "partials/isotope";
+
+//idividual project page
+.project {
+
+}
+.project-text {
+ 
+}
+.project-media {
+
+}
+
+
+/*============================================================
+Blog 
+*/
+
+.blogpost {
+    padding:20px 0;
+    overflow:hidden;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #ccc;
+
+    .title {
+        margin:0 0 20px 0;
+        font-weight: normal;
+        font-size: 2em;
+    }
+    h2 a {
+        text-decoration:none;
+        padding: 3px;
+        background: none;
+        border: none;
+
+    }
+    h2 a:hover {
+        background: none;
+        border: none;
+        text-decoration: underline;
+        color: #d92f30;
+    }
+    .meta {
+        color: #666;
+        margin-bottom: 14px;
+    }
+}
+.post-content {
+
+}
+.post-meta {
+    margin-bottom: 20px;
+
+    span {
+    }
+}
+.date {
+    background-color: rgba(217, 47, 48, 0.8);
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    padding: 10px;
+    float: left;
+}
+.month, .day, .year {
+}
+.month {
+
+}
+.day {
+    padding: 3px;
+}
+.year {
+
+}
+.comments {
+    background-color: rgba(17, 60, 119, 0.9);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    float: left;
+
+    a {
+        color: #fff;
+    }
+}
+.blogpost:first-child {
+    border-top: none;
+    padding: 0 0 20px 0;
+}
+#social-buttons {
+    background: rgba(255, 255, 255, 0.4);   
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1) inset, 0 0 16px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border: 1px solid #ccc;
+    overflow:hidden;
+
+    span {
+        display: block;
+        float:left;
+    }
+}
+
+@import "partials/comments";
+@import "partials/sidebar";
+@import "partials/footer";
+
+
+/*====================================================================
+4-oh-4
+*/
+#four-oh-four {
+    min-height: 500px;  
+}
+#four-oh-four h1 {
+    font-family: $FFhelvetica;
+    font-size: 10em;
+}
+#four-oh-four p {
+    float: left;
+    display: block;
+}
+
+/*====================================================================
+Media Queries
+*/
+
+@media only screen and (min-width: 480px) {
+  /* 480 =================================================== */
+
+}
+@media only screen and (min-width: 600px) {
+  /* 600 =================================================== */
+    header {
+        padding: 20px 10px 0 10px;
+    }
+    #logo {
+        margin:15px auto;
+        width: 270px;
+         a {
+            height: auto;
+         }
+        span {
+            text-indent:0;
+            display: block;
+            float: left;
+        }
+        #larry {
+            background: transparent image_url("logo1.png") no-repeat left center; 
+            width: 243px;
+            text-indent: -999999px;
+            height: 29px;
+            display: block;
+            margin-bottom: 5px;
+        }
+    }
+
+    #folio {
+        .project {
+            width: 320px;
+            height: 199px;
+        }
+    }
+}
+@media only screen and (min-width: 768px) {
+  /* 768 =================================================== */
+    #access {
+        float: right;
+    }
+    #logo {    
+        margin: 15px 0 20px 0;
+        float: left;
+    }
+    #folio {
+        .item {
+            img {
+            }
+        }
+    }
+    .month, .day, .year {
+        display: block;
+    }
+    .comments, .date {
+        float: none;
+    }
+    .post-meta {
+    
+        span {
+            padding: 3px 0;
+            display: block;
+        }
+    }
+    #footer-content {
+        .widget {
+            border-left: 1px solid #1c3e6c;
+            border-right: 1px solid #09264b;
+        }
+        .widget_pages {
+            border-left: none;
+        }
+        .widget_search {
+            border-right: none;
+        }
+    }
+
+}
+@media only screen and (min-width: 992px) {
+  /* 992 =================================================== */
+    #folio {
+        .item {
+            img {
+            }
+        }
+    }
+
+}
+@media only screen and (min-width: 1382px) {
+  /* 1382 =================================================== */
+
+}
+
+/* iPhone 4, Opera Mobile 11 and other high pixel ratio devices ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+
+    #logo #larry {
+        background: transparent image_url("mobile-logo@2x.png") no-repeat left center;
+        background-size:50px 50px;
+    }
+}
+
+/* iPad 3? ------------------------------------------------------------------*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (min-width: 768px) {
+    #logo #larry {
+        background: transparent image_url("logo1@2x.png") no-repeat left center;
+        background-size:241px 28px;
+    }
+
+}
+
+/* ==|== print styles =======================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+/*====================================================================
+Font Awesome
+*/
+@import "modules/font-awesome";

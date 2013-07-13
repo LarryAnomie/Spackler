@@ -1,0 +1,128 @@
+/*======================================================================
+Footer 
+*/
+
+#footer-content {
+    padding-top: 20px;
+    color: #ccc;
+
+    h3 {
+        font-size: 1em;
+        color: #e7e7e7;
+        text-shadow: 2px 2px 2px #051c3a; 
+        margin: 0 0 10px 0;
+        border: none;
+    }
+    label {
+        color: #e7e7e7;
+    }
+    a,
+    a:visited {
+        background: transparent;
+        border-width: 0 0 1px 0;
+        border-color: #1c3e6c !important;
+        border-radius: 0;
+        color: #fff;
+        text-shadow: 1px 1px 1px #04162f; 
+    }
+    a:hover, 
+    a:focus {
+        text-decoration: none;
+        border-bottom: none;
+        color: #d4e4f9;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        padding: 0 0 0 20px;
+        background: transparent image_url("icon-arrow.png") no-repeat left center;
+    }
+    .qbutton {
+        float:right;
+        line-height:50px;
+        position: absolute;
+        top: -25px;
+        right: 0;
+        z-index: 1000;
+
+        a:link, 
+        a:visited, 
+        a:active {
+            background:transparent image_url("getintouch.png") no-repeat top left;
+            color:#fff;
+            font-weight:bold;
+            cursor:pointer;
+            width: 140px;
+            height: 48px;
+            display: block;
+            text-indent: -999999px;
+            border-bottom: none;
+        }
+        a:hover {
+            background-position: 0 -60px;
+        }   
+        a:focus {
+            background-position: 0 -120px;
+        }   
+    }
+    .widget_pages {
+
+    }
+    .widget_search {
+        border-right: none;
+    }
+    .widget_search #s {
+        background: #fff;
+        width: 230px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.6) inset, 0 0 16px rgba(0, 0, 0, 0.9);
+        border-color: #1c3e6c;
+    }
+    .widget_search #s:focus {
+        border-color: #FFC;
+    }
+    .widget_recent_entries, 
+    .widget_recent_comments {
+
+    }   
+    .widget_rss_links {
+        border-right: none!important;
+    }   
+} //#footer-content
+
+/*the bitter end*/
+#end {
+    margin-top: 20px;
+}
+#wp, 
+#copyright, 
+#cinerama {
+}
+#wp {
+    a {
+
+        line-height:40px;
+        span {
+            background: transparent image_url('wordpress.png') no-repeat center left;
+            color: #fff;
+            height: 40px;
+            line-height: 40px;
+            width: 40px;
+            text-indent: -999999px;
+            display: block;
+            float: left;
+        }
+    }
+}
+
+#cinerama {
+
+    #cinerama-logo {
+        background: transparent image_url('cinerama.png') no-repeat right center;
+        display: block;
+        text-indent: -99999px;
+        width: 158px;
+        height: 43px;
+    }
+}

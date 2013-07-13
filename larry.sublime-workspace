@@ -1,0 +1,654 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"li",
+				"listenTo"
+			],
+			[
+				"l",
+				"listenTo"
+			],
+			[
+				"L",
+				"localStorage"
+			],
+			[
+				"com",
+				"completed"
+			],
+			[
+				"In",
+				"Investment"
+			],
+			[
+				"A",
+				"Agreement"
+			],
+			[
+				"j",
+				"jQuery"
+			],
+			[
+				"rem",
+				"removeAttr"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"a",
+				"animation"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"backgr",
+				"background"
+			],
+			[
+				"tab",
+				"tabletPortrait"
+			],
+			[
+				"init",
+				"initBxSlider"
+			],
+			[
+				"i",
+				"italic"
+			],
+			[
+				"inl",
+				"include"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"in",
+				"inline"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"p",
+				"pointer"
+			],
+			[
+				"text",
+				"text-transform"
+			],
+			[
+				"slide",
+				"slideInLeft"
+			],
+			[
+				"image",
+				"image_url"
+			],
+			[
+				"backgroun",
+				"background-size"
+			],
+			[
+				"tet",
+				"text-indent"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"last",
+				"last-child"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"ins",
+				"inside"
+			],
+			[
+				"font-s",
+				"font-style"
+			],
+			[
+				"rep",
+				"repeat-y"
+			],
+			[
+				"h",
+				"Arial, Helvetica, sans-serif"
+			],
+			[
+				"we",
+				"webRoot"
+			],
+			[
+				"ul",
+				"unselectable	@unselectable"
+			],
+			[
+				"mar",
+				"margin-top	zen:css_properties"
+			],
+			[
+				"marin",
+				"margin-left"
+			],
+			[
+				"footer",
+				"footer-nav"
+			],
+			[
+				"bl",
+				"block"
+			],
+			[
+				"gree",
+				"greenHover"
+			],
+			[
+				"green",
+				"greenVisited"
+			],
+			[
+				"gre",
+				"greenGradientDepressed"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 242.0,
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"htmlp",
+				"HTMLPrettify: Prettify"
+			],
+			[
+				"css",
+				"CSSLint: Run CSSLint"
+			],
+			[
+				"pret",
+				"HTMLPrettify: Prettify"
+			],
+			[
+				"html",
+				"HTMLPrettify: Prettify"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"ht",
+				"Set Syntax: HTML"
+			],
+			[
+				"set",
+				"Set Syntax: PHP"
+			],
+			[
+				"sass",
+				"Set Syntax: SCSS"
+			],
+			[
+				"Insta",
+				"Package Control: Install Package"
+			],
+			[
+				"List",
+				"Package Control: List Packages"
+			],
+			[
+				"Dis",
+				"Package Control: Discover Packages"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 60.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/larry/Desktop/stockists.html",
+		"/C/wamp/www/castlewealth/css/sass/app.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/content.php",
+		"/C/wamp/www/wp/wp-content/themes/twentytwelve/index.php",
+		"/C/Users/larry/Dropbox/Travel/USA/Visa/visa-contact-ref-no.txt",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/template-bloghome.php",
+		"/C/wamp/www/wp/wp-content/themes/twentytwelve/content.php",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/css/config.rb",
+		"/C/wamp/www/wp/wp-content/themes/cityWP/sass/components/_font-awesome.scss",
+		"/C/wamp/www/wp/wp-content/themes/cityWP/header.php",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/header.php",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/modules/_font-awesome.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/style.css",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/style.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/cityWP/config.rb",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/config.rb",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/css/style.css",
+		"/C/wamp/www/wp/wp-content/themes/cityWP/config.rb",
+		"/C/Users/larry/Desktop/Homegroup",
+		"/C/wamp/www/drupal/sites/default/settings.php",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/index.php",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/functions.php",
+		"/C/wamp/www/wordpress/wp-config.php",
+		"/C/wamp/www/wp/wp-config.php",
+		"/C/wamp/www/wp/wp-content/themes/twentytwelve/content-aside.php",
+		"/C/wamp/www/wp/wp-content/themes/cityWP/index.php",
+		"/C/wamp/www/wp/wp-content/themes/cityWP/loop.php",
+		"/C/wamp/www/wp/wp-content/themes/cityWP/single.php",
+		"/C/wamp/www/wp/wp-content/themes/twentytwelve/single.php",
+		"/C/Users/larry/Documents/wp.xml",
+		"/C/wamp/www/wp/wp-content/themes/twentytwelve/functions.php",
+		"/C/wamp/www/wp/wp-content/themes/cityWP/functions.php",
+		"/C/wamp/www/wordpress/.htaccess",
+		"/C/wamp/www/wp/wp-content/themes/cityWP/content-aside.php",
+		"/C/wamp/www/wp/wp-content/themes/cityWP/author.php",
+		"/C/wamp/www/testing/backbone/todo/index.html",
+		"/C/wamp/www/testing/backbone/todo/js/models/todo.js",
+		"/C/wamp/www/testing/backbone/todo/js/collections/todos.js",
+		"/C/wamp/www/testing/backbone/todo/js/views/app.js",
+		"/C/Users/larry/Dropbox/Travel/USA/visa-contact-ref-no.txr",
+		"/F/software/Adobe Illustrator CS6/INSTALLING INSTRUCTIONS.txt",
+		"/C/wamp/www/testing/backbone/todo/js/routers/router.js",
+		"/C/wamp/www/testing/backbone/todo/assets/base.css",
+		"/C/wamp/www/testing/backbone/todo/js/lib/underscore-min.js",
+		"/C/wamp/www/testing/backbone/todo/js/lib/jquery-1.9.1.min.js",
+		"/C/wamp/www/testing/backbone/backbone.js",
+		"/C/wamp/www/testing/backbone/todo/js/lib/backbonelocalStorage-min.js",
+		"/C/wamp/www/testing/backbone/index.html",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/js/script.js",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/js/libs/ba-debug.min.js",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/js/plugins/custom.js",
+		"/C/wamp/www/castlewealth/testimonials.php",
+		"/C/wamp/www/castlewealth/documents.php",
+		"/C/wamp/www/castlewealth/contact.php",
+		"/C/wamp/www/castlewealth/google6e469f3b2bb56c7d.html",
+		"/C/wamp/www/castlewealth/includes/footer.php",
+		"/C/wamp/www/castlewealth/investment.php",
+		"/C/wamp/www/castlewealth/about.php",
+		"/C/wamp/www/castlewealth/index.php",
+		"/C/wamp/www/castlewealth/css/stylesheets/app.css",
+		"/C/wamp/www/castlewealth/includes/header.php",
+		"/C/wamp/www/castlewealth/services.php",
+		"/C/wamp/www/castlewealth/process.php",
+		"/C/wamp/www/wordpress/wp-content/themes/castlewealth/js/main.js",
+		"/C/wamp/www/castlewealth/js/main.js",
+		"/C/wamp/www/wordpress/wp-content/themes/castlewealth/css/sass/style.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/castlewealth/header.php",
+		"/C/wamp/www/wordpress/wp-content/themes/castlewealth/css/sass/modules/_font-awesome.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/castlewealth/css/config.rb",
+		"/C/wamp/www/castlewealth/css/config.rb",
+		"/C/wamp/www/castlewealth/css/sass/_settings.scss",
+		"/C/wamp/www/castlewealth/css/sass/components/_bxslider.scss",
+		"/C/wamp/www/castlewealth/what.php",
+		"/C/wamp/www/cv1/css/sass/modules/_font-awesome.scss",
+		"/C/wamp/www/cv1/css/sass/_settings.scss",
+		"/C/wamp/www/cv1/css/sass/app.scss",
+		"/C/wamp/www/cv1/index.html",
+		"/C/wamp/www/cv1/css/stylesheets/app.css",
+		"/C/Users/larry/Desktop/LGorcRp0Ww5D",
+		"/C/wamp/www/cv/cv.html",
+		"/C/wamp/www/wordpress/wp-content/themes/twentytwelve/functions.php",
+		"/C/wamp/www/wordpress/wp-content/themes/twentytwelve/footer.php",
+		"/C/Users/larry/Documents/about.html",
+		"/C/wamp/www/wordpress/wp-content/themes/castlewealth/footer.php",
+		"/C/wamp/www/wordpress/wp-content/themes/castlewealth/functions.php",
+		"/C/wamp/www/wordpress/wp-content/themes/castlewealth/sidebar.php",
+		"/C/wamp/www/castlewealth/includes/sidebar.php",
+		"/C/wamp/www/wordpress/wp-content/themes/castlewealth/template-home.php",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/single.php",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sidebar.php",
+		"/C/wamp/www/wordpress/wp-content/themes/castlewealth/style1.css",
+		"/C/wamp/www/wordpress/wp-content/themes/boilerplate/header.php",
+		"/C/wamp/www/wordpress/wp-content/themes/castlewealth/single.php",
+		"/C/wamp/www/wordpress/wp-content/themes/castlewealth/index.php",
+		"/C/wamp/www/wordpress/wp-content/themes/castlewealth/style.css",
+		"/C/wamp/www/castlewealth/includes/head.php",
+		"/C/wamp/www/castlewealth/js/plugins.js",
+		"/C/wamp/www/backbone/package.json",
+		"/C/wamp/www/backbone/app/index.html",
+		"/C/wamp/www/backbone/app/js/main.js",
+		"/C/wamp/www/backbone/test/index.html",
+		"/C/wamp/www/backbone/test/setup.js",
+		"/C/wamp/www/backbone/test/app.test.js",
+		"/C/wamp/www/backbone/grunt.js",
+		"/C/wamp/www/backbone/require-config.js",
+		"/C/wamp/www/backbone/app/js/app.js",
+		"/C/wamp/www/backbone/server.js",
+		"/C/wamp/www/castlewealth/psds/TODOs",
+		"/C/wamp/www/castlewealth/css/sass/ie7.scss",
+		"/C/Resources/FortAwesome-Font-Awesome-ee55c85/sass/font-awesome.scss",
+		"/C/wamp/www/castlewealth/css/sass/modules/_font-awesome.scss",
+		"/C/wamp/www/castlewealth/css/robots.txt",
+		"/C/wamp/www/castlewealth/css/humans.txt",
+		"/C/wamp/www/castlewealth/css/normalize.css",
+		"/C/Users/larry/Downloads/animate-custom.css",
+		"/C/Users/larry/Downloads/modernizr.custom.18103.js",
+		"/C/wamp/www/castlewealth/js/vendor/modernizr-2.6.1.min.js",
+		"/C/wamp/www/castlewealth/js/vendor/jquery-1.8.0.min.js",
+		"/C/wamp/www/asl/ASL-introduction.html",
+		"/C/Users/larry/Dropbox/2013 Pledges",
+		"/C/Users/larry/Dropbox/Public/asl/ASL-introduction.html",
+		"/C/Users/larry/AppData/Local/Temp/Temp1_asl.zip/ASL-introduction.html",
+		"/C/wamp/www/castlewealth/contact-form.php",
+		"/C/Users/larry/Downloads/rewebbo.zip",
+		"/C/wamp/www/asl/sass/style.scss",
+		"/C/wamp/www/asl/code/life-in-london.html",
+		"/C/wamp/www/asl/code/recruitment-video.html",
+		"/E/ASL_Introduction.html"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"www",
+			"france",
+			"left ",
+			"<li>",
+			"gallery",
+			"aside",
+			"/<p>",
+			"/castlewealth/",
+			"toggle",
+			"button",
+			"toggle",
+			"’",
+			"<h2>",
+			"</h2><div class=\"hr-shadow\"><div class=\"edge\"></div><div class=\"shadow\"></div></div>",
+			"</h2>",
+			"’",
+			"”",
+			"“",
+			"</span>",
+			"<span lang=\"EN-US\">",
+			"author",
+			"pager",
+			"{\n",
+			"font-aw",
+			"author",
+			"#nav",
+			"end",
+			"logo",
+			"Retail",
+			"blockquote",
+			"console.log",
+			"0b4f75",
+			"35",
+			"center",
+			"logo",
+			"content",
+			"active",
+			"black",
+			"5px",
+			"url(images/controls.png)",
+			"direction",
+			"</cite>",
+			"”",
+			"“",
+			"dl",
+			"dd",
+			"thumbnail",
+			"images/",
+			"rgba",
+			"comments",
+			" ',",
+			"widget",
+			"deepBlue",
+			"0C2B55",
+			"#0C2B55",
+			"nav",
+			"@import ",
+			"slogan",
+			"oswald",
+			"font-family: 'Lobster', cursive;",
+			"/castlewealth/css/",
+			"i",
+			"col",
+			"nav",
+			"logo",
+			"loading",
+			"/castlewealth/css/images/",
+			"sidebar",
+			"4px",
+			"15px",
+			"footer",
+			"fotter",
+			"margin",
+			"page",
+			"images",
+			"import",
+			"nav",
+			"sidebar",
+			"inset",
+			"box",
+			"nav",
+			"ul",
+			"dontprint",
+			"$blue",
+			"col",
+			"                    </li>",
+			"<li>",
+			"code/css/i/pdf.gif",
+			"css/i/pdf.gif",
+			"</span>",
+			"orange",
+			"</td>",
+			"<li> ",
+			"<br />",
+			"li",
+			"h1",
+			"background",
+			"pdf",
+			"<br />",
+			"      <br />",
+			"<span class=\"H4\">",
+			"</span>",
+			"<span class=\"H3\">",
+			"<br />",
+			" class=\"H2\"",
+			"active",
+			"nav",
+			"sidebar",
+			"nav",
+			"class=\"text\"",
+			"<img src=\"code/pdf.gif\" width=\"12\" height=\"12\" border=\"0\">",
+			"item",
+			".item",
+			".item > div",
+			"Helvetica",
+			"logo",
+			"@media",
+			"nav",
+			"typography",
+			"768",
+			"@m",
+			"widget",
+			"logo",
+			"lobster",
+			"portfolio",
+			"logo",
+			"access",
+			"respond."
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"<li class=\"stockist\">",
+			"/",
+			"'",
+			"<h2><div class=\"hr-shadow\"><div class=\"edge\"></div><div class=\"shadow\"></div></div>",
+			"</h2>",
+			"</h2><div class=\"hr-shadow\"><div class=\"edge\"></div><div class=\"shadow\"></div></div>",
+			"'",
+			"\"",
+			"",
+			"image_url(\"bxSlider/controls.png\")",
+			"</cite><div class=\"hr-shadow\"><div class=\"edge\"></div><div class=\"shadow\"></div></div>",
+			"\"",
+			"i/",
+			"font-family: 'Oswald', sans-serif;",
+			"../",
+			"../images/",
+			"column",
+			"</div>",
+			"<div class=\"col\">",
+			"code/i/pdf.gif",
+			"code/css/i/pdf.gif",
+			"</span>",
+			".</span>",
+			"",
+			"<li>",
+			"",
+			"/",
+			"\"league-gothic-1\",\"league-gothic-2\";",
+			"\"league-gothic-1\",\"league-gothic-2\"",
+			"#footer-nav",
+			"li",
+			"dd",
+			"f7f7f7"
+		],
+		"reverse": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 35.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.csslint_result_view":
+	{
+		"height": 130.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 235.0,
+	"status_bar_visible": true
+}

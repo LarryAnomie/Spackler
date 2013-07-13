@@ -1,0 +1,72 @@
+/*====================================================
+Typography 
+*/
+p {
+    margin-bottom: 14px;
+}
+
+//headings
+footer h3, 
+.title h2, 
+h2.title, 
+#latest-projects, 
+.slogan h2,
+h1.title {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    color: #444; 
+    text-shadow: 1px 1px 1px #ccc; 
+    font-weight: normal;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color:#444;
+    margin-bottom:14px;
+    font-family: 'Oswald', sans-serif;
+    font-weight:normal;
+}
+h1 {
+    font-size:2em;
+}
+h2 { 
+    font-size:1.8em;
+}
+h3 { 
+    font-size:1.6em;
+}
+h4 {
+    font-size:1.4em;
+}
+h5 {
+    font-size:1.2em; 
+}
+h6 {
+    font-size: 1em;
+}
+ul, 
+ol { 
+    margin: 0 0 14px 0;
+    padding-left: 20px;
+}
+ul {
+    list-style: disc;
+}
+ol {
+    list-style: decimal;
+}
+ul ul, 
+ol ol {
+    margin-bottom: 0
+}
+blockquote {
+    border:1px #ccc solid;
+    background:#f7f7f7 image_url("quote.png") 0 10px no-repeat;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding:10px 10px 10px 65px;
+    font-style:italic;
+    margin: 0 0 14px 0;
+}
