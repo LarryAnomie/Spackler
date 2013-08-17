@@ -8,43 +8,20 @@
  */
 
 var LN = {
-        webRoot : '/',
-        jsRoot : 'wp-content/themes/larry/js/',
-        cssRoot : 'wp-content/themes/larry/css/',
-        cacheBust : '?0009',
+        webRoot : "/",
+        jsRoot : "wp-content/themes/larry/js/",
+        cssRoot : "wp-content/themes/larry/css/",
+        cacheBust : "?0009",
         scripts : {
-            tweet : 'plugins/tweet/tweet/jquery.tweet.min.js',
-            respond : 'libs/respond.js',
-            jqueryCdn : 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js',
-            jqueryLocal : 'libs/jquery.js',
-            isotope : 'plugins/isotope-site/jquery.isotope.min.js',
-            flexSlider : "plugins/flexSlider/jquery.flexslider-min.js"
+            tweet : "plugins/tweet/tweet/jquery.tweet.min.js",
+            respond : "libs/respond.js",
+            jqueryCdn : "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js",
+            jqueryLocal : "libs/jquery.js",
+            isotope : "plugins/isotope-site/jquery.isotope.min.js",
+            flexSlider : "plugins/flexSlider/jquery.flexslider-min.js",
+            bxSlider : "plugins/jquery.bxslider/jquery.bxslider.min.js"
         },
         isTouch : Modernizr.touch,
-        tweetWidget : function () {
-            var tweet = $('#tweet'), //placeholder in dom
-                tUsername = 'LarryNaman', //twitter username
-                /**
-                 * initialise twitter plugin
-                 *
-                 * @return {object} tweet object
-                 */
-                init = function () {
-                    tweet.tweet({
-                        username : tUsername,
-                        loading_text : "loading tweets...",
-                        count : 3,
-                        avatar_size : 30,
-                        retweets : true
-                    });
-                    return tweet;
-                }; //end vars
-    
-            yepnope({
-                load: LN.webRoot + LN.jsRoot + LN.scripts.tweet + LN.cacheBust,
-                callback: init
-            });
-        },
         isotopeInit : function () {
             var $folio = $("#folio"),
                 $folioNav = $(".portfnav");
@@ -83,19 +60,19 @@ var LN = {
 
                 //are we in production or development?
                 if (window.location.host === "localhost") {
-                    LN.webRoot = '/wordpress/';
+                    LN.webRoot = "/wordpress/";
                 }
 
                 //Foundation .block-grid fixes for IE 8
-                $('.block-grid.two-up>li:nth-child(2n+1)').css({clear: 'both'});
-                $('.block-grid.three-up>li:nth-child(3n+1)').css({clear: 'both'});
-                $('.block-grid.four-up>li:nth-child(4n+1)').css({clear: 'both'});
-                $('.block-grid.five-up>li:nth-child(5n+1)').css({clear: 'both'});
+                $(".block-grid.two-up>li:nth-child(2n+1)").css({clear: "both"});
+                $(".block-grid.three-up>li:nth-child(3n+1)").css({clear: "both"});
+                $(".block-grid.four-up>li:nth-child(4n+1)").css({clear: "both"});
+                $(".block-grid.five-up>li:nth-child(5n+1)").css({clear: "both"});
             },
 
             finalize : function () {
 
-                var $footerWidgets = $('#footer-content').find('.widget');
+                var $footerWidgets = $("#footer-content").find(".widget");
 
                 UTIL.equalHeight($footerWidgets);
             }
@@ -109,14 +86,12 @@ var LN = {
 
         "s-category-portfolio" : {
             init : function () {
-                var $slider = $('.flexslider'),
+                var $slider = $(".flexslider"),
                     sliderInit = function () {
-                        $slider.flexslider({
-                            animation : "slide"
-                        });
+                        $slider.bxSlider();
                     };
                 yepnope({
-                    load: LN.webRoot + LN.jsRoot + LN.scripts.flexSlider + LN.cacheBust,
+                    load: LN.webRoot + LN.jsRoot + LN.scripts.bxSlider + LN.cacheBust,
                     callback: sliderInit
                 });
             }
@@ -128,13 +103,13 @@ var LN = {
         */
         wp : {
             blog : function () {
-                LN.tweetWidget();
+
             },
             about : function () {
-                LN.tweetWidget();
+
             },
             contact : function () {
-                LN.tweetWidget();
+
             },
             portfolio : function () {
 
@@ -160,11 +135,9 @@ var LN = {
         home : {
             init: function () {
 
-                var $slider = $('.flexslider'),
+                var $slider = $(".flexslider"),
                     sliderInit = function () {
-                        $slider.flexslider({
-                            animation : "slide"
-                        });
+                        $slider.bxSlider();
                     };
                 yepnope({
                     load: LN.webRoot + LN.jsRoot + LN.scripts.flexSlider + LN.cacheBust,
@@ -192,10 +165,10 @@ var LN = {
             var namespace = LN;
 
             //if funcaname is undefined, funcname = init, else  funcname = funcname
-            funcname = (funcname === undefined) ? 'init' : funcname;
+            funcname = (funcname === undefined) ? "init" : funcname;
 
-            if (func !== '' && namespace[func] && typeof namespace[func][funcname] === 'function') {
-                //console.log('UTIL.fire is calling: LN.' + func + '.' + funcname);
+            if (func !== "" && namespace[func] && typeof namespace[func][funcname] === "function") {
+                //console.log("UTIL.fire is calling: LN." + func + "." + funcname);
                 namespace[func][funcname](args);
             }
         },
@@ -210,7 +183,7 @@ var LN = {
                 classnames = document.body.className.split(/\s+/);
 
             // hit up common first.
-            UTIL.fire('common');
+            UTIL.fire("common");
 
             // do all the classes too.
             $.each(classnames, function (i, classnm) {
@@ -218,7 +191,7 @@ var LN = {
                 UTIL.fire(classnm, bodyId);
             });
 
-            UTIL.fire('common', 'finalize');
+            UTIL.fire("common", "finalize");
         },
         /**
          *
@@ -245,4 +218,4 @@ var LN = {
     }; //end global vars
 
 //kick it all off here
-$(document).ready(UTIL.loadEvents);
+UTIL.loadEvents();

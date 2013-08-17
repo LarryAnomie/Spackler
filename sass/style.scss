@@ -1,9 +1,9 @@
-/*  
+/*
 Theme Name: Lawrence Naman
 Theme URI: http://www.lawrencenaman.com/
 Description: Portfolio Theme based on SimplePortfolio Theme
 Version: 3.1
-Author: Lawrence Naman 
+Author: Lawrence Naman
 Author URI: http://www.lawrencenaman.com/
 */
 
@@ -86,13 +86,13 @@ Contents:
 
 
 /*====================================================
-Layout 
+Layout
 */
 
-html, 
-body, 
+html,
+body,
 #wrapper {
-    height: 100%;       
+    height: 100%;
 }
 body > #wrapper {
     height: auto;
@@ -113,7 +113,7 @@ body {
     padding-bottom: 340px; /* must be same height as the footer */
 }
 header {
-    padding: 0;     
+    padding: 0;
     text-align: center;
     width: 100%;
     margin: 0 auto;
@@ -148,7 +148,7 @@ label {
 input,
 textarea,
 select {
-    padding:5px; 
+    padding:5px;
     margin:0 0 10px 0;
     border:1px solid #ccc;
     max-width: 100%;
@@ -161,7 +161,7 @@ textarea:focus,
 select:focus {
     border-color: #909af5;
 }
-.button, 
+.button,
 #searchsubmit {
     background:#d92f30;
     border:1px solid #ba2222;
@@ -182,14 +182,14 @@ select:focus {
     text-decoration: underline;
 }
 /*====================================================
-Tables 
+Tables
 */
 table {
-    background: #fff;   
+    background: #fff;
 }
 
 /*====================================================
-Header 
+Header
 */
 
 #logo {
@@ -198,15 +198,15 @@ Header
     width: 50px;
 
     a {
-        background: none; 
-        border: none; 
+        background: none;
+        border: none;
         padding: 0;
         display: block;
         text-indent: -9999px;
         height: 50px;
     }
     a:hover {
-        color: #113c77;     
+        color: #113c77;
     }
 
     #larry {
@@ -240,24 +240,24 @@ Header
         display:inline-block;
     }
     a {
-        display:block; 
+        display:block;
         padding: 20px 20px;
-        text-decoration:none; 
-        background: none; 
+        text-decoration:none;
+        background: none;
         border: none;
         font-family: 'Oswald', sans-serif;
         word-spacing: 0;
         text-transform: uppercase;
         font-size: 1.2em;
     }
-    a:link  { 
-        color: #113c77; 
-        text-shadow: 1px 1px 1px #ccc; 
-        background: none; 
+    a:link  {
+        color: #113c77;
+        text-shadow: 1px 1px 1px #ccc;
+        background: none;
         border: none;
     }
     a:visited {
-        color: #113c77; 
+        color: #113c77;
     }
     .current_page_item a,
     .current-portfolio .page-item-279 a {
@@ -268,18 +268,18 @@ Header
         -moz-box-shadow:    inset 0px 0px 100px rgba(12, 43, 87, 0.8);
         box-shadow:         inset 0px 0px 85px rgba(12, 43, 87, 0.8);
     }
-    .current_page_item a:hover, 
+    .current_page_item a:hover,
     .current_page_item a:focus {
-        cursor: default;    
+        cursor: default;
         text-decoration: none;
         color: #fff;
         background-color: rgba(12, 43, 87, 0.7);
     }
-    li a:hover, 
-    li a:focus { 
-        color: #d92f30; 
+    li a:hover,
+    li a:focus {
+        color: #d92f30;
         text-decoration: underline;
-        background: none; 
+        background: none;
         border: none;
     }
 }//end #nav
@@ -294,11 +294,11 @@ Header
     box-shadow:         inset 0px 0px 85px rgba(12, 43, 87, 0.8);
 }
 /*====================================================
-page title 
+page title
 */
 
 h1.title {
-    font-size: 2em; 
+    font-size: 2em;
     margin-bottom: 20px;
 }
 
@@ -389,10 +389,10 @@ Portfolio
             opacity: 0;
             width:100%;
             height: 100%;
-                        -webkit-transition:all .2s ease-in-out;  
-           -moz-transition:all .2s ease-in-out;  
-           -o-transition:all .2s ease-in-out;  
-           transition:all .2s ease-in-out; 
+                        -webkit-transition:all .2s ease-in-out;
+           -moz-transition:all .2s ease-in-out;
+           -o-transition:all .2s ease-in-out;
+           transition:all .2s ease-in-out;
 
             h2 a, p {
                 color: #fff;
@@ -410,20 +410,20 @@ Portfolio
 
         .overlay.fade {
             opacity: 1;
-            -webkit-transition:all .2s ease-in-out;  
-           -moz-transition:all .2s ease-in-out;  
-           -o-transition:all .2s ease-in-out;  
-           transition:all .2s ease-in-out;  
+            -webkit-transition:all .2s ease-in-out;
+           -moz-transition:all .2s ease-in-out;
+           -o-transition:all .2s ease-in-out;
+           transition:all .2s ease-in-out;
         }
         img {
             //border:1px solid #dddddd;
             //background:#ededed;
             //padding:5px;
             width:100%;
-          -webkit-transition:all .2s ease-in;  
-           -moz-transition:all 1s ease-in;  
-           -o-transition:all 1s ease-in;  
-           transition:all 1s ease-in;  
+          -webkit-transition:all .2s ease-in;
+           -moz-transition:all 1s ease-in;
+           -o-transition:all 1s ease-in;
+           transition:all 1s ease-in;
             &:hover {
                 opacity: .5;
             }
@@ -437,8 +437,8 @@ Portfolio
             padding: 0 20px;
         }
         a {
-            background: none; 
-            padding: 0; 
+            background: none;
+            padding: 0;
             border: none;
             display: block;
         }
@@ -452,7 +452,7 @@ Portfolio
 
 }
 .project-text {
- 
+
 }
 .project-media {
 
@@ -460,7 +460,7 @@ Portfolio
 
 
 /*============================================================
-Blog 
+Blog
 */
 
 .blogpost {
@@ -539,7 +539,7 @@ Blog
     padding: 0 0 20px 0;
 }
 #social-buttons {
-    background: rgba(255, 255, 255, 0.4);   
+    background: rgba(255, 255, 255, 0.4);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1) inset, 0 0 16px rgba(0, 0, 0, 0.1);
     padding: 10px;
     border: 1px solid #ccc;
@@ -560,7 +560,7 @@ Blog
 4-oh-4
 */
 #four-oh-four {
-    min-height: 500px;  
+    min-height: 500px;
 }
 #four-oh-four h1 {
     font-family: $FFhelvetica;
@@ -596,7 +596,7 @@ Media Queries
             float: left;
         }
         #larry {
-            background: transparent image_url("logo1.png") no-repeat left center; 
+            background: transparent image_url("logo1.png") no-repeat left center;
             width: 243px;
             text-indent: -999999px;
             height: 29px;
@@ -617,7 +617,7 @@ Media Queries
     #access {
         float: right;
     }
-    #logo {    
+    #logo {
         margin: 15px 0 20px 0;
         float: left;
     }
@@ -634,7 +634,7 @@ Media Queries
         float: none;
     }
     .post-meta {
-    
+
         span {
             padding: 3px 0;
             display: block;
@@ -713,4 +713,4 @@ only screen and (min-device-pixel-ratio: 1.5) {
 /*====================================================================
 Font Awesome
 */
-@import "modules/font-awesome";
+@import "modules/font-awesome/font-awesome";

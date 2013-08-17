@@ -1,4 +1,4 @@
-#Introducing bxSlider 4.0
+#bxSlider 4.1.1
 ##The fully-loaded, responsive jQuery content slider
 
 ###Why should I use this slider?
@@ -15,6 +15,9 @@ For complete documentation, tons of examples, and a good time, visit:
 [http://bxslider.com](http://bxslider.com)
 
 Written by: Steven Wanderski - [http://stevenwanderski.com](http://stevenwanderski.com)
+
+###License
+Released under the WTFPL license - http://sam.zoy.org/wtfpl/
 
 Let's get on with it!
 
@@ -110,7 +113,7 @@ options: boolean (true / false)
 ```
 
 **hideControlOnEnd**  
-If <code>true</code>, "Next" control will be hidden on last slide and vice-versa<br/>Note: Only used when <code>infiniteLoop: false</code>
+If <code>true</code>, "Prev" and "Next" controls will receive a class <code>disabled</code> when slide is the first or the last<br/>Note: Only used when <code>infiniteLoop: false</code>
 ```
 default: false  
 options: boolean (true / false)
@@ -158,6 +161,34 @@ default: 500
 options: integer
 ```
 
+**video**  
+If any slides contain video, set this to <code>true</code>. Also, include <code>plugins/jquery.fitvids.js</code><br />See <a href="http://fitvidsjs.com/" target="_blank">http://fitvidsjs.com/</a> for more info
+```
+default: false  
+options: boolean (true / false)
+```
+
+**responsive**  
+Enable or disable auto resize of the slider. Useful if you need to use fixed width sliders.
+```
+default: true
+options: boolean (true /false)
+```
+
+**useCSS**  
+If true, CSS transitions will be used for horizontal and vertical slide animations (this uses native hardware acceleration). If false, jQuery animate() will be used.
+```
+default: true  
+options: boolean (true / false)
+```
+
+**preloadImages**  
+If 'all', preloads all images before starting the slider. If 'visible', preloads only images in the initially visible slides before starting the slider (tip: use 'visible' if all slides are identical dimensions)
+```
+default: 'visible'  
+options: 'all', 'visible'
+```
+
 **touchEnabled**  
 If <code>true</code>, slider will allow touch swipe transitions
 ```
@@ -168,21 +199,28 @@ options: boolean (true / false)
 **swipeThreshold**  
 Amount of pixels a touch swipe needs to exceed in order to execute a slide transition. Note: only used if <code>touchEnabled: true</code>
 ```
-default: 500  
+default: 50  
 options: integer
 ```
 
-**video**  
-If any slides contain video, set this to <code>true</code>. Also, include <code>plugins/jquery.fitvids.js</code><br />See <a href="http://fitvidsjs.com/" target="_blank">http://fitvidsjs.com/</a> for more info
+**oneToOneTouch**  
+If <code>true</code>, non-fade slides follow the finger as it swipes
 ```
-default: false  
+default: true  
 options: boolean (true / false)
 ```
 
-**useCSS**  
-If true, CSS transitions will be used for horizontal and vertical slide animations (this uses native hardware acceleration). If false, jQuery animate() will be used.
+**preventDefaultSwipeX**  
+If <code>true</code>, touch screen will not move along the x-axis as the finger swipes
 ```
 default: true  
+options: boolean (true / false)
+```
+
+**preventDefaultSwipeY**  
+If <code>true</code>, touch screen will not move along the y-axis as the finger swipes
+```
+default: false  
 options: boolean (true / false)
 ```
 
@@ -488,5 +526,34 @@ example:
 slider = $('.bxslider').bxSlider();
 var slideQty = slider.getSlideCount();  
 ```
+
+**reloadSlider**  
+Reload the slider. Useful when adding slides on the fly. Accepts an optional settings object. <a href="/examples/reload-slider-settings">See here for an example.</a>
+```
+example:  
+slider = $('.bxslider').bxSlider();
+slider.reloadSlider();  
+```
+
+**destroySlider**  
+Destroy the slider. This reverts all slider elements back to their original state (before calling the slider).
+```
+example:  
+slider = $('.bxslider').bxSlider();
+slider.destroySlider();  
+```
+
+## Changelog
+
+### Version 4.1.1
+* Removed imagesLoaded library and added iframe preloading support
+* Added responsive option - setting to false will prevent $(window).resize binding
+
+### Version 4.1
+* Carousel mode (minSlides / maxSlides) was re-written to be more intuitive.
+* SlideWidth now acts as it should (slides respect the width value).
+* SlideWidth now properly parsed: accepts string ("600px") or integer (600).
+* Slider now only needs to load visible slides (by default) in order to initialize which results in much faster loading. A "preloadImages" setting allows for configuration.
+
 
 Long live Zep.
