@@ -140,7 +140,7 @@ var LN = {
                         $slider.bxSlider();
                     };
                 yepnope({
-                    load: LN.webRoot + LN.jsRoot + LN.scripts.flexSlider + LN.cacheBust,
+                    load: LN.webRoot + LN.jsRoot + LN.scripts.bxSlider + LN.cacheBust,
                     callback: sliderInit
                 });
             }
