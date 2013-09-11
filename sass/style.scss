@@ -31,7 +31,7 @@ Contents:
 @import "partials/resets";
 
 // Your custom settings file to override Foundation defaults
-@import "partials/settings";
+//@import "partials/settings";
 
 // Comment out this import if you are customizing you imports below
 @import "foundation";
@@ -41,7 +41,7 @@ Contents:
 // and uncommenting what you want below. You must uncomment the following if customizing
 
 //@import "compass/css3";
-@import "foundation/settings";
+//@import "foundation/settings";
 
 //@import "foundation/functions/all";
 //@import "foundation/common/globals";
@@ -84,56 +84,9 @@ Contents:
 //link styles
 @import "partials/links";
 
+//layout styles
+@import "partials/layout";
 
-/*====================================================
-Layout
-*/
-
-html,
-body,
-#wrapper {
-    height: 100%;
-}
-body > #wrapper {
-    height: auto;
-    min-height: 100%;
-}
-body {
-    background: #e7e7e2 image_url("bg.jpg") repeat;
-    font-family: Arial, Helvetica, sans-serif;
-    color:#333;
-    border-top: 4px solid #113c77;
-    overflow-x:hidden;
-}
-#wrapper {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-#main {
-    padding-bottom: 340px; /* must be same height as the footer */
-}
-header {
-    padding: 0;
-    text-align: center;
-    width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-    border-bottom: 1px solid #fff;
-    display: block;
-}
-#content {
-    border-top: 1px solid #ccc;
-    padding-top: 20px;
-    margin-bottom:20px;
-}
-footer {
-    margin-top: -340px;
-    position: relative;
-    background-color: $deepBlue;
-    color: #f6f6f6;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.9) inset, 0 0 16px rgba(0, 0, 0, 0.5);
-    min-height: 340px;
-}
 
 //Typography
 @import "partials/typography";
@@ -306,6 +259,7 @@ h1.title {
 Home Page
 */
 //@import "partials/flexSlider";
+@import "partials/bx-slider";
 
 /*Strapline*/
 

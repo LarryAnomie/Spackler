@@ -28,7 +28,6 @@ var LN = {
 
             $folio.isotope();
 
-
             $folioNav.find("a").on("click", function (e) {
                 var $self = $(this),
                     text = $self.text(),
@@ -86,7 +85,7 @@ var LN = {
 
         "s-category-portfolio" : {
             init : function () {
-                var $slider = $(".flexslider"),
+                var $slider = $(".bx-slider"),
                     sliderInit = function () {
                         $slider.bxSlider();
                     };
@@ -135,7 +134,7 @@ var LN = {
         home : {
             init: function () {
 
-                var $slider = $(".flexslider"),
+                var $slider = $(".bx-slider"),
                     sliderInit = function () {
                         $slider.bxSlider();
                     };
@@ -203,6 +202,7 @@ var LN = {
         equalHeight : function (group) {
 
             var tallest = 0;
+
             group.each(function () {
                 var thisHeight = $(this).height();
 

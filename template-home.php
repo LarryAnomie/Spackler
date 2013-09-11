@@ -6,20 +6,18 @@ Template Name: Home
 
 <?php get_header(); ?>
     <h2 id="latest-projects" class="hidden"><span>Latest Projects</span></h2>
-        <div id="slider" class="flexslider">
-            <ul class="slides">
-                <li>
-                    <a href="http://lawrencenaman.com/portfolio/jamie-shavdia/">
-                      <img src="http://lawrencenaman.com/wp-content/uploads/2010/12/carousel-pic.png" alt="Responsive WordPress theme" title="Responsive WordPress theme" />
-                    </a>
-                </li>
-                <li>
-                    <a href="http://lawrencenaman.com/portfolio/brat-and-suzie/">
-                      <img src="http://lawrencenaman.com/wp-content/uploads/2010/12/bsLarge.jpg" alt="Brat and Suzie" title=" Brat &amp; Suzie is an independent East London clothing company..."/>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <ul class="bx-slider">
+            <li>
+                <a href="http://lawrencenaman.com/portfolio/jamie-shavdia/">
+                  <img src="http://lawrencenaman.com/wp-content/uploads/2010/12/carousel-pic.png" alt="Responsive WordPress theme" title="Responsive WordPress theme" />
+                </a>
+            </li>
+            <li>
+                <a href="http://lawrencenaman.com/portfolio/brat-and-suzie/">
+                  <img src="http://lawrencenaman.com/wp-content/uploads/2010/12/bsLarge.jpg" alt="Brat and Suzie" title=" Brat &amp; Suzie is an independent East London clothing company..."/>
+                </a>
+            </li>
+        </ul>
     <?php if (get_option('sf_slogan_status')) { ?>
 <div class="slogan columns twelve">
     <h2>Web Designer and Front-end Developer</h2>
