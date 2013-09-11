@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
 This file is part of SANDBOX.
 
@@ -525,13 +525,13 @@ add_filter( 'archive_meta', 'wpautop' );
 				'after_title' => '</h3>',
 			));
 		}
-		
+
 	/* Un-Register WP-PageNavi Style Page Include */
 		function my_deregister_styles() {
 			wp_deregister_style('wp-pagenavi');
 		}
 		add_action('wp_print_styles','my_deregister_styles',100);
-		
+
 	/* Function To Limit Output Of Content.*/
 		function the_content_limit($max_char, $more_link_text = '(more...)', $stripteaser = 0, $more_file = '') {
 			$content = get_the_content($more_link_text, $stripteaser, $more_file);
@@ -552,7 +552,7 @@ add_filter( 'archive_meta', 'wpautop' );
 			  echo $content;
 		   }
 		}
-		
+
 	/* Exclude Portfolio Category & Child Categories From Blog Posts */
 		function sf_portfolio_filter($query) {
 			global $wpdb;
@@ -582,11 +582,11 @@ add_filter( 'archive_meta', 'wpautop' );
 				}
 			}
 			$query->set('category__not_in',$cat2);
-		 
+
 			return $query;
 		}
 		add_filter('pre_get_posts', 'sf_portfolio_filter');
-		
+
 	/* Exclude Portfolio Category & Child Categories From Category List And Dropdown Widget */
 		function sf_category_filter($args) {
 			$category = sf_get_category_id(get_option('sf_portfolio_category'));
@@ -601,7 +601,7 @@ add_filter( 'archive_meta', 'wpautop' );
 		}
 		add_filter('widget_categories_args', 'sf_category_filter');
 		add_filter('widget_categories_dropdown_args', 'sf_category_filter');
-	
+
 	/* Generate a list of child categories of the portfolio category for filtering on the portfolio items by category */
 		function sf_list_portfolio_child_categories($topcat,$active,$pagepermalink) {
 			$categories = get_categories('child_of='.$topcat);
@@ -621,7 +621,7 @@ add_filter( 'archive_meta', 'wpautop' );
 				unset($addtoclass);
 			}
 		}
-	
+
 	/* Go threw a string to see if it contains a certain character */
 		function hasQuestionMark($string) {
 			$length = strlen($string);
@@ -644,7 +644,7 @@ add_filter( 'archive_meta', 'wpautop' );
 			if (empty($cat_id)) { return 0; }
 			return $cat_id;
 		}
-	
+
 	/**
 	 * Tests if any of a post's assigned categories are descendants of target categories
 	 *
@@ -666,7 +666,7 @@ add_filter( 'archive_meta', 'wpautop' );
 			}
 			return false;
 		}
-		
+
 	/* Generate Custom Logo & Favicon */
 		function sf_get_logo() {
 			$default_logo = get_bloginfo('template_directory')."/images/logo.png";
@@ -680,7 +680,7 @@ add_filter( 'archive_meta', 'wpautop' );
 			$favicon = (empty($custom_favicon)) ? $default_favicon : $custom_favicon;
 			return $favicon;
 		}
-		
+
 	/* Include Admin Option Panel File */
 		include(TEMPLATEPATH . "/admin/index.php");
 
@@ -690,9 +690,9 @@ add_filter( 'archive_meta', 'wpautop' );
 			?>
 						<div class="widget widget_rssfeed">
 							<ul>
-								<?php if (get_option('sf_feedburner')): ?> <li class="rss"><a href="<?php echo "http://feeds2.feedburner.com/".get_option('sf_feedburner'); ?>">Subscribe to RSS Feed</a></li> 
+								<?php if (get_option('sf_feedburner')): ?> <li class="rss"><a href="<?php echo "http://feeds2.feedburner.com/".get_option('sf_feedburner'); ?>">Subscribe to RSS Feed</a></li>
 								<?php else: ?> <li class="rss"><a href="<?php bloginfo('rss2_url'); ?>">Subscribe to RSS Feed</a></li> <?php endif; ?>
-								
+
 								<?php if (get_option('sf_email') && get_option('sf_feedburner')) { ?><li class="email"><a href="http://feedburner.google.com/fb/a/mailverify?uri=<?php echo get_option('sf_feedburner'); ?>&amp;loc=en_US">Subscribe by Email</a></li> <?php } ?>
 								<?php if (get_option('sf_twitter')) { ?><li class="twitter"><a href="<?php echo "http://twitter.com/".get_option('sf_twitter'); ?>">Follow me on Twitter</a></li> <?php } ?>
 							</ul>
@@ -704,6 +704,186 @@ add_filter( 'archive_meta', 'wpautop' );
 		}
 		add_action('widgets_init','sf_widgets');
 
+
+    /*
+     * This theme supports all available post formats.
+     * See http://codex.wordpress.org/Post_Formats
+     */
+    add_theme_support( 'post-formats', array(
+        'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
+    ) );
+if ( ! function_exists( 'twentythirteen_entry_date' ) ) :
+/**
+ * Prints HTML with date information for current post.
+ *
+ * Create your own twentythirteen_entry_date() to override in a child theme.
+ *
+ * @since Twenty Thirteen 1.0
+ *
+ * @param boolean $echo Whether to echo the date. Default true.
+ * @return string
+ */
+function twentythirteen_entry_date( $echo = true ) {
+    $format_prefix = ( has_post_format( 'chat' ) || has_post_format( 'status' ) ) ? _x( '%1$s on %2$s', '1: post format name. 2: date', 'twentythirteen' ): '%2$s';
+
+    $date = sprintf( '<span class="date"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a></span>',
+        esc_url( get_permalink() ),
+        esc_attr( sprintf( __( 'Permalink to %s', 'twentythirteen' ), the_title_attribute( 'echo=0' ) ) ),
+        esc_attr( get_the_date( 'c' ) ),
+        esc_html( sprintf( $format_prefix, get_post_format_string( get_post_format() ), get_the_date() ) )
+    );
+
+    if ( $echo )
+        echo $date;
+
+    return $date;
+}
+endif;
+
+if ( ! function_exists( 'twentythirteen_get_first_url' ) ) :
+/**
+ * Return the URL for the first link in the post content or the permalink if no
+ * URL is found.
+ *
+ * @since Twenty Thirteen 1.0
+ * @return string URL
+ */
+function twentythirteen_get_first_url() {
+    $has_url = preg_match( '/<a\s[^>]*?href=[\'"](.+?)[\'"]/is', get_the_content(), $match );
+    $link    = ( $has_url ) ? $match[1] : apply_filters( 'the_permalink', get_permalink() );
+
+    return esc_url_raw( $link );
+}
+endif;
+
+if ( ! function_exists( 'twentythirteen_featured_gallery' ) ) :
+/**
+ * Displays first gallery from post content. Changes image size from thumbnail
+ * to large, to display a larger first image.
+ *
+ * @since Twenty Thirteen 1.0
+ *
+ * @return void
+ */
+function twentythirteen_featured_gallery() {
+    $pattern = get_shortcode_regex();
+
+    if ( preg_match( "/$pattern/s", get_the_content(), $match ) ) {
+        if ( 'gallery' == $match[2] ) {
+            if ( ! strpos( $match[3], 'size' ) )
+                $match[3] .= ' size="medium"';
+
+            echo do_shortcode_tag( $match );
+        }
+    }
+}
+endif;
+
+if ( ! function_exists( 'twentythirteen_post_nav' ) ) :
+/**
+ * Displays navigation to next/previous post when applicable.
+*
+* @since Twenty Thirteen 1.0
+*
+* @return void
+*/
+function twentythirteen_post_nav() {
+    global $post;
+
+    // Don't print empty markup if there's nowhere to navigate.
+    $previous = ( is_attachment() ) ? get_post( $post->post_parent ) : get_adjacent_post( false, '', true );
+    $next = get_adjacent_post( false, '', false );
+
+    if ( ! $next && ! $previous )
+        return;
+    ?>
+    <nav class="navigation post-navigation" role="navigation">
+        <h1 class="assistive-text"><?php _e( 'Post navigation', 'twentythirteen' ); ?></h1>
+        <div class="nav-links">
+
+            <?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'twentythirteen' ) ); ?>
+            <?php next_post_link( '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'twentythirteen' ) ); ?>
+
+        </div><!-- .nav-links -->
+    </nav><!-- .navigation -->
+    <?php
+}
+endif;
+
+if ( ! function_exists( 'twentythirteen_paging_nav' ) ) :
+/**
+ * Displays navigation to next/previous set of posts when applicable.
+ *
+ * @since Twenty Thirteen 1.0
+ *
+ * @return void
+ */
+function twentythirteen_paging_nav() {
+    global $wp_query;
+
+    // Don't print empty markup if there's only one page.
+    if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) )
+        return;
+    ?>
+    <nav class="navigation paging-navigation" role="navigation">
+        <h1 class="assistive-text"><?php _e( 'Posts navigation', 'twentythirteen' ); ?></h1>
+        <div class="nav-links">
+
+            <?php if ( get_next_posts_link() ) : ?>
+            <div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentythirteen' ) ); ?></div>
+            <?php endif; ?>
+
+            <?php if ( get_previous_posts_link() ) : ?>
+            <div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentythirteen' ) ); ?></div>
+            <?php endif; ?>
+
+        </div><!-- .nav-links -->
+    </nav><!-- .navigation -->
+    <?php
+}
+endif;
+
+if ( ! function_exists( 'twentythirteen_entry_meta' ) ) :
+/**
+ * Prints HTML with meta information for current post: categories, tags, permalink, author, and date.
+ *
+ * Create your own twentythirteen_entry_meta() to override in a child theme.
+ *
+ * @since Twenty Thirteen 1.0
+ *
+ * @return void
+ */
+function twentythirteen_entry_meta() {
+
+    if ( is_sticky() && is_home() && ! is_paged() )
+        echo '<div class="featured-post">' . __( 'Featured Post', 'twentythirteen' ) . '</div>';
+
+    if ( ! has_post_format( 'aside' ) && ! has_post_format( 'link' ) && 'post' == get_post_type() )
+        twentythirteen_entry_date();
+
+    // Translators: used between list items, there is a space after the comma.
+    $categories_list = get_the_category_list( __( '</span><span class="category"> ', 'twentythirteen' ) );
+
+    if ( $categories_list ) {
+        echo '<div class="categories-links"><span class="category">' . $categories_list . '</span></div>';
+    }
+
+    // Translators: used between list items, there is a space after the comma.
+    $tag_list = get_the_tag_list( '', __( '</span><span class="tag">', 'twentythirteen' ) );
+    if ( $tag_list ) {
+        echo '<div class="tags-links"><span class="tag">' . $tag_list . '</spam></div>';
+    }
+
+    // Post author
+    if ( 'post' == get_post_type() ) {
+        printf( '<div class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></div>',
+            esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+            esc_attr( sprintf( __( 'View all posts by %s', 'twentythirteen' ), get_the_author() ) ),
+            get_the_author()
+        );
+    }
+}
+endif;
 
 // Register Custom Post Type
 function custom_post_type() {

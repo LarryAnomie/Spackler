@@ -1,5 +1,5 @@
 /*======================================================================
-Footer 
+Footer
 */
 
 #footer-content {
@@ -9,7 +9,7 @@ Footer
     h3 {
         font-size: 1em;
         color: #e7e7e7;
-        text-shadow: 2px 2px 2px #051c3a; 
+        text-shadow: 2px 2px 2px #051c3a;
         margin: 0 0 10px 0;
         border: none;
     }
@@ -23,9 +23,9 @@ Footer
         border-color: #1c3e6c !important;
         border-radius: 0;
         color: #fff;
-        text-shadow: 1px 1px 1px #04162f; 
+        text-shadow: 1px 1px 1px #04162f;
     }
-    a:hover, 
+    a:hover,
     a:focus {
         text-decoration: none;
         border-bottom: none;
@@ -47,8 +47,8 @@ Footer
         right: 0;
         z-index: 1000;
 
-        a:link, 
-        a:visited, 
+        a:link,
+        a:visited,
         a:active {
             background:transparent image_url("getintouch.png") no-repeat top left;
             color:#fff;
@@ -62,10 +62,10 @@ Footer
         }
         a:hover {
             background-position: 0 -60px;
-        }   
+        }
         a:focus {
             background-position: 0 -120px;
-        }   
+        }
     }
     .widget_pages {
 
@@ -82,21 +82,21 @@ Footer
     .widget_search #s:focus {
         border-color: #FFC;
     }
-    .widget_recent_entries, 
+    .widget_recent_entries,
     .widget_recent_comments {
 
-    }   
+    }
     .widget_rss_links {
         border-right: none!important;
-    }   
+    }
 } //#footer-content
 
 /*the bitter end*/
 #end {
     margin-top: 20px;
 }
-#wp, 
-#copyright, 
+#wp,
+#copyright,
 #cinerama {
 }
 #wp {

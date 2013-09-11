@@ -1,0 +1,129 @@
+
+/*============================================================
+Blog
+*/
+
+.post {
+    padding: 20px 0;
+    overflow:hidden;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #ccc;
+
+    &::first-child {
+        border-top: none;
+        padding: 0 0 20px 0;
+    }
+}
+.entry-title {
+    margin:0 0 20px 0;
+    font-weight: normal;
+    font-size: 2em;
+
+    a, a:hover {
+        border: none;
+    }
+}
+
+// meta
+.entry-meta {
+    color: #666;
+    margin-bottom: 20px;
+
+}
+
+.featured-post {
+    display: block;
+}
+
+.date {
+    //background-color: lighten(rgba(217, 47, 48, 0.8), 10%);
+    background: #666;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    padding: 10px;
+    float: left;
+    margin-right: 1px;
+}
+.month, .day, .year {
+}
+.month {
+
+}
+.day {
+    padding: 3px;
+}
+.year {
+
+}
+.categories-links {
+    //text-align: center;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 1px;
+}
+
+.category {
+    margin-right: 1px;
+    display: inline-block;
+}
+
+a {
+    display: inline-block;
+    padding: 10px;
+    background: #666;
+    color: #fff;
+    border: none;
+
+    &:hover {
+        border: none;
+    }
+}
+
+.tags-links {
+
+}
+
+.tag {
+
+}
+
+
+.comments {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    float: left;
+
+    a {
+        color: #fff;
+        background-color: #999;
+        border: none;
+        display: block;
+        padding: 10px;
+
+        &:hover {
+            background-color: #666;
+            border: none;
+        }
+    }
+}
+
+.entry {
+    clear: left;
+}
+
+#social-buttons {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1) inset, 0 0 16px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border: 1px solid #ccc;
+    overflow:hidden;
+
+    span {
+        display: block;
+        float:left;
+    }
+}

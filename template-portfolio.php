@@ -13,7 +13,7 @@ Template Name: Portfolio
                     </div-->
                     <?php //} ?>
                     <h1 class="title">Portfolio</h1>
-                    <?php 
+                    <?php
                         $category = sf_get_category_id(get_option('sf_portfolio_category'));
                         $categories = get_categories('child_of='.$category);
                         $ppp = (get_option('sf_portfolio_pagination')) ? get_option('sf_portfolio_pagination') : 12;
@@ -44,19 +44,19 @@ Template Name: Portfolio
                         $counter = 0;
                         while ($wp_query->have_posts()) : $wp_query->the_post();
 
-                            $do_not_duplicate = $post->ID; 
+                            $do_not_duplicate = $post->ID;
                             $thumb = get_post_meta($post->ID, 'thumb-small', true);
                             $post_categories = wp_get_post_categories( $post->ID );
                             if (empty($thumb)) { continue; }
                             else { ?>
-                            <?php 
+                            <?php
                                 foreach($post_categories as $c){
                                     $cat = get_category( $c );
                                     //$cats[] = array( 'name' => $cat->name, 'slug' => $cat->slug );
                                     if ($cat->name != "Portfolio") {
                                         $projectClass = " ".str_replace(' / ', ' ', strtolower($cat->name));
                                     }
-                                    if ($odd = $counter%2) { 
+                                    if ($odd = $counter%2) {
                                         $projectClass .= ' odd';
                                     }
                                 }
@@ -69,21 +69,21 @@ Template Name: Portfolio
                                     </div>
                             </li><!--.item-->
                             <?php $counter = $counter + 1; ?>
-                            <?php } 
-                        endwhile; 
+                            <?php }
+                        endwhile;
                     ?>
                     </div>
-                    
-                    <?php 
+
+                    <?php
                     if(function_exists('wp_pagenavi')) { wp_pagenavi(); }
-                    else { 
+                    else {
                     ?>
                     <div class="navigation">
                         <div class="alignleft"><?php next_posts_link('&laquo; Older Entries') ?></div>
                         <div class="alignright"><?php previous_posts_link('Newer Entries &raquo;') ?></div>
                     </div>
                     <?php } ?>
-                    
+
                     <?php $wp_query = null; $wp_query = $temp;?>
                 </div>
 

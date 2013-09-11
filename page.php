@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-    <div class="main-content columns eight">
+    <div class="main-content columns small-12 large-9">
 
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         <h1 class="title"><?php the_title(); ?></h1>

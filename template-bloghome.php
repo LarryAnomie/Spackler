@@ -5,15 +5,15 @@ Template Name: Blog Home
 ?>
             <?php get_header(); ?>
 
-                <div class="main-content columns nine">
+                <div class="main-content columns small-12 large-9">
                     <h1>Blog</h1>
                 <?php if (have_posts()) : ?>
                     <?php /* Start the Loop */ ?>
                     <?php while ( have_posts() ) : the_post(); ?>
                         <?php get_template_part( 'content', get_post_format() ); ?>
                     <?php endwhile; ?>
-                    
-                    <?php 
+
+                    <?php
                     if(function_exists('wp_pagenavi')):
                         wp_pagenavi();
                     else:
@@ -23,12 +23,12 @@ Template Name: Blog Home
                         <div class="alignright"><?php previous_posts_link('Newer Entries &raquo;') ?></div>
                     </div>
                     <?php endif; ?>
-                    
+
                 <?php else : ?>
                     <?php include_once(TEMPLATEPATH."/page-error.php"); ?>
                 <?php endif; ?>
-                
+
                 </div>
-                
+
             <?php get_sidebar(); ?>
             <?php get_footer(); ?>

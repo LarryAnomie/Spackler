@@ -1,7 +1,7 @@
                 </section><!--#content-->
             </div><!--#main-->
         </div><!--#wrapper-->
-        <footer class="container">
+        <footer id="footer" class="container">
             <div id="footer-content">
                 <div class="row">
                     <h2 class="hidden">Footer</h2>
@@ -20,11 +20,11 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/libs/jquery.js"><\/script>')</script>
         <script src="<?php bloginfo('template_url'); ?>/js/script.js?301"></script>
-        <!--analytics / social buttons -->
+        <!--analytics -->
         <script>
             var switchTo5x=true,
                 __st_loadLate=true; //if __st_loadLate is defined then the widget will not load on domconte
-            
+
             //analytics
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-5598802-2']);
@@ -37,12 +37,6 @@
             })();
 
         </script>
-        <script src="http://w.sharethis.com/button/buttons.js"></script>
-        <script>stLight.options({publisher:'1ce50403-d13b-4402-8fa4-bc11d69973f7'});</script>
-        <!--[if lt IE 7 ]>
-            <script src="<?php bloginfo('template_url'); ?>/js/libs/DD_belatedPNG.js"></script>
-            <script> DD_belatedPNG.fix('img, .png-bg');</script>
-        <![endif]-->
         <?php wp_footer(); ?>
     </body>
 </html>

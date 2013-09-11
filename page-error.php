@@ -1,10 +1,10 @@
-<div class="main-content columns eight">
+<div class="main-content columns small-12 large-8">
 	<div class="blogpost">
 		<div class="entry">
 		<?php  if (is_category()): ?>
 				<h3>The Category is empty</h3>
 					<p>
-						Im sorry to say that no articles have been written for this category yet. 
+						Im sorry to say that no articles have been written for this category yet.
 					</p>
 		<?php elseif (is_search()): ?>
 				<h3>Search Results</h3>

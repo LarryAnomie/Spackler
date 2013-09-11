@@ -25,7 +25,7 @@ output_style = :compressed
 #kill the built in cache buster
 asset_cache_buster :none
 
-require "zurb-foundation"
+#require "zurb-foundation"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed

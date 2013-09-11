@@ -1,4 +1,4 @@
-<!doctype html>  
+<!doctype html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
@@ -32,6 +32,7 @@
     <link rel="shortcut icon" href="<?php echo sf_get_favicon(); ?>" title="Favicon" />
     <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="screen" />
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
     <!--[if lte IE 6]>
         <link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection">
     <![endif]-->
@@ -60,12 +61,12 @@
 			}
 		};
     ?>
-    </head> 
+    </head>
     <body id="<?php echo $page;?>" class="<?php sandbox_body_class() ?>">
         <div id="wrapper" class="container">
             <div id="main">
                 <div id="header-container">
-                    <header role="banner" class="row">
+                    <header id="header" role="banner" class="row">
                         <?php if ( is_front_page() ) { echo "<h1 id='logo' class='clearfix'>";} else {echo "<p id='logo' class='clearfix'>";} ?>
                             <a href="<?php bloginfo('home'); ?>">
                                 <span id="larry">Lawrence Naman</span>
@@ -78,5 +79,5 @@
                             </ul>
                         </nav>
                     </header><!--end header-->
-                </div>  
+                </div>
                 <section id="content" role="main" class="row">
