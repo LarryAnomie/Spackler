@@ -3,9 +3,23 @@
 #access {
     text-align:center;
 }
+
+.menu-toggle {
+    text-transform: uppercase;
+    padding: 10px;
+    background: $red;
+    color: #fff;
+    cursor: pointer;
+}
+
 #nav {
     padding:0;
     list-style:none;
+    display: none;
+
+    &.active {
+        display: block;
+    }
 
     li {
         display:inline-block;
@@ -29,13 +43,11 @@
         font-size: 1.2em;
     }
     a:link  {
-        color: #113c77;
         text-shadow: 1px 1px 1px #ccc;
         background: none;
         border: none;
     }
     a:visited {
-        color: #113c77;
     }
     .current_page_item a,
     .current-portfolio .page-item-279 a {

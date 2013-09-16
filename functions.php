@@ -726,7 +726,7 @@ if ( ! function_exists( 'twentythirteen_entry_date' ) ) :
 function twentythirteen_entry_date( $echo = true ) {
     $format_prefix = ( has_post_format( 'chat' ) || has_post_format( 'status' ) ) ? _x( '%1$s on %2$s', '1: post format name. 2: date', 'twentythirteen' ): '%2$s';
 
-    $date = sprintf( '<span class="date"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a></span>',
+    $date = sprintf( '<div class="date"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a></div>',
         esc_url( get_permalink() ),
         esc_attr( sprintf( __( 'Permalink to %s', 'twentythirteen' ), the_title_attribute( 'echo=0' ) ) ),
         esc_attr( get_the_date( 'c' ) ),
@@ -862,16 +862,16 @@ function twentythirteen_entry_meta() {
         twentythirteen_entry_date();
 
     // Translators: used between list items, there is a space after the comma.
-    $categories_list = get_the_category_list( __( '</span><span class="category"> ', 'twentythirteen' ) );
+    $categories_list = get_the_category_list( __( '</span><span class="category filter"> ', 'twentythirteen' ) );
 
     if ( $categories_list ) {
-        echo '<div class="categories-links"><span class="category">' . $categories_list . '</span></div>';
+        echo '<div class="categories-links filter-links clearfix"><i class="icon-folder-open"></i><span class="filter category">' . $categories_list . '</span></div>';
     }
 
     // Translators: used between list items, there is a space after the comma.
-    $tag_list = get_the_tag_list( '', __( '</span><span class="tag">', 'twentythirteen' ) );
+    $tag_list = get_the_tag_list( '', __( '</span><span class="tag filter">', 'twentythirteen' ) );
     if ( $tag_list ) {
-        echo '<div class="tags-links"><span class="tag">' . $tag_list . '</spam></div>';
+        echo '<div class="tags-links filter-links clearfix"><i class="icon-tag"></i><span class="tag filter">' . $tag_list . '</span></div>';
     }
 
     // Post author
@@ -884,6 +884,11 @@ function twentythirteen_entry_meta() {
     }
 }
 endif;
+
+function register_my_menu() {
+  register_nav_menu('header-menu',__( 'Header Menu' ));
+}
+add_action( 'init', 'register_my_menu' );
 
 // Register Custom Post Type
 function custom_post_type() {

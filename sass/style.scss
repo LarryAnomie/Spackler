@@ -36,68 +36,20 @@ Contents:
 // ===================================================================================
 // Larry Styles
 
-//base variables etc.
+// base variables etc.
 @import "modules/base";
 
-//link styles
+// link styles
 @import "partials/links";
 
-//layout styles
+// layout styles
 @import "partials/layout";
 
-
-//Typography
+// Typography
 @import "partials/typography";
 
-/*====================================================
-Forms
-*/
-label {
-    display:block;
-    margin-bottom:5px;
-}
-input,
-textarea,
-select {
-    padding:5px;
-    margin:0 0 10px 0;
-    border:1px solid #ccc;
-    max-width: 100%;
-    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1) inset, 0 0 16px rgba(0, 0, 0, 0.1);
-    color:#333;
-}
-input:focus,
-textarea:focus,
-select:focus {
-    border-color: #909af5;
-}
-.button,
-#searchsubmit {
-    background:#d92f30;
-    border:1px solid #ba2222;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    color:#fff;
-    font-weight:bold;
-    cursor:pointer;
-    margin: 0;
-    min-width:inherit;
-}
-.button:hover,
-.button:focus,
-#searchsubmit:hover,
-#searchsubmi:focus  {
-    background:#f13334!important;
-    border-color: #b21b1b;
-    text-decoration: underline;
-}
-/*====================================================
-Tables
-*/
-table {
-    background: #fff;
-}
+// Forms
+@import "partials/forms";
 
 /*====================================================
 Header
@@ -131,11 +83,11 @@ Header
     }
 }
 #designer {
-    color:#113c77;
+    color:$blue;
     margin-right: 3px;
 }
 #dev {
-    color: #d92f30;
+    color: $red;
     margin-left: 3px;
 }
 

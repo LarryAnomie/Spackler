@@ -1,5 +1,5 @@
 /* =====================================================
-Resets 
+Resets
 */
 
 html, body, div, span, applet, object, iframe,
@@ -79,8 +79,21 @@ blockquote, q {
 .clear {clear: both;}
 textarea,input {color:#7b7d6f}
 strong { font-weight:bold;}
+
+::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+
+img { -ms-interpolation-mode: bicubic; }
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
 /*====================================================
 WordPress specific classes */
+
+
 p img {padding: 0;max-width: 95%;}
 .main-content img {padding: 4px;display: inline;border:1px solid #c0c0c0; background: #ccc;}
 img.centered,img.aligncenter {display: block;margin:0 auto;border:1px solid #c0c0c0;overflow:hidden;padding: 4px;}

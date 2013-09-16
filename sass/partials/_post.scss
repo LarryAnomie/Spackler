@@ -43,8 +43,7 @@ Blog
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
     padding: 10px;
-    float: left;
-    margin-right: 1px;
+    margin-bottom: 14px;
 }
 .month, .day, .year {
 }
@@ -57,29 +56,32 @@ Blog
 .year {
 
 }
-.categories-links {
-    //text-align: center;
+.filter-links {
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
-    margin-bottom: 1px;
-}
+    margin-bottom: 10px;
 
-.category {
-    margin-right: 1px;
-    display: inline-block;
-}
-
-a {
-    display: inline-block;
-    padding: 10px;
-    background: #666;
-    color: #fff;
-    border: none;
-
-    &:hover {
-        border: none;
+    i {
+        margin-right: 10px;
     }
+
 }
+
+.filter {
+    margin-right: 1px;
+
+    a {
+        padding: 4px;
+        display: inline-block;
+        background: #666;
+        color: #fff;
+        border: none;
+
+        &:hover {
+            border: none;
+        }
+    }
+    }
 
 .tags-links {
 

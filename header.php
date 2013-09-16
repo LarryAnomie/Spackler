@@ -67,17 +67,25 @@
             <div id="main">
                 <div id="header-container">
                     <header id="header" role="banner" class="row">
-                        <?php if ( is_front_page() ) { echo "<h1 id='logo' class='clearfix'>";} else {echo "<p id='logo' class='clearfix'>";} ?>
-                            <a href="<?php bloginfo('home'); ?>">
-                                <span id="larry">Lawrence Naman</span>
-                                <!--span id="designer">Web Designer</span><span> / </span><span id="dev">Web Developer</span-->
-                            </a>
-                        <?php if ( is_front_page() ) { echo "</h1>";} else {echo "</p>"; }  ?>
-                        <nav id="access" role="navigation" class="">
-                            <ul class="<?php echo "current-".$page;?> clearfix" id="nav">
-                            <?php wp_list_pages('title_li='); ?>
+                        <div class="columns small-12 large-4">
+                            <?php if ( is_front_page() ) { echo "<h1 id='logo' class='clearfix columns'>";} else {echo "<p id='logo' class='clearfix'>";} ?>
+                                <a href="<?php bloginfo('home'); ?>">
+                                    <span id="larry">Lawrence Naman</span>
+                                    <!--span id="designer">Web Designer</span><span> / </span><span id="dev">Web Developer</span-->
+                                </a>
+                            <?php if ( is_front_page() ) { echo "</h1>";} else {echo "</p>"; }  ?>
+                        </div>
+<!--                         <nav id="access" role="navigation" class="columns small-12 large-8">
+                            <ul class="<?php //echo "current-".$page;?> clearfix" id="nav">
+                            <?php //wp_list_pages('title_li='); ?>
                             </ul>
-                        </nav>
+                        </nav> -->
+                        <nav id="access" class="main-navigation columns small-12 large-8" role="navigation">
+                            <h3 class="menu-toggle"><i class="icon-reorder"></i> <?php _e( 'Menu', 'larry' ); ?></h3>
+                            <a class="assistive-text visuallyhidden skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'larry' ); ?>"><?php _e( 'Skip to content', 'larry' ); ?></a>
+                            <?php wp_nav_menu( array( 'menu_id' => 'nav','container' => false, 'theme_location' => 'header-menu', 'menu_class' => 'nav-menu' ) ); ?>
+                        </nav><!-- #site-navigation -->
+
                     </header><!--end header-->
                 </div>
                 <section id="content" role="main" class="row">

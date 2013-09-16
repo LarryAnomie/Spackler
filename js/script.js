@@ -3,7 +3,7 @@
 
 /*
  * left unminified for the curious amongst you
- * @param: blood, sweat, tears test change
+ * @param: blood, sweat, tears
  * @return: awesomeness
  */
 
@@ -13,7 +13,6 @@ var LN = {
         cssRoot : "wp-content/themes/larry/css/",
         cacheBust : "?0009",
         scripts : {
-            tweet : "plugins/tweet/tweet/jquery.tweet.min.js",
             respond : "libs/respond.js",
             jqueryCdn : "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js",
             jqueryLocal : "libs/jquery.js",
@@ -56,6 +55,53 @@ var LN = {
         /*stuff common to everypage on site*/
         common : {
             init : function () {
+
+                var $nav = $("#nav"),
+                    $navToggle = $(".menu-toggle"),
+                    resizeTimeout,
+                    mode,
+                    $window = $(window),
+                    windowWidth = $window.width(),
+                    breakPoints = {
+                        mobile : 480,
+                        tablet : 768,
+                        desktop: 992
+                    },
+                    isSmallScreen = windowWidth >= breakPoints.tablet ? false : true;
+
+                /*
+                 * Throttle window resize event and check window width after resize
+                 *
+                 */
+                $window.on("resize", function() {
+
+                    if (resizeTimeout) {
+                        clearTimeout(resizeTimeout);
+                    }
+
+                    resizeTimeout = setTimeout(function () {
+                        var width = $window.width();
+
+                        if (isSmallScreen && width >= breakPoints.tablet) {
+
+                            $nav.removeClass("active");
+                            $navToggle.removeClass("active");
+                            isSmallScreen = false;
+                        } else if (!isSmallScreen && width < breakPoints.tablet) {
+
+                            isSmallScreen = true;
+                        }
+
+                    }, 100);
+
+                });
+
+                // Navigation toggle behaviour for small screens
+                $navToggle.on("click", function(e) {
+                    e.preventDefault();
+                    $nav.toggleClass("active");
+                    $navToggle.toggleClass("active");
+                });
 
                 //are we in production or development?
                 if (window.location.host === "localhost") {

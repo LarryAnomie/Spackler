@@ -7,6 +7,8 @@ css_dir = "css"
 sass_dir = "sass"
 javascripts_dir = "js"
 
+#Wordpress compiling http://css-tricks.com/compass-compiling-and-wordpress-themes/
+
 require 'fileutils'
 on_stylesheet_saved do |file|
   if File.exists?(file) && File.basename(file) == "style.css"
