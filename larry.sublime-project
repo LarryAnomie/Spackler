@@ -1,8 +1,13 @@
 {
-	"folders":
-	[
-		{
-			"path": "/C/wamp/www/wordpress/wp-content/themes/larry"
-		}
-	]
+    "folders":
+    [
+        {
+            "path": "/C/wamp/www/wordpress/wp-content/themes/larry"
+        }
+    ],
+    "settings":
+    {
+        "tab_size": 4,
+        "translate_tabs_to_spaces": true
+    }
 }

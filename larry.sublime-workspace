@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"font",
+				"font-style"
+			],
+			[
+				"text",
+				"text-transform"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"wind",
+				"windowWidth"
+			],
+			[
+				"to",
+				"toggleClass"
+			],
+			[
+				"re",
+				"removeClass"
+			],
+			[
+				"resize",
+				"resizeTimeout"
+			],
+			[
+				"resiz",
+				"resizeTimeout"
+			],
+			[
 				"block",
 				"inline-block"
 			],
@@ -64,10 +104,6 @@
 				"animation"
 			],
 			[
-				"margin",
-				"margin-top"
-			],
-			[
 				"te",
 				"text-align"
 			],
@@ -112,10 +148,6 @@
 				"pointer"
 			],
 			[
-				"text",
-				"text-transform"
-			],
-			[
 				"slide",
 				"slideInLeft"
 			],
@@ -138,10 +170,6 @@
 			[
 				"last",
 				"last-child"
-			],
-			[
-				"font",
-				"font-family"
 			],
 			[
 				"ins",
@@ -168,10 +196,6 @@
 				"unselectable	@unselectable"
 			],
 			[
-				"mar",
-				"margin-top	zen:css_properties"
-			],
-			[
 				"footer",
 				"footer-nav"
 			],
@@ -192,34 +216,26 @@
 	"buffers":
 	[
 		{
-			"file": "sass/style.scss",
+			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 4682,
+				"buffer_size": 460,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "sass/partials/_post.scss",
+			"file": "Gruntfile.js",
 			"settings":
 			{
-				"buffer_size": 1915,
+				"buffer_size": 3503,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "content.php",
+			"file": "config.rb",
 			"settings":
 			{
-				"buffer_size": 2541,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "functions.php",
-			"settings":
-			{
-				"buffer_size": 35006,
+				"buffer_size": 1411,
 				"line_ending": "Unix"
 			}
 		}
@@ -227,9 +243,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 196.0,
+		"height": 375.0,
 		"selected_items":
 		[
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
 			[
 				"save",
 				"Project: Save As"
@@ -295,7 +315,7 @@
 				"Package Control: Discover Packages"
 			]
 		],
-		"width": 424.0
+		"width": 410.0
 	},
 	"console":
 	{
@@ -312,27 +332,63 @@
 	},
 	"file_history":
 	[
+		"/C/wamp/www/wordpress/wp-content/themes/larry/assets/sass/partials/_bx-slider.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/assets/sass/partials/_layout.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/assets/sass/partials/_post.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/assets/sass/modules/font-awesome/_variables.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/footer.php",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/header.php",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/assets/sass/style.css",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/style.css",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/assets/sass/config.rb",
+		"/C/Users/larry/Dropbox/macs.txt",
+		"/C/wamp/www/wordpress/wp-content/themes/roots-master/assets/js/scripts.min.js",
+		"/C/Users/larry/AppData/Local/Temp/Temp1_roots-master.zip/roots-master/assets/js/_main.js",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/MIT-LICENSE.txt",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/larry.sublime-project",
+		"/C/Program Files/Console2/console.xml",
+		"/C/Users/larry/Dropbox/Backbone Notes.txt",
+		"/C/wamp/www/castlewealth/services.php",
+		"/C/wamp/www/castlewealth/includes/footer.php",
+		"/C/wamp/www/castlewealth/what.php",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/style.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/vendor/foundation-scss-standalone/scss/foundation.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/functions.php",
 		"/C/wamp/www/wordpress/wp-content/themes/twentythirteen/functions.php",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_forms.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_comments.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_resets.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_typography.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_navigation.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_layout.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_post.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/modules/_base.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/vendor/foundation-scss-standalone/scss/foundation/_variables.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/content-types/_quote.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/vendor/foundation-scss-standalone/scss/foundation/components/_type.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/vendor/foundation-scss-standalone/scss/foundation/components/_block-grid.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/vendor/foundation-scss-standalone/scss/foundation/components/_grid.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/_normalize.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/config.rb",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/single.php",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/content.php",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/config.rb",
 		"/C/wamp/www/wordpress/wp-content/themes/twentythirteen/single.php",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/index.php",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_links.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/_settings.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/js/script.js",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_tables.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/media-queries/_min-width-768px.scss",
+		"/C/wamp/www/wordpress/wp-content/themes/twentythirteen/header.php",
+		"/C/Users/larry/AppData/Local/Temp/Temp1_steelfish.zip/read this first.html",
+		"/C/wamp/www/wordpress/wp-content/themes/larry/template-portfolio.php",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/content-aside.php",
 		"/C/wamp/www/wordpress/wp-content/themes/twentythirteen/content.php",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/content-types/_quote.scss",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/functions.php",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/page.php",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/single.php",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sidebar.php",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/index.php",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/footer.php",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/content.php",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/template-bloghome.php",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_typography.scss",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/style.scss",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_post.scss",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_navigation.scss",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/media-queries/_min-width-768px.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/content-quote.php",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/config.rb",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_layout.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/content-types/_audio.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/content-types/_gallery.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/content-types/_link.scss",
@@ -340,15 +396,10 @@
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/content-types/_video.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/content-types/_aside.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/media-queries/_min-width-600px.scss",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/header.php",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_portfolio.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_404.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_footer.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/twentythirteen/index.php",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/template-portfolio.php",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/vendor/foundation-scss-standalone/scss/foundation/_variables.scss",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/vendor/foundation-scss-standalone/scss/foundation.scss",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/_settings.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/page-error.php",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/template-home.php",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/media-queries/_min-width-992px.scss",
@@ -357,19 +408,15 @@
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/media-queries/_min-width-480px.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_slider.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_settings.scss",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/vendor/foundation-scss-standalone/scss/foundation/components/_grid.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/vendor/foundation-scss-standalone/scss/normalize.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/index.html",
 		"/C/Users/larry/.ssh/id_rsa",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/config.rb",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/app.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/css/config.rb",
 		"/C/Users/larry/Dropbox/Wedding/invitationBrief.txt",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/js/script.js",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/partials/_bx-slider.scss",
 		"/C/Users/larry/AppData/Local/Temp/Temp1_bxslider-4-master.zip/bxslider-4-master/jquery.bxslider.css",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/.gitignore",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/larry.sublime-project",
 		"/C/Users/larry/Desktop/cleanUp.bat",
 		"/C/Users/larry/Dropbox/2013 Pledges",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/sass/modules/font-awesome/_variables.scss",
@@ -391,7 +438,6 @@
 		"/C/Users/larry/Dropbox/Git Branching Notes",
 		"/C/Users/larry/Documents/product.html",
 		"/C/Users/larry/Documents/test-product.html",
-		"/C/wamp/www/wordpress/wp-content/themes/twentythirteen/header.php",
 		"/C/wamp/www/testing/backbone/todo/js/views/todos.js",
 		"/C/wamp/www/testing/backbone/todo/js/routers/router.js",
 		"/C/wamp/www/testing/backbone/todo/js/models/todo.js",
@@ -413,33 +459,7 @@
 		"/C/Users/larry/Dropbox/Travel/USA/Visa/visa-contact-ref-no.txt",
 		"/C/wamp/www/wp/wp-content/themes/twentytwelve/content.php",
 		"/C/wamp/www/wp/wp-content/themes/cityWP/sass/components/_font-awesome.scss",
-		"/C/wamp/www/wp/wp-content/themes/cityWP/header.php",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/style.css",
-		"/C/wamp/www/wordpress/wp-content/themes/cityWP/config.rb",
-		"/C/wamp/www/wordpress/wp-content/themes/larry/css/style.css",
-		"/C/wamp/www/wp/wp-content/themes/cityWP/config.rb",
-		"/C/Users/larry/Desktop/Homegroup",
-		"/C/wamp/www/drupal/sites/default/settings.php",
-		"/C/wamp/www/wordpress/wp-config.php",
-		"/C/wamp/www/wp/wp-config.php",
-		"/C/wamp/www/wp/wp-content/themes/twentytwelve/content-aside.php",
-		"/C/wamp/www/wp/wp-content/themes/cityWP/index.php",
-		"/C/wamp/www/wp/wp-content/themes/cityWP/loop.php",
-		"/C/wamp/www/wp/wp-content/themes/cityWP/single.php",
-		"/C/wamp/www/wp/wp-content/themes/twentytwelve/single.php",
-		"/C/Users/larry/Documents/wp.xml",
-		"/C/wamp/www/wp/wp-content/themes/twentytwelve/functions.php",
-		"/C/wamp/www/wp/wp-content/themes/cityWP/functions.php",
-		"/C/wamp/www/wordpress/.htaccess",
-		"/C/wamp/www/wp/wp-content/themes/cityWP/content-aside.php",
-		"/C/wamp/www/wp/wp-content/themes/cityWP/author.php",
-		"/C/wamp/www/testing/backbone/todo/js/views/app.js",
-		"/C/Users/larry/Dropbox/Travel/USA/visa-contact-ref-no.txr",
-		"/F/software/Adobe Illustrator CS6/INSTALLING INSTRUCTIONS.txt",
-		"/C/wamp/www/testing/backbone/todo/assets/base.css",
-		"/C/wamp/www/testing/backbone/todo/js/lib/underscore-min.js",
-		"/C/wamp/www/testing/backbone/todo/js/lib/jquery-1.9.1.min.js",
-		"/C/wamp/www/testing/backbone/todo/js/lib/backbonelocalStorage-min.js"
+		"/C/wamp/www/wp/wp-content/themes/cityWP/header.php"
 	],
 	"find":
 	{
@@ -457,6 +477,36 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"i/",
+			"Services",
+			"Financial Services",
+			"emcal",
+			"8em",
+			"}\n",
+			"page-links",
+			"nv-links",
+			"register_nav_menu",
+			"/**\n * Sets up theme defaults and registers the various WordPress features that\n * Twenty Thirteen supports.\n *\n * @uses load_theme_textdomain() For translation/localization support.\n * @uses add_editor_style() To add a Visual Editor stylesheet.\n * @uses add_theme_support() To add support for automatic feed links, post\n * formats, admin bar, and post thumbnails.\n * @uses register_nav_menu() To add support for a navigation menu.\n * @uses set_post_thumbnail_size() To set a custom post thumbnail size.\n *\n * @since Twenty Thirteen 1.0\n *\n * @return void\n */\nfunction twentythirteen_setup() {\n	/*\n	 * Makes Twenty Thirteen available for translation.\n	 *\n	 * Translations can be added to the /languages/ directory.\n	 * If you're building a theme based on Twenty Thirteen, use a find and\n	 * replace to change 'twentythirteen' to the name of your theme in all\n	 * template files.\n	 */\n	load_theme_textdomain( 'twentythirteen', get_template_directory() . '/languages' );\n\n	/*\n	 * This theme styles the visual editor to resemble the theme style,\n	 * specifically font, colors, and column width.\n	 */\n	add_editor_style( 'css/editor-style.css' );\n\n	// Adds RSS feed links to <head> for posts and comments.\n	add_theme_support( 'automatic-feed-links' );\n\n	/*\n	 * This theme supports all available post formats.\n	 * See http://codex.wordpress.org/Post_Formats\n	 */\n	add_theme_support( 'post-formats', array(\n		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'\n	) );\n\n	/*\n	 * Custom callback to make it easier for our fixed navbar to coexist with\n	 * the WordPress toolbar. See `.wp-toolbar` in style.css.\n	 *\n	 * @see WP_Admin_Bar::initialize()\n	 */\n	add_theme_support( 'admin-bar', array(\n		'callback' => '__return_false'\n	) );\n\n	// This theme uses wp_nav_menu() in one location.\n	register_nav_menu( 'primary', __( 'Navigation Menu', 'twentythirteen' ) );\n\n	/*\n	 * This theme uses a custom image size for featured images, displayed on\n	 * \"standard\" posts and pages.\n	 */\n	add_theme_support( 'post-thumbnails' );\n	set_post_thumbnail_size( 604, 270, true );\n\n	// This theme uses its own gallery styles.\n	add_filter( 'use_default_gallery_style', '__return_false' );\n}\nadd_action( 'after_setup_theme', 'twentythirteen_setup' );\n",
+			"gallery",
+			"normalize",
+			"dynamic_sidebar",
+			"widget_pages",
+			"reply",
+			"code",
+			"meta",
+			"vcard",
+			"twentythirteen_entry_date",
+			"meta",
+			"settings",
+			"$blue",
+			"navi",
+			"$blue",
+			"blue",
+			"twentythirteen",
+			"meta",
+			"tag",
+			"date",
+			"cateogry",
 			"add_theme",
 			"entry_meta",
 			"footer",
@@ -554,37 +604,7 @@
 			"loading",
 			"/castlewealth/css/images/",
 			"sidebar",
-			"4px",
-			"15px",
-			"footer",
-			"fotter",
-			"margin",
-			"page",
-			"images",
-			"import",
-			"nav",
-			"sidebar",
-			"inset",
-			"box",
-			"nav",
-			"ul",
-			"dontprint",
-			"$blue",
-			"col",
-			"                    </li>",
-			"<li>",
-			"code/css/i/pdf.gif",
-			"css/i/pdf.gif",
-			"</span>",
-			"orange",
-			"</td>",
-			"<li> ",
-			"<br />",
-			"li",
-			"h1",
-			"background",
-			"pdf",
-			"<br />"
+			"4px"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -592,6 +612,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
+			"larry",
 			"",
 			"\"",
 			"space",
@@ -648,23 +670,23 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "sass/style.scss",
+					"file": "package.json",
 					"settings":
 					{
-						"buffer_size": 4682,
+						"buffer_size": 460,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3219,
-								3219
+								76,
+								92
 							]
 						],
 						"settings":
@@ -759,31 +781,31 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/SCSS/SCSS.tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true,
 							"trim_trailing_white_space_on_save": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2862.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "sass/partials/_post.scss",
+					"file": "Gruntfile.js",
 					"settings":
 					{
-						"buffer_size": 1915,
+						"buffer_size": 3503,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1228,
-								1228
+								600,
+								600
 							]
 						],
 						"settings":
@@ -878,31 +900,31 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true,
 							"trim_trailing_white_space_on_save": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 979.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "content.php",
+					"file": "config.rb",
 					"settings":
 					{
-						"buffer_size": 2541,
+						"buffer_size": 1411,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1179,
-								1179
+								330,
+								330
 							]
 						],
 						"settings":
@@ -997,132 +1019,11 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
 							"trim_trailing_white_space_on_save": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "functions.php",
-					"settings":
-					{
-						"buffer_size": 35006,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								32800,
-								32800
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"ensure_newline_at_eof_on_save": true,
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
-							"trim_trailing_white_space_on_save": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 15644.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1141,7 +1042,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 36.0
 	},
 	"layout":
 	{
@@ -1195,6 +1096,10 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"/C/wamp/www/castlewealth/Castle Wealth.sublime-project"
+			]
 		],
 		"width": 380.0
 	},

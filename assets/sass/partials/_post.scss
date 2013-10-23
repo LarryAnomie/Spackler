@@ -1,0 +1,240 @@
+
+/*============================================================
+Blog
+*/
+
+.post {
+    padding: 20px 0;
+    overflow:hidden;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #ccc;
+
+    &::first-child {
+        border-top: none;
+        padding: 0 0 20px 0;
+    }
+}
+
+.single .post {
+    border: none;
+}
+
+.entry-title {
+    margin:0 0 20px 0;
+    font-weight: normal;
+    font-size: 2em;
+
+    a, a:hover {
+        border: none;
+    }
+}
+
+// meta
+.entry-meta {
+    color: #666;
+    margin-bottom: emCalc(14);
+    font-size: .8em;
+
+}
+
+.featured-post {
+    display: block;
+}
+
+.date {
+    background-color: $red;
+    //background: #666;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    padding: 10px;
+    margin-bottom: 14px;
+    float: left;
+
+    a {
+        color: #fff;
+        border: none;
+    }
+}
+.month, .day, .year {
+}
+.month {
+
+}
+.day {
+    padding: 3px;
+}
+.year {
+
+}
+
+.filter-links {
+    clear: left;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: emCalc(10);
+
+    i {
+        float: left;
+        margin-right: 1px;
+        padding: 0 3px;
+        background: $red;
+        color: #fff;
+        line-height: 1.57em;
+        display: inline-block;
+    }
+
+}
+
+.filter {
+    margin-right: 1px;
+    display: inline-block;
+
+    a {
+        padding: 4px;
+        display: block;
+        float: left;
+        background: $blue;
+        color: #fff;
+        border: none;
+
+        &:hover {
+            border: none;
+        }
+    }
+}
+
+.tags-links {
+
+}
+
+.tag {
+
+}
+
+.entry-content {
+    clear: left;
+}
+
+
+.comments {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    float: left;
+
+    a {
+        color: #fff;
+        background: $blue;
+        border: none;
+        display: block;
+        padding: 10px;
+
+        &:hover {
+            border: none;
+        }
+    }
+    .comments-off {
+        background: #ccc;
+        padding: 10px;
+        display: block;
+    }
+    .comments-none {
+
+    }
+    .comments-plural {
+
+    }
+}
+
+.author {
+    border: none;
+    padding: 10px;
+
+    a {
+        font-style: italic;
+    }
+}
+
+.edit-link {
+    display: block;
+    clear: left;
+}
+
+//pagination for paged content
+
+.page-links {
+    margin-bottom: 14px;
+    overflow: hidden;
+    font-family: "Oswald";
+    text-transform: uppercase;
+    font-style: italic;
+
+    .page-links-title {
+        border: none;
+        color: #444;
+    }
+
+    span {
+        display: block;
+        float: left;
+        margin-right: 10px;
+        color: #ccc;
+        padding: 2px;
+    }
+
+    a {
+        display: block;
+        float: left;
+        margin-right: 15px;
+        padding: 2px;
+        border: none;
+    }
+
+    a span {
+        display: inline;
+        float: none;
+        margin: 0;
+        border: none;
+        color: $blue;
+
+    }
+
+}
+
+.post-navigation {
+    padding: 10px;
+}
+.nav-links {
+    line-height: 1.6em;
+
+    a {
+        font-family: 'Oswald';
+        text-transform: uppercase;
+        font-style: italic;
+    }
+
+}
+.nav-previous {
+    float: left;
+}
+.nav-next {
+    float: right;
+}
+
+.featured-post {
+    background: transparent image_url("ribbon.png") no-repeat 0 0;
+    width: 211px;
+    height: 40px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Oswald";
+    float: right;
+    text-align: center;
+
+    span {
+        display: block;
+        padding: 7px;
+    }
+}

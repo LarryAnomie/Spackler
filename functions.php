@@ -1,24 +1,78 @@
 <?php
-/*
-This file is part of SANDBOX.
 
-SANDBOX is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version.
+/**
+ * Sets up theme defaults and registers the various WordPress features that
+ * Twenty Thirteen supports.
+ *
+ * @uses load_theme_textdomain() For translation/localization support.
+ * @uses add_editor_style() To add a Visual Editor stylesheet.
+ * @uses add_theme_support() To add support for automatic feed links, post
+ * formats, admin bar, and post thumbnails.
+ * @uses register_nav_menu() To add support for a navigation menu.
+ * @uses set_post_thumbnail_size() To set a custom post thumbnail size.
+ *
+ * @since Twenty Thirteen 1.0
+ *
+ * @return void
+ */
+function larry_setup() {
+    /*
+     * Makes Twenty Thirteen available for translation.
+     *
+     * Translations can be added to the /languages/ directory.
+     * If you're building a theme based on Twenty Thirteen, use a find and
+     * replace to change 'twentythirteen' to the name of your theme in all
+     * template files.
+     */
+    //load_theme_textdomain( 'twentythirteen', get_template_directory() . '/languages' );
 
-SANDBOX is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+    /*
+     * This theme styles the visual editor to resemble the theme style,
+     * specifically font, colors, and column width.
+     */
+    //add_editor_style( 'css/editor-style.css' );
 
-You should have received a copy of the GNU General Public License along with SANDBOX. If not, see http://www.gnu.org/licenses/.
-*/
+    // Adds RSS feed links to <head> for posts and comments.
+    add_theme_support( 'automatic-feed-links' );
 
-// Produces a list of pages in the header without whitespace
-function sandbox_globalnav() {
-	if ( $menu = str_replace( array( "\r", "\n", "\t" ), '', wp_list_pages('title_li=&sort_column=menu_order&echo=0') ) )
-		$menu = '<ul>' . $menu . '</ul>';
-	$menu = '<div id="menu">' . $menu . "</div>\n";
-	echo apply_filters( 'globalnav_menu', $menu ); // Filter to override default globalnav: globalnav_menu
+    /*
+     * This theme supports all available post formats.
+     * See http://codex.wordpress.org/Post_Formats
+     */
+    add_theme_support( 'post-formats', array(
+        'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
+    ) );
+
+    /*
+     * Custom callback to make it easier for our fixed navbar to coexist with
+     * the WordPress toolbar. See `.wp-toolbar` in style.css.
+     *
+     * @see WP_Admin_Bar::initialize()
+     */
+    add_theme_support( 'admin-bar', array(
+        'callback' => '__return_false'
+    ) );
+
+    // This theme uses wp_nav_menu() in one location.
+    function register_my_menu() {
+        register_nav_menu('header-menu',__( 'Header Menu' ));
+    }
+
+    /*
+     * This theme uses a custom image size for featured images, displayed on
+     * "standard" posts and pages.
+     */
+    add_theme_support( 'post-thumbnails' );
+    set_post_thumbnail_size( 604, 270, true );
+
+    // This theme uses its own gallery styles.
+    add_filter( 'use_default_gallery_style', '__return_false' );
 }
+add_action( 'after_setup_theme', 'larry_setup' );
+
 
 // Generates semantic classes for BODY element
-function sandbox_body_class( $print = true ) {
+function larry_body_class( $print = true ) {
 	global $wp_query, $current_user;
 
 	// It's surely a WordPress blog, right?
@@ -239,39 +293,7 @@ function sandbox_date_classes( $t, &$c, $p = '' ) {
 	$c[] = $p . 'h' . gmdate( 'H', $t ); // Hour
 }
 
-// For category lists on category archives: Returns other categories except the current one (redundant)
-function sandbox_cats_meow($glue) {
-	$current_cat = single_cat_title( '', false );
-	$separator = "\n";
-	$cats = explode( $separator, get_the_category_list($separator) );
-	foreach ( $cats as $i => $str ) {
-		if ( strstr( $str, ">$current_cat<" ) ) {
-			unset($cats[$i]);
-			break;
-		}
-	}
-	if ( empty($cats) )
-		return false;
 
-	return trim(join( $glue, $cats ));
-}
-
-// For tag lists on tag archives: Returns other tags except the current one (redundant)
-function sandbox_tag_ur_it($glue) {
-	$current_tag = single_tag_title( '', '',  false );
-	$separator = "\n";
-	$tags = explode( $separator, get_the_tag_list( "", "$separator", "" ) );
-	foreach ( $tags as $i => $str ) {
-		if ( strstr( $str, ">$current_tag<" ) ) {
-			unset($tags[$i]);
-			break;
-		}
-	}
-	if ( empty($tags) )
-		return false;
-
-	return trim(join( $glue, $tags ));
-}
 
 // Produces an avatar image with the hCard-compliant photo class
 function sandbox_commenter_link() {
@@ -287,215 +309,7 @@ function sandbox_commenter_link() {
 	echo $avatar . ' <span class="fn n">' . $commenter . '</span>';
 }
 
-// Function to filter the default gallery shortcode
-function sandbox_gallery($attr) {
-	global $post;
-	if ( isset($attr['orderby']) ) {
-		$attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
-		if ( !$attr['orderby'] )
-			unset($attr['orderby']);
-	}
 
-	extract(shortcode_atts( array(
-		'orderby'    => 'menu_order ASC, ID ASC',
-		'id'         => $post->ID,
-		'itemtag'    => 'dl',
-		'icontag'    => 'dt',
-		'captiontag' => 'dd',
-		'columns'    => 3,
-		'size'       => 'thumbnail',
-	), $attr ));
-
-	$id           =  intval($id);
-	$orderby      =  addslashes($orderby);
-	$attachments  =  get_children("post_parent=$id&post_type=attachment&post_mime_type=image&orderby={$orderby}");
-
-	if ( empty($attachments) )
-		return null;
-
-	if ( is_feed() ) {
-		$output = "\n";
-		foreach ( $attachments as $id => $attachment )
-			$output .= wp_get_attachment_link( $id, $size, true ) . "\n";
-		return $output;
-	}
-
-	$listtag     =  tag_escape($listtag);
-	$itemtag     =  tag_escape($itemtag);
-	$captiontag  =  tag_escape($captiontag);
-	$columns     =  intval($columns);
-	$itemwidth   =  $columns > 0 ? floor(100/$columns) : 100;
-
-	$output = apply_filters( 'gallery_style', "\n" . '<div class="gallery">', 9 ); // Available filter: gallery_style
-
-	foreach ( $attachments as $id => $attachment ) {
-		$img_lnk = get_attachment_link($id);
-		$img_src = wp_get_attachment_image_src( $id, $size );
-		$img_src = $img_src[0];
-		$img_alt = $attachment->post_excerpt;
-		if ( $img_alt == null )
-			$img_alt = $attachment->post_title;
-		$img_rel = apply_filters( 'gallery_img_rel', 'attachment' ); // Available filter: gallery_img_rel
-		$img_class = apply_filters( 'gallery_img_class', 'gallery-image' ); // Available filter: gallery_img_class
-
-		$output  .=  "\n\t" . '<' . $itemtag . ' class="gallery-item gallery-columns-' . $columns .'">';
-		$output  .=  "\n\t\t" . '<' . $icontag . ' class="gallery-icon"><a href="' . $img_lnk . '" title="' . $img_alt . '" rel="' . $img_rel . '"><img src="' . $img_src . '" alt="' . $img_alt . '" class="' . $img_class . ' attachment-' . $size . '" /></a></' . $icontag . '>';
-
-		if ( $captiontag && trim($attachment->post_excerpt) ) {
-			$output .= "\n\t\t" . '<' . $captiontag . ' class="gallery-caption">' . $attachment->post_excerpt . '</' . $captiontag . '>';
-		}
-
-		$output .= "\n\t" . '</' . $itemtag . '>';
-		if ( $columns > 0 && ++$i % $columns == 0 )
-			$output .= "\n</div>\n" . '<div class="gallery">';
-	}
-	$output .= "\n</div>\n";
-
-	return $output;
-}
-
-// Widget: Search; to match the Sandbox style and replace Widget plugin default
-function widget_sandbox_search($args) {
-	extract($args);
-	$options = get_option('widget_sandbox_search');
-	$title = empty($options['title']) ? __( 'Search', 'sandbox' ) : attribute_escape($options['title']);
-	$button = empty($options['button']) ? __( 'Search', 'sandbox' ) : attribute_escape($options['button']);
-?>
-			<?php echo $before_widget ?>
-				<?php echo $before_title ?><label for="s"><?php echo $title ?></label><?php echo $after_title ?>
-				<form id="searchform" class="blog-search" method="get" action="<?php bloginfo('home') ?>">
-					<div>
-						<input id="s" name="s" type="text" class="text" value="<?php the_search_query() ?>" tabindex="1" />
-						<input type="submit" class="button" value="<?php echo $button ?>" tabindex="2" />
-					</div>
-				</form>
-			<?php echo $after_widget ?>
-<?php
-}
-
-// Widget: Search; element controls for customizing text within Widget plugin
-function widget_sandbox_search_control() {
-	$options = $newoptions = get_option('widget_sandbox_search');
-	if ( $_POST['search-submit'] ) {
-		$newoptions['title'] = strip_tags(stripslashes( $_POST['search-title']));
-		$newoptions['button'] = strip_tags(stripslashes( $_POST['search-button']));
-	}
-	if ( $options != $newoptions ) {
-		$options = $newoptions;
-		update_option( 'widget_sandbox_search', $options );
-	}
-	$title = attribute_escape($options['title']);
-	$button = attribute_escape($options['button']);
-?>
-	<p><label for="search-title"><?php _e( 'Title:', 'sandbox' ) ?> <input class="widefat" id="search-title" name="search-title" type="text" value="<?php echo $title; ?>" /></label></p>
-	<p><label for="search-button"><?php _e( 'Button Text:', 'sandbox' ) ?> <input class="widefat" id="search-button" name="search-button" type="text" value="<?php echo $button; ?>" /></label></p>
-	<input type="hidden" id="search-submit" name="search-submit" value="1" />
-<?php
-}
-
-// Widget: Meta; to match the Sandbox style and replace Widget plugin default
-function widget_sandbox_meta($args) {
-	extract($args);
-	$options = get_option('widget_meta');
-	$title = empty($options['title']) ? __( 'Meta', 'sandbox' ) : attribute_escape($options['title']);
-?>
-			<?php echo $before_widget; ?>
-				<?php echo $before_title . $title . $after_title; ?>
-				<ul>
-					<?php wp_register() ?>
-
-					<li><?php wp_loginout() ?></li>
-					<?php wp_meta() ?>
-
-				</ul>
-			<?php echo $after_widget; ?>
-<?php
-}
-
-// Widget: RSS links; to match the Sandbox style
-function widget_sandbox_rsslinks($args) {
-	extract($args);
-	$options = get_option('widget_sandbox_rsslinks');
-	$title = empty($options['title']) ? __( 'RSS Links', 'sandbox' ) : attribute_escape($options['title']);
-?>
-		<?php echo $before_widget; ?>
-			<?php echo $before_title . $title . $after_title; ?>
-			<ul>
-				<li><a href="<?php bloginfo('rss2_url') ?>" title="<?php echo wp_specialchars( get_bloginfo('name'), 1 ) ?> <?php _e( 'Posts RSS feed', 'sandbox' ); ?>" rel="alternate" type="application/rss+xml"><?php _e( 'All posts', 'sandbox' ) ?></a></li>
-				<li><a href="<?php bloginfo('comments_rss2_url') ?>" title="<?php echo wp_specialchars(bloginfo('name'), 1) ?> <?php _e( 'Comments RSS feed', 'sandbox' ); ?>" rel="alternate" type="application/rss+xml"><?php _e( 'All comments', 'sandbox' ) ?></a></li>
-			</ul>
-		<?php echo $after_widget; ?>
-<?php
-}
-
-// Widget: RSS links; element controls for customizing text within Widget plugin
-function widget_sandbox_rsslinks_control() {
-	$options = $newoptions = get_option('widget_sandbox_rsslinks');
-	if ( $_POST['rsslinks-submit'] ) {
-		$newoptions['title'] = strip_tags( stripslashes( $_POST['rsslinks-title'] ) );
-	}
-	if ( $options != $newoptions ) {
-		$options = $newoptions;
-		update_option( 'widget_sandbox_rsslinks', $options );
-	}
-	$title = attribute_escape($options['title']);
-?>
-	<p><label for="rsslinks-title"><?php _e( 'Title:', 'sandbox' ) ?> <input class="widefat" id="rsslinks-title" name="rsslinks-title" type="text" value="<?php echo $title; ?>" /></label></p>
-	<input type="hidden" id="rsslinks-submit" name="rsslinks-submit" value="1" />
-<?php
-}
-
-// Widgets plugin: intializes the plugin after the widgets above have passed snuff
-function sandbox_widgets_init() {
-	if ( !function_exists('register_sidebars') )
-		return;
-
-	// Formats the Sandbox widgets, adding readability-improving whitespace
-	$p = array(
-		'before_widget'  =>   "\n\t\t\t" . '<li id="%1$s" class="widget %2$s">',
-		'after_widget'   =>   "\n\t\t\t</li>\n",
-		'before_title'   =>   "\n\t\t\t\t". '<h3 class="widgettitle">',
-		'after_title'    =>   "</h3>\n"
-	);
-
-	// Table for how many? Two? This way, please.
-	register_sidebars( 2, $p );
-
-	// Finished intializing Widgets plugin, now let's load the Sandbox default widgets; first, Sandbox search widget
-	$widget_ops = array(
-		'classname'    =>  'widget_search',
-		'description'  =>  __( "A search form for your blog (Sandbox)", "sandbox" )
-	);
-	wp_register_sidebar_widget( 'search', __( 'Search', 'sandbox' ), 'widget_sandbox_search', $widget_ops );
-	unregister_widget_control('search'); // We're being Sandbox-specific; remove WP default
-	wp_register_widget_control( 'search', __( 'Search', 'sandbox' ), 'widget_sandbox_search_control' );
-
-	// Sandbox Meta widget
-	$widget_ops = array(
-		'classname'    =>  'widget_meta',
-		'description'  =>  __( "Log in/out and administration links (Sandbox)", "sandbox" )
-	);
-	wp_register_sidebar_widget( 'meta', __( 'Meta', 'sandbox' ), 'widget_sandbox_meta', $widget_ops );
-	unregister_widget_control('meta'); // We're being Sandbox-specific; remove WP default
-	wp_register_widget_control( 'meta', __( 'Meta', 'sandbox' ), 'wp_widget_meta_control' );
-
-	//Sandbox RSS Links widget
-	$widget_ops = array(
-		'classname'    =>  'widget_rss_links',
-		'description'  =>  __( "RSS links for both posts and comments (Sandbox)", "sandbox" )
-	);
-	wp_register_sidebar_widget( 'rss_links', __( 'RSS Links', 'sandbox' ), 'widget_sandbox_rsslinks', $widget_ops );
-	wp_register_widget_control( 'rss_links', __( 'RSS Links', 'sandbox' ), 'widget_sandbox_rsslinks_control' );
-}
-
-// Translate, if applicable
-load_theme_textdomain('sandbox');
-
-// Runs our code at the end to check that everything needed has loaded
-add_action( 'init', 'sandbox_widgets_init' );
-
-// Registers our function to filter default gallery shortcode
-add_filter( 'post_gallery', 'sandbox_gallery', $attr );
 
 // Adds filters for the description/meta content in archives.php
 add_filter( 'archive_meta', 'wptexturize' );
@@ -519,7 +333,7 @@ add_filter( 'archive_meta', 'wpautop' );
 			));
 			register_sidebar(array(
 				'name' => 'Home Widget',
-				'before_widget' => '<div class="columns four widget %2$s">',
+				'before_widget' => '<div class="columns small-12 large-4 widget %2$s">',
 				'after_widget' => '</div>',
 				'before_title' => '<h3>',
 				'after_title' => '</h3>',
@@ -705,13 +519,6 @@ add_filter( 'archive_meta', 'wpautop' );
 		add_action('widgets_init','sf_widgets');
 
 
-    /*
-     * This theme supports all available post formats.
-     * See http://codex.wordpress.org/Post_Formats
-     */
-    add_theme_support( 'post-formats', array(
-        'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
-    ) );
 if ( ! function_exists( 'twentythirteen_entry_date' ) ) :
 /**
  * Prints HTML with date information for current post.
@@ -797,12 +604,12 @@ function twentythirteen_post_nav() {
     if ( ! $next && ! $previous )
         return;
     ?>
-    <nav class="navigation post-navigation" role="navigation">
-        <h1 class="assistive-text"><?php _e( 'Post navigation', 'twentythirteen' ); ?></h1>
+    <nav class="navigation post-navigation clearfix" role="navigation">
+        <h1 class="assistive-text visuallyhidden"><?php _e( 'Post navigation', 'twentythirteen' ); ?></h1>
         <div class="nav-links">
 
-            <?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'twentythirteen' ) ); ?>
-            <?php next_post_link( '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'twentythirteen' ) ); ?>
+            <div class="nav-previous"><?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'twentythirteen' ) ); ?></div>
+            <div class="nav-next"><?php next_post_link( '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'twentythirteen' ) ); ?></div>
 
         </div><!-- .nav-links -->
     </nav><!-- .navigation -->
@@ -826,7 +633,7 @@ function twentythirteen_paging_nav() {
         return;
     ?>
     <nav class="navigation paging-navigation" role="navigation">
-        <h1 class="assistive-text"><?php _e( 'Posts navigation', 'twentythirteen' ); ?></h1>
+        <h1 class="assistive-text visuallyhidden"><?php _e( 'Posts navigation', 'twentythirteen' ); ?></h1>
         <div class="nav-links">
 
             <?php if ( get_next_posts_link() ) : ?>
@@ -855,11 +662,26 @@ if ( ! function_exists( 'twentythirteen_entry_meta' ) ) :
  */
 function twentythirteen_entry_meta() {
 
-    if ( is_sticky() && is_home() && ! is_paged() )
-        echo '<div class="featured-post">' . __( 'Featured Post', 'twentythirteen' ) . '</div>';
+    if ( is_sticky() && is_home() && ! is_paged() ) {
+        echo '<div class="featured-post"><span>' . __( 'Featured Post', 'twentythirteen' ) . '</span></div>';
+    }
 
-    if ( ! has_post_format( 'aside' ) && ! has_post_format( 'link' ) && 'post' == get_post_type() )
+    if ( ! has_post_format( 'aside' ) && ! has_post_format( 'link' ) && 'post' == get_post_type() ) {
         twentythirteen_entry_date();
+
+            echo '<div class="comments">';
+            comments_popup_link('<span class=\'comments-none\'>No comments</span>', '<span class=\'comments-1\'>1 comment</span>', '<span class=\'comments-plural\'>% comments</span>', '', '<span class=\'comments-off\'>Comments Off</span>' );
+            echo '</div>';
+    }
+
+    // Post author
+    if ( 'post' == get_post_type() ) {
+        printf( '<div class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></div>',
+            esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+            esc_attr( sprintf( __( 'View all posts by %s', 'twentythirteen' ), get_the_author() ) ),
+            get_the_author()
+        );
+    }
 
     // Translators: used between list items, there is a space after the comma.
     $categories_list = get_the_category_list( __( '</span><span class="category filter"> ', 'twentythirteen' ) );
@@ -874,21 +696,11 @@ function twentythirteen_entry_meta() {
         echo '<div class="tags-links filter-links clearfix"><i class="icon-tag"></i><span class="tag filter">' . $tag_list . '</span></div>';
     }
 
-    // Post author
-    if ( 'post' == get_post_type() ) {
-        printf( '<div class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></div>',
-            esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-            esc_attr( sprintf( __( 'View all posts by %s', 'twentythirteen' ), get_the_author() ) ),
-            get_the_author()
-        );
-    }
+
 }
 endif;
 
-function register_my_menu() {
-  register_nav_menu('header-menu',__( 'Header Menu' ));
-}
-add_action( 'init', 'register_my_menu' );
+
 
 // Register Custom Post Type
 function custom_post_type() {

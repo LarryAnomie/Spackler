@@ -1,28 +1,25 @@
 # Require any additional compass plugins here.
 
 # Set this to the root of your project when deployed:
-http_path = "http://lawrencenaman.com/wp-content/themes/larry/css/"
-images_dir = "i"
-css_dir = "css"
-sass_dir = "sass"
-javascripts_dir = "js"
+#http_path = "http://lawrencenaman.com/wp-content/themes/larry/css/"
+#http_path = "/"
+images_dir = "assets/i"
+css_dir = "/"
+sass_dir = "assets/sass"
+javascripts_dir = "assets/js"
+fonts_dir = "assets/fonts"
+relative_assets = true
 
 #Wordpress compiling http://css-tricks.com/compass-compiling-and-wordpress-themes/
 
-require 'fileutils'
-on_stylesheet_saved do |file|
-  if File.exists?(file) && File.basename(file) == "style.css"
-    puts "Moving: #{file}"
-    FileUtils.mv(file, File.dirname(file) + "/../" + File.basename(file))
-  end
-end
+
 
 #lets enable the sass debug info
 #sass_options = {:debug_info => true, :quiet => true}
 output_style = (environment == :production) ? :compressed : :expanded
 
 #options for output_style: ":nested", ":expanded", ":compact", ":compressed"
-output_style = :compressed
+output_style = :expanded
 
 #kill the built in cache buster
 asset_cache_buster :none

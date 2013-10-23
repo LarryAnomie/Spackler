@@ -37,7 +37,7 @@
         <link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection">
     <![endif]-->
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-    <script src="<?php bloginfo('template_url'); ?>/js/libs/modernizr.js"></script>
+    <script src="<?php bloginfo('template_url'); ?>/assets/js/libs/modernizr.js"></script>
     <?php wp_head(); ?>
 	<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 	<?php
@@ -62,7 +62,7 @@
 		};
     ?>
     </head>
-    <body id="<?php echo $page;?>" class="<?php sandbox_body_class() ?>">
+    <body id="<?php echo $page;?>" class="<?php larry_body_class() ?>">
         <div id="wrapper" class="container">
             <div id="main">
                 <div id="header-container">
