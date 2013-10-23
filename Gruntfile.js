@@ -1,24 +1,24 @@
 
 module.exports = function(grunt) {
-    'use strict';
+    "use strict";
     // load all grunt tasks matching the `grunt-*` pattern
-    require('load-grunt-tasks')(grunt);
+    require("load-grunt-tasks")(grunt);
 
     grunt.initConfig({
 
         // watch for changes and trigger compass, jshint, uglify and livereload
         watch: {
             compass: {
-                files: ['assets/sass/**/*.{scss,sass}'],
-                tasks: ['compass']
+                files: ["assets/sass/**/*.{scss,sass}"],
+                tasks: ["compass"]
             },
-/*            js: {
-                files: '<%= jshint.all %>',
-                tasks: ['jshint', 'uglify']
-            },*/
+            js: {
+                files: "assets/js/script.js",
+                tasks: ["jshint", "uglify"]
+            },
             livereload: {
                 options: { livereload: false },
-                files: ['style.css', 'assets/js/*.js', '*.html', '*.php', 'assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}']
+                files: ["style.css", "assets/js/*.js", "*.html", "*.php", "assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}"]
             }
         },
 
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
         compass: {
             dist: {
                 options: {
-                    config: 'config.rb',
+                    config: "config.rb",
                     force: true
                 }
             }
@@ -35,43 +35,31 @@ module.exports = function(grunt) {
         // javascript linting with jshint
         jshint: {
             options: {
-                jshintrc: '.jshintrc',
+                jshintrc: ".jshintrc",
                 "force": true
             },
             all: [
-                'Gruntfile.js',
-                'assets/js/source/**/*.js'
+                "Gruntfile.js",
+                "assets/js/script.js"
             ]
         },
 
         // uglify to concat, minify, and make source maps
-/*        uglify: {
-            plugins: {
-                options: {
-                    sourceMap: 'assets/js/plugins.js.map',
-                    sourceMappingURL: 'plugins.js.map',
+        uglify : {
+            main : {
+                options : {
+                    sourceMap: "assets/js/script.js.map",
+                    sourceMappingURL: "script.js.map",
                     sourceMapPrefix: 2
                 },
-                files: {
-                    'assets/js/plugins.min.js': [
-                        'assets/js/source/plugins.js',
-                        // 'assets/js/vendor/yourplugin/yourplugin.js',
-                    ]
-                }
-            },
-            main: {
-                options: {
-                    sourceMap: 'assets/js/main.js.map',
-                    sourceMappingURL: 'main.js.map',
-                    sourceMapPrefix: 2
-                },
-                files: {
-                    'assets/js/main.min.js': [
-                        'assets/js/source/main.js'
+                files : {
+                    "assets/js/script.min.js": [
+                        "assets/js/script.js" //,
+                        // "assets/js/vendor/yourplugin/yourplugin.js",
                     ]
                 }
             }
-        },*/
+        },
 
         // image optimization
         imagemin: {
@@ -82,9 +70,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'assets/i/',
-                    src: '**/*',
-                    dest: 'assets/i/compressed'
+                    cwd: "assets/i/",
+                    src: "**/*",
+                    dest: "assets/i/compressed"
                 }]
             }
         },
@@ -94,7 +82,7 @@ module.exports = function(grunt) {
             options: {
                 src: "./",
                 args: ["--verbose"],
-                exclude: ['.git*', 'node_modules', '.sass-cache', 'Gruntfile.js', 'package.json', '.DS_Store', 'README.md', 'config.rb', '.jshintrc'],
+                exclude: [".git*", "node_modules", ".sass-cache", "Gruntfile.js", "package.json", ".DS_Store", "README.md", "config.rb", ".jshintrc"],
                 recursive: true,
                 syncDestIgnoreExcl: true
             },
@@ -115,9 +103,9 @@ module.exports = function(grunt) {
     });
 
     // rename tasks
-    grunt.renameTask('rsync', 'deploy');
+    grunt.renameTask("rsync", "deploy");
 
     // register task
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask("default", ["watch"]);
 
 };

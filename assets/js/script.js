@@ -17,7 +17,6 @@ var LN = {
             jqueryCdn : "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js",
             jqueryLocal : "libs/jquery.js",
             isotope : "plugins/isotope-site/jquery.isotope.min.js",
-            flexSlider : "plugins/flexSlider/jquery.flexslider-min.js",
             bxSlider : "plugins/jquery.bxslider/jquery.bxslider.min.js"
         },
         isTouch : Modernizr.touch,
@@ -59,7 +58,7 @@ var LN = {
                 var $nav = $("#nav"),
                     $navToggle = $(".menu-toggle"),
                     resizeTimeout,
-                    mode,
+                    //mode,
                     $window = $(window),
                     windowWidth = $window.width(),
                     breakPoints = {
@@ -260,6 +259,7 @@ var LN = {
             group.height(tallest);
 
             return group;
+
         }
     }; //end global vars
 
