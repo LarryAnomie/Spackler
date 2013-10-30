@@ -20,6 +20,7 @@ var LN = {
             bxSlider : "plugins/jquery.bxslider/jquery.bxslider.min.js"
         },
         isTouch : Modernizr.touch,
+        
         isotopeInit : function () {
             var $folio = $("#folio"),
                 $folioNav = $(".portfnav");
