@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="main-content columns small-12 large-9">
+<div class="main-content columns small-12 large-10 large-centered">
 
     <?php if ( have_posts() ) : ?>
 
@@ -17,5 +17,5 @@
 
 </div><!-- .main-content-->
 
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 <?php get_footer(); ?>

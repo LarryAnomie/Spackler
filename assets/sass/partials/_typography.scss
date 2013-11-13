@@ -5,13 +5,14 @@ Typography
 body {
     color: #444;
     font-family: 'Droid Serif', serif;
-    font-size: 1.1em;
+    //font-size: 1.1em;
 }
 
 
 p, ul, ol {
     margin-bottom: 1em;
 }
+
 
 //headings
 footer h3,
@@ -26,33 +27,33 @@ h1.title {
     text-shadow: 1px 1px 1px #ccc;
     font-weight: normal;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color:#444;
-    margin-bottom:14px;
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4
+h5, .h5
+h6, .h6 {
+    color: #444;
+    //margin-bottom: 14px;
     font-family: 'Oswald', sans-serif;
-    font-weight:normal;
+    font-weight: normal;
 }
-h1 {
+h1, .h1 {
     font-size:2em;
 }
-h2 {
+h2, .h2 {
     font-size:1.8em;
 }
-h3 {
+h3, .h3 {
     font-size:1.6em;
 }
-h4 {
+h4, .h4 {
     font-size:1.4em;
 }
-h5 {
+h5, .h5 {
     font-size:1.2em;
 }
-h6 {
+h6, .h6 {
     font-size: 1em;
 }
 ul,

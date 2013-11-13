@@ -20,6 +20,8 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="assets/js/libs/jquery.js"><\/script>')</script>
         <script src="<?php bloginfo('template_url'); ?>/assets/js/script.js?301"></script>
+        <script src="//localhost:35729/livereload.js"></script>
+
         <!--analytics -->
         <script>
             var switchTo5x=true,

@@ -9,8 +9,8 @@
 
 var LN = {
         webRoot : "/",
-        jsRoot : "wp-content/themes/larry/js/",
-        cssRoot : "wp-content/themes/larry/css/",
+        jsRoot : "wp-content/themes/larry/assets/js/",
+        cssRoot : "wp-content/themes/larry/assets/css/",
         cacheBust : "?0009",
         scripts : {
             respond : "libs/respond.js",
@@ -20,7 +20,7 @@ var LN = {
             bxSlider : "plugins/jquery.bxslider/jquery.bxslider.min.js"
         },
         isTouch : Modernizr.touch,
-        
+
         isotopeInit : function () {
             var $folio = $("#folio"),
                 $folioNav = $(".portfnav");

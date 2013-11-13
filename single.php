@@ -10,7 +10,7 @@
 get_header(); ?>
 
     <div id="primary" class="content-area">
-        <div class="main-content columns small-12 large-9">
+        <div class="main-content columns small-12 large-10 large-centered">
 
             <?php /* The loop */ ?>
             <?php while ( have_posts() ) : the_post(); ?>
@@ -24,5 +24,5 @@ get_header(); ?>
         </div><!-- #content -->
     </div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 <?php get_footer(); ?>

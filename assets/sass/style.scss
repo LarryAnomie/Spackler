@@ -44,6 +44,34 @@ Contents:
 // Comment out this import if you are customizing you imports below
 //@import "../vendor/foundation-scss-standalone/scss/foundation";
 
+
+// To enable support for browsers that do not support @media queries,
+// (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false
+// Create a separate stylesheet served exclusively to these browsers,
+// meaning @media queries will be rasterized, relying on the cascade itself
+$mq-responsive: true;
+
+// Name your breakpoints in a way that creates a ubiquitous language
+// across team members. It will improve communication between
+// stakeholders, designers, developers, and testers.
+$mq-breakpoints: (
+    (mobile  300px)
+    (tablet  768px)
+    (desktop 992px)
+    (wide    1260px)
+
+    // Tweakpoints
+    (desktopAd 810px)
+    (mobileLandscape 480px)
+);
+
+// Define the breakpoint from the $mq-breakpoints list that should
+// be used as the target width when outputting a static stylesheet
+// (i.e. when $mq-responsive is set to 'false').
+$mq-static-breakpoint: desktop;
+
+@import "../bower_components/sass-mq/mq.scss";
+
 // ===================================================================================
 // Larry Styles
 
@@ -71,42 +99,7 @@ Contents:
 Header
 */
 
-#logo {
-    margin: 10px auto;
-    font-size: 20px;
-    width: 50px;
-
-    a {
-        background: none;
-        border: none;
-        padding: 0;
-        display: block;
-        text-indent: -9999px;
-        height: 50px;
-    }
-    a:hover {
-        color: #113c77;
-    }
-
-    #larry {
-        background: transparent image_url("mobile-logo.png") no-repeat left center;
-        width: 50px;
-        height: 50px;
-        display: block;
-    }
-    span {
-        display: none;
-    }
-}
-#designer {
-    color:$blue;
-    margin-right: 3px;
-}
-#dev {
-    color: $red;
-    margin-left: 3px;
-}
-
+@import "partials/logo";
 @import "partials/navigation";
 
 /*====================================================
@@ -121,7 +114,7 @@ h1.title {
 /*====================================================
 Home Page
 */
-//@import "partials/flexSlider";
+
 @import "partials/bx-slider";
 
 /*Strapline*/

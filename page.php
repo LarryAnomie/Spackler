@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-    <div class="main-content columns small-12 large-9">
+    <div class="main-content columns small-12 large-10 large-centered">
 
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         <h1 class="title"><?php the_title(); ?></h1>
@@ -8,5 +8,5 @@
     <?php endwhile; endif; ?>
     <?php edit_post_link('Edit this entry.', '<p>', '</p>'); ?>
     </div>
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 <?php get_footer(); ?>

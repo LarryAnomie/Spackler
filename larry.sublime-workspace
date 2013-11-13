@@ -224,18 +224,48 @@
 			}
 		},
 		{
-			"file": "Gruntfile.js",
+			"file": "assets/sass/partials/_logo.scss",
 			"settings":
 			{
-				"buffer_size": 3503,
+				"buffer_size": 699,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "config.rb",
+			"contents": "/*\nTheme Name: Lawrence Naman\nTheme URI: http://www.lawrencenaman.com/\nDescription: Portfolio Theme based on SimplePortfolio Theme\nVersion: 3.1\nAuthor: Lawrence Naman\nAuthor URI: http://www.lawrencenaman.com/\n*/\n\n\n/*\n=======================================================\nContents:\n0. Foundation\n1. Base & Resets - standard, HTML5, WP, Colours\n2. Links\n3. Layout\n4. Typography\n5. Header\n6. Specific\n    6a. Home page\n    6b. Portfolio\n    6c. Blog\n7. Sidebar\n8. Footer\n9. 404\n10. Mobile\n*/\n\n// Boilerplate and WP resets\n@import \"partials/resets\";\n\n// our version of foundation variables\n@import \"variables\";\n\n// just the foundation modules we use\n@import\n  \"../vendor/foundation-scss-standalone/scss/foundation/components/global\",\n  \"../vendor/foundation-scss-standalone/scss/foundation/components/grid\",\n  \"../vendor/foundation-scss-standalone/scss/foundation/components/visibility\",\n  \"../vendor/foundation-scss-standalone/scss/foundation/components/block-grid\",\n  \"../vendor/foundation-scss-standalone/scss/foundation/components/type\";\n\n// Comment out this import if you are customizing you imports below\n//@import \"../vendor/foundation-scss-standalone/scss/foundation\";\n\n\n// To enable support for browsers that do not support @media queries,\n// (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false\n// Create a separate stylesheet served exclusively to these browsers,\n// meaning @media queries will be rasterized, relying on the cascade itself\n$mq-responsive: true;\n\n// Name your breakpoints in a way that creates a ubiquitous language\n// across team members. It will improve communication between\n// stakeholders, designers, developers, and testers.\n$mq-breakpoints: (\n    (mobile  300px)\n    (tablet  768px)\n    (desktop 992px)\n    (wide    1260px)\n\n    // Tweakpoints\n    (desktopAd 810px)\n    (mobileLandscape 480px)\n);\n\n// Define the breakpoint from the $mq-breakpoints list that should\n// be used as the target width when outputting a static stylesheet\n// (i.e. when $mq-responsive is set to 'false').\n$mq-static-breakpoint: desktop;\n\n@import \"../bower_components/sass-mq/mq.scss\";\n\n// ===================================================================================\n// Larry Styles\n\n// base variables etc.\n@import \"modules/base\";\n\n// link styles\n@import \"partials/links\";\n\n// layout styles\n@import \"partials/layout\";\n\n// Typography\n@import \"partials/typography\";\n\n// Forms\n@import \"partials/forms\";\n\n.vcard {\n    border: none;\n    padding: 0;\n}\n\n/*====================================================\nHeader\n*/\n\n@import \"partials/logo\";\n@import \"partials/navigation\";\n\n/*====================================================\npage title\n*/\n\nh1.title {\n    font-size: 2em;\n    margin-bottom: 20px;\n}\n\n/*====================================================\nHome Page\n*/\n\n@import \"partials/bx-slider\";\n\n/*Strapline*/\n\n.slogan {\n    margin-bottom:10px;\n\n    h2 {\n        text-align: center;\n        color:#666;\n        margin: 0 0 10px 0;\n    }\n    ul {\n        list-style: none;\n    }\n    i {\n\n    }\n}\n\n\n@import \"partials/portfolio\";\n@import \"partials/isotope\";\n@import \"partials/post\";\n\n// content types - keep tthese after post for specificity\n@import \"partials/content-types/quote\";\n\n@import \"partials/comments\";\n@import \"partials/sidebar\";\n@import \"partials/footer\";\n@import \"partials/404\";\n\n/*====================================================================\nMedia Queries\n*/\n\n@import \"partials/media-queries/min-width-480px.scss\";\n@import \"partials/media-queries/min-width-600px.scss\";\n@import \"partials/media-queries/min-width-768px.scss\";\n@import \"partials/media-queries/min-width-992px.scss\";\n\n\n@media only screen and (min-width: 1382px) {\n  /* 1382 =================================================== */\n\n}\n\n/* iPhone 4, Opera Mobile 11 and other high pixel ratio devices ----------- */\n@media\nonly screen and (-webkit-min-device-pixel-ratio: 1.5),\nonly screen and (-o-min-device-pixel-ratio: 3/2),\nonly screen and (min--moz-device-pixel-ratio: 1.5),\nonly screen and (min-device-pixel-ratio: 1.5) {\n\n    #logo #larry {\n        background: transparent image_url(\"mobile-logo@2x.png\") no-repeat left center;\n        background-size:50px 50px;\n    }\n}\n\n/* iPad 3? ------------------------------------------------------------------*/\n@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (min-width: 768px) {\n    #logo #larry {\n        background: transparent image_url(\"logo1@2x.png\") no-repeat left center;\n        background-size:241px 28px;\n    }\n\n}\n\n\n/*====================================================================\nFont Awesome\n*/\n@import \"modules/font-awesome/font-awesome\";\n",
+			"file": "assets/sass/style.scss",
+			"file_size": 4629,
+			"file_write_time": 1383682832000000,
 			"settings":
 			{
-				"buffer_size": 1411,
+				"buffer_size": 4629,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/sass/partials/_typography.scss",
+			"settings":
+			{
+				"buffer_size": 1694,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "@media only screen and (min-width: 768px) {\n  /* 768 =================================================== */\n    #access {\n\n    }\n    .menu-toggle {\n        display: none;\n    }\n    #nav {\n        display: block;\n    }\n/*     #logo {\n        margin: 15px 0 20px 0;\n        float: left;\n    } */\n    #folio {\n        .item {\n            img {\n            }\n        }\n    }\n    .month, .day, .year {\n        //display: block;\n    }\n    .comments, .date {\n        //float: none;\n    }\n    .post-meta {\n\n        span {\n            padding: 3px 0;\n            display: block;\n        }\n    }\n    #footer-content {\n        .widget {\n            border-left: 1px solid #1c3e6c;\n            border-right: 1px solid #09264b;\n        }\n        .widget_pages {\n            border-left: none;\n        }\n        .widget_search {\n            border-right: none;\n        }\n    }\n\n}\n",
+			"file": "assets/sass/partials/media-queries/_min-width-768px.scss",
+			"file_size": 860,
+			"file_write_time": 1383162906000000,
+			"settings":
+			{
+				"buffer_size": 866,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/larry/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+			"settings":
+			{
+				"buffer_size": 29349,
 				"line_ending": "Unix"
 			}
 		}
@@ -332,6 +362,9 @@
 	},
 	"file_history":
 	[
+		"/Users/larry/www/sites/larry/wwwroot/wp-content/themes/larry/Gruntfile.js",
+		"/Users/larry/www/sites/larry/wwwroot/wp-content/themes/larry/larry.sublime-project",
+		"/Users/larry/www/sites/larry/wwwroot/wp-content/themes/larry/config.rb",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/assets/sass/partials/_bx-slider.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/assets/sass/partials/_layout.scss",
 		"/C/wamp/www/wordpress/wp-content/themes/larry/assets/sass/partials/_post.scss",
@@ -456,10 +489,7 @@
 		"/C/Users/larry/Desktop/stockists.html",
 		"/C/wamp/www/castlewealth/css/sass/app.scss",
 		"/C/wamp/www/wp/wp-content/themes/twentytwelve/index.php",
-		"/C/Users/larry/Dropbox/Travel/USA/Visa/visa-contact-ref-no.txt",
-		"/C/wamp/www/wp/wp-content/themes/twentytwelve/content.php",
-		"/C/wamp/www/wp/wp-content/themes/cityWP/sass/components/_font-awesome.scss",
-		"/C/wamp/www/wp/wp-content/themes/cityWP/header.php"
+		"/C/Users/larry/Dropbox/Travel/USA/Visa/visa-contact-ref-no.txt"
 	],
 	"find":
 	{
@@ -734,7 +764,7 @@
 							"ensure_newline_at_eof_on_save": true,
 							"gjslint_ignore":
 							[
-								110
+								110.0
 							],
 							"gjslint_options":
 							[
@@ -760,7 +790,7 @@
 							],
 							"pyflakes_ignore_import_*": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 2,
+							"sublimelinter_delay": 2.0,
 							"sublimelinter_disable":
 							[
 							],
@@ -794,18 +824,135 @@
 				},
 				{
 					"buffer": 1,
-					"file": "Gruntfile.js",
+					"file": "assets/sass/partials/_logo.scss",
 					"settings":
 					{
-						"buffer_size": 3503,
+						"buffer_size": 699,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								600,
-								600
+								156,
+								156
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "assets/sass/style.scss",
+					"settings":
+					{
+						"buffer_size": 4629,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1742,
+								1742
 							]
 						],
 						"settings":
@@ -853,7 +1000,7 @@
 							"ensure_newline_at_eof_on_save": true,
 							"gjslint_ignore":
 							[
-								110
+								110.0
 							],
 							"gjslint_options":
 							[
@@ -879,7 +1026,7 @@
 							],
 							"pyflakes_ignore_import_*": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 2,
+							"sublimelinter_delay": 2.0,
 							"sublimelinter_disable":
 							[
 							],
@@ -900,7 +1047,126 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1993.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "assets/sass/partials/_typography.scss",
+					"settings":
+					{
+						"buffer_size": 1694,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								585,
+								585
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"ensure_newline_at_eof_on_save": true,
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true,
 							"trim_trailing_white_space_on_save": true
@@ -912,19 +1178,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "config.rb",
+					"buffer": 4,
+					"file": "assets/sass/partials/media-queries/_min-width-768px.scss",
 					"settings":
 					{
-						"buffer_size": 1411,
+						"buffer_size": 866,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								330,
-								330
+								263,
+								263
 							]
 						],
 						"settings":
@@ -972,7 +1238,7 @@
 							"ensure_newline_at_eof_on_save": true,
 							"gjslint_ignore":
 							[
-								110
+								110.0
 							],
 							"gjslint_options":
 							[
@@ -998,7 +1264,7 @@
 							],
 							"pyflakes_ignore_import_*": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 2,
+							"sublimelinter_delay": 2.0,
 							"sublimelinter_disable":
 							[
 							],
@@ -1019,11 +1285,129 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
 							"trim_trailing_white_space_on_save": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/larry/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+					"settings":
+					{
+						"buffer_size": 29349,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9839,
+								9846
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2866.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

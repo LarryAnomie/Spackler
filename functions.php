@@ -43,16 +43,6 @@ function larry_setup() {
         'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
     ) );
 
-    /*
-     * Custom callback to make it easier for our fixed navbar to coexist with
-     * the WordPress toolbar. See `.wp-toolbar` in style.css.
-     *
-     * @see WP_Admin_Bar::initialize()
-     */
-    add_theme_support( 'admin-bar', array(
-        'callback' => '__return_false'
-    ) );
-
     // This theme uses wp_nav_menu() in one location.
     function register_my_menu() {
         register_nav_menu('header-menu',__( 'Header Menu' ));
@@ -755,5 +745,19 @@ function custom_post_type() {
 
 // Hook into the 'init' action
 add_action( 'init', 'custom_post_type', 0 );
+
+
+
+function register_my_menus() {
+    register_nav_menus(
+        array(
+        'header-menu' => __( 'Header Menu' ),
+        'menu-2' => __( 'Menu 2' )
+        )
+    );
+}
+
+add_action( 'init', 'register_my_menus' );
+
 
 ?>

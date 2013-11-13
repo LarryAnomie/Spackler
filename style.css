@@ -1849,7 +1849,7 @@ th.hide-for-touch {
 }
 /* line 110, assets/vendor/foundation-scss-standalone/scss/foundation/components/_type.scss */
 p.lead {
-  font-size: 1.21875em;
+  font-size: 1.59375em;
   line-height: 1.6;
 }
 
@@ -1909,7 +1909,7 @@ a img {
 p {
   font-family: inherit;
   font-weight: normal;
-  font-size: 1em;
+  font-size: 1.375em;
   line-height: 1.6;
   margin-bottom: 1.25em;
   text-rendering: optimizeLegibility;
@@ -1924,8 +1924,8 @@ p aside {
 /* Default header styles */
 /* line 181, assets/vendor/foundation-scss-standalone/scss/foundation/components/_type.scss */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Oswald", sans-serif;
+  font-weight: normal;
   font-style: normal;
   color: #222222;
   text-rendering: optimizeLegibility;
@@ -2012,7 +2012,7 @@ code {
 ul,
 ol,
 dl {
-  font-size: 1em;
+  font-size: 1.375em;
   line-height: 1.6;
   margin-bottom: 1.25em;
   list-style-position: outside;
@@ -2327,24 +2327,22 @@ body > #wrapper {
 /* line 14, assets/sass/partials/_layout.scss */
 body {
   background: #fcfcfc url('assets/i/bg.jpg') repeat;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #333;
   border-top: 4px solid #333;
   overflow-x: hidden;
 }
 
-/* line 22, assets/sass/partials/_layout.scss */
+/* line 19, assets/sass/partials/_layout.scss */
 #wrapper {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* line 26, assets/sass/partials/_layout.scss */
+/* line 23, assets/sass/partials/_layout.scss */
 #main {
   padding-bottom: 340px;
   /* must be same height as the footer */
 }
 
-/* line 29, assets/sass/partials/_layout.scss */
+/* line 26, assets/sass/partials/_layout.scss */
 #header {
   padding: 0;
   text-align: center;
@@ -2354,13 +2352,13 @@ body {
   display: block;
 }
 
-/* line 37, assets/sass/partials/_layout.scss */
+/* line 34, assets/sass/partials/_layout.scss */
 #content {
   padding-top: 20px;
   margin-bottom: 20px;
 }
 
-/* line 41, assets/sass/partials/_layout.scss */
+/* line 38, assets/sass/partials/_layout.scss */
 #footer {
   margin-top: -340px;
   position: relative;
@@ -2377,7 +2375,6 @@ Typography
 body {
   color: #444;
   font-family: 'Droid Serif', serif;
-  font-size: 1.1em;
 }
 
 /* line 12, assets/sass/partials/_typography.scss */
@@ -2385,7 +2382,7 @@ p, ul, ol {
   margin-bottom: 1em;
 }
 
-/* line 22, assets/sass/partials/_typography.scss */
+/* line 23, assets/sass/partials/_typography.scss */
 footer h3,
 .entry-title,
 h2.title,
@@ -2399,73 +2396,72 @@ h1.title {
   font-weight: normal;
 }
 
-/* line 34, assets/sass/partials/_typography.scss */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* line 35, assets/sass/partials/_typography.scss */
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4
+h5, .h5
+h6, .h6 {
   color: #444;
-  margin-bottom: 14px;
   font-family: 'Oswald', sans-serif;
   font-weight: normal;
 }
 
-/* line 40, assets/sass/partials/_typography.scss */
-h1 {
+/* line 41, assets/sass/partials/_typography.scss */
+h1, .h1 {
   font-size: 2em;
 }
 
-/* line 43, assets/sass/partials/_typography.scss */
-h2 {
+/* line 44, assets/sass/partials/_typography.scss */
+h2, .h2 {
   font-size: 1.8em;
 }
 
-/* line 46, assets/sass/partials/_typography.scss */
-h3 {
+/* line 47, assets/sass/partials/_typography.scss */
+h3, .h3 {
   font-size: 1.6em;
 }
 
-/* line 49, assets/sass/partials/_typography.scss */
-h4 {
+/* line 50, assets/sass/partials/_typography.scss */
+h4, .h4 {
   font-size: 1.4em;
 }
 
-/* line 52, assets/sass/partials/_typography.scss */
-h5 {
+/* line 53, assets/sass/partials/_typography.scss */
+h5, .h5 {
   font-size: 1.2em;
 }
 
-/* line 55, assets/sass/partials/_typography.scss */
-h6 {
+/* line 56, assets/sass/partials/_typography.scss */
+h6, .h6 {
   font-size: 1em;
 }
 
-/* line 59, assets/sass/partials/_typography.scss */
+/* line 60, assets/sass/partials/_typography.scss */
 ul,
 ol {
   margin: 0 0 14px 0;
   padding-left: 20px;
 }
 
-/* line 63, assets/sass/partials/_typography.scss */
+/* line 64, assets/sass/partials/_typography.scss */
 ul {
   list-style: disc;
 }
 
-/* line 66, assets/sass/partials/_typography.scss */
+/* line 67, assets/sass/partials/_typography.scss */
 ol {
   list-style: decimal;
 }
 
-/* line 70, assets/sass/partials/_typography.scss */
+/* line 71, assets/sass/partials/_typography.scss */
 ul ul,
 ol ol {
   margin-bottom: 0;
 }
 
-/* line 73, assets/sass/partials/_typography.scss */
+/* line 74, assets/sass/partials/_typography.scss */
 blockquote {
   border-left: 4px solid #ed552d;
   background-color: rgba(255, 255, 255, 0.3);
@@ -2474,7 +2470,7 @@ blockquote {
   position: relative;
   margin: 0 0 14px 0;
 }
-/* line 81, assets/sass/partials/_typography.scss */
+/* line 82, assets/sass/partials/_typography.scss */
 blockquote::before {
   content: "\f10d";
   font-family: FontAwesome;
@@ -2549,7 +2545,7 @@ select:focus {
   text-decoration: underline;
 }
 
-/* line 65, assets/sass/style.scss */
+/* line 93, assets/sass/style.scss */
 .vcard {
   border: none;
   padding: 0;
@@ -2558,13 +2554,20 @@ select:focus {
 /*====================================================
 Header
 */
-/* line 74, assets/sass/style.scss */
+/* line 2, assets/sass/partials/_logo.scss */
 #logo {
   margin: 10px auto;
   font-size: 20px;
   width: 50px;
 }
-/* line 79, assets/sass/style.scss */
+@media all and (min-width: 62em) {
+  /* line 2, assets/sass/partials/_logo.scss */
+  #logo {
+    margin: 15px 0 20px 0;
+    float: left;
+  }
+}
+/* line 12, assets/sass/partials/_logo.scss */
 #logo a {
   background: none;
   border: none;
@@ -2573,29 +2576,29 @@ Header
   text-indent: -9999px;
   height: 50px;
 }
-/* line 87, assets/sass/style.scss */
+/* line 20, assets/sass/partials/_logo.scss */
 #logo a:hover {
   color: #113c77;
 }
-/* line 91, assets/sass/style.scss */
+/* line 26, assets/sass/partials/_logo.scss */
 #logo #larry {
   background: transparent url('assets/i/mobile-logo.png') no-repeat left center;
   width: 50px;
   height: 50px;
   display: block;
 }
-/* line 97, assets/sass/style.scss */
+/* line 32, assets/sass/partials/_logo.scss */
 #logo span {
   display: none;
 }
 
-/* line 101, assets/sass/style.scss */
+/* line 41, assets/sass/partials/_logo.scss */
 #designer {
   color: #3084d9;
   margin-right: 3px;
 }
 
-/* line 105, assets/sass/style.scss */
+/* line 45, assets/sass/partials/_logo.scss */
 #dev {
   color: #ed552d;
   margin-left: 3px;
@@ -2638,6 +2641,7 @@ Header
 /* line 34, assets/sass/partials/_navigation.scss */
 #nav a {
   display: block;
+  color: #333;
   padding: 10px 15px;
   text-decoration: none;
   background: none;
@@ -2647,22 +2651,29 @@ Header
   text-transform: uppercase;
   font-size: 1.2em;
 }
-/* line 45, assets/sass/partials/_navigation.scss */
+/* line 47, assets/sass/partials/_navigation.scss */
+#nav a:hover, #nav a:focus {
+  color: #3084d9;
+  text-decoration: underline;
+  background: none;
+  border: none;
+}
+/* line 54, assets/sass/partials/_navigation.scss */
+#nav a:visited {
+  color: #333;
+}
+/* line 59, assets/sass/partials/_navigation.scss */
 #nav a:link {
   background: none;
   border: none;
 }
-/* line 53, assets/sass/partials/_navigation.scss */
+/* line 64, assets/sass/partials/_navigation.scss */
 #nav .current_page_item a,
 #nav .current-portfolio .page-item-279 a {
   color: #fff;
   background-color: #333;
-  /*         text-shadow: 1px 1px 1px #061e3f;
-          -webkit-box-shadow: inset 0px 0px 85px rgba(12, 43, 87, 0.8);
-          -moz-box-shadow:    inset 0px 0px 100px rgba(12, 43, 87, 0.8);
-          box-shadow:         inset 0px 0px 85px rgba(12, 43, 87, 0.8); */
 }
-/* line 62, assets/sass/partials/_navigation.scss */
+/* line 69, assets/sass/partials/_navigation.scss */
 #nav .current_page_item a:hover,
 #nav .current_page_item a:focus {
   cursor: default;
@@ -2670,16 +2681,8 @@ Header
   color: #fff;
   background-color: #3084d9;
 }
-/* line 69, assets/sass/partials/_navigation.scss */
-#nav li a:hover,
-#nav li a:focus {
-  color: #d92f30;
-  text-decoration: underline;
-  background: none;
-  border: none;
-}
 
-/* line 77, assets/sass/partials/_navigation.scss */
+/* line 78, assets/sass/partials/_navigation.scss */
 .children {
   position: absolute;
   width: 10em;
@@ -2688,7 +2691,7 @@ Header
   margin: 0;
 }
 
-/* line 87, assets/sass/partials/_navigation.scss */
+/* line 88, assets/sass/partials/_navigation.scss */
 #nav.current-portfolio .page-item-279 a,
 #nav.current-portfolio .page-item-3 a,
 #nav.current-blog .page-item-47 a {
@@ -2703,7 +2706,7 @@ Header
 /*====================================================
 page title
 */
-/* line 116, assets/sass/style.scss */
+/* line 109, assets/sass/style.scss */
 h1.title {
   font-size: 2em;
   margin-bottom: 20px;
@@ -2925,17 +2928,17 @@ Home Page
 }
 
 /*Strapline*/
-/* line 129, assets/sass/style.scss */
+/* line 122, assets/sass/style.scss */
 .slogan {
   margin-bottom: 10px;
 }
-/* line 132, assets/sass/style.scss */
+/* line 125, assets/sass/style.scss */
 .slogan h2 {
   text-align: center;
   color: #666;
   margin: 0 0 10px 0;
 }
-/* line 137, assets/sass/style.scss */
+/* line 130, assets/sass/style.scss */
 .slogan ul {
   list-style: none;
 }
@@ -3970,12 +3973,10 @@ Media Queries
     display: block;
   }
 
-  /* line 12, assets/sass/partials/media-queries/_min-width-768px.scss */
-  #logo {
-    margin: 15px 0 20px 0;
-    float: left;
-  }
-
+  /*     #logo {
+          margin: 15px 0 20px 0;
+          float: left;
+      } */
   /* line 30, assets/sass/partials/media-queries/_min-width-768px.scss */
   .post-meta span {
     padding: 3px 0;
@@ -4004,7 +4005,7 @@ Media Queries
 }
 /* iPhone 4, Opera Mobile 11 and other high pixel ratio devices ----------- */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /* line 180, assets/sass/style.scss */
+  /* line 173, assets/sass/style.scss */
   #logo #larry {
     background: transparent url('assets/i/mobile-logo@2x.png') no-repeat left center;
     background-size: 50px 50px;
@@ -4012,7 +4013,7 @@ Media Queries
 }
 /* iPad 3? ------------------------------------------------------------------*/
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (min-width: 768px) {
-  /* line 188, assets/sass/style.scss */
+  /* line 181, assets/sass/style.scss */
   #logo #larry {
     background: transparent url('assets/i/logo1@2x.png') no-repeat left center;
     background-size: 241px 28px;
