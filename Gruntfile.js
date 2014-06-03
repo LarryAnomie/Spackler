@@ -53,7 +53,7 @@ module.exports = function(grunt) {
                     sourceMapPrefix: 2
                 },
                 files : {
-                    "assets/js/script.min.js": [
+                    "assets/js/dist/script.min.js": [
                         "assets/js/script.js" //,
                         // "assets/js/vendor/yourplugin/yourplugin.js",
                     ]

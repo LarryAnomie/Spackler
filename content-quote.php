@@ -15,7 +15,7 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-meta">
-		<?php twentythirteen_entry_meta(); ?>
+		<?php //twentythirteen_entry_meta(); ?>
 
 		<?php if ( comments_open() ) : ?>
 		<span class="comments-link">

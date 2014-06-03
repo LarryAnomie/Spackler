@@ -3,41 +3,47 @@ Forms
 */
 label {
     display:block;
-    margin-bottom:5px;
+    margin-bottom: .5em;
 }
 input,
 textarea,
 select {
-    padding:5px;
-    margin:0 0 10px 0;
-    border:1px solid #ccc;
+    padding: .5em;
+    font-size: 1em;
+    margin: 0 0 1em 0;
+    border: 1px solid #ccc;
     max-width: 100%;
-    background: $blue;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1) inset, 0 0 16px rgba(0, 0, 0, 0.1);
-    color:#333;
+    color: #333;
 }
 input:focus,
 textarea:focus,
 select:focus {
     border:1px solid darken($blue, 10%);
 }
+input[type="submit"],
 .button,
 #searchsubmit {
     background: $blue;
     border:1px solid darken($blue, 10%);
     -moz-border-radius: 4px;
     border-radius: 4px;
-    color:#fff;
-    font-weight:bold;
-    cursor:pointer;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Oswald",sans-serif;
+    cursor: pointer;
     margin: 0;
     min-width:inherit;
+
+    &:hover,
+    &:focus  {
+        background: lighten($blue, 10%);
+        border: 1px solid darken($blue, 10%);
+        text-decoration: underline;
+    }
 }
-.button:hover,
-.button:focus,
-#searchsubmit:hover,
-#searchsubmi:focus  {
-    background: lighten($blue, 10%);
-    border: 1px solid darken($blue, 10%);
-    text-decoration: underline;
+
+// e.g. password protected post
+.entry-content {
+
 }

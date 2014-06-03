@@ -101,19 +101,17 @@ p img {
 
 .main-content img {
   display: inline;
-  border:1px solid #c0c0c0;
 }
 
 img.centered,
 img.aligncenter {
   display: block;
   margin:0 auto;
-  border:1px solid #c0c0c0;
   overflow:hidden;
 }
 
-img.alignright {margin: 2px 0 2px 7px;display: inline;}
-img.alignleft {margin: 2px 7px 2px 0;display: inline;}
+img.alignright {margin: 2px 0 2px 20px;display: inline;}
+img.alignleft {margin: 2px 20px 2px 0;display: inline;}
 .alignright {float: right;}
 .alignleft {float: left}
 acronym, abbr, span.caps {cursor: help;}

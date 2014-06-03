@@ -1,3 +1,20 @@
 .format-link {
+    background-color: lighten($blue, 10%);
+    padding: 1em;
 
+    .date {
+    	a {
+    		border-bottom: none;
+    	}
+    }
+
+    a {
+    	color: #fff;
+    	//text-decoration: underline;
+    	border-bottom: 1px solid #fff;
+
+    	&:hover {
+    		border-bottom: none;
+    	}
+    }
 }

@@ -1,24 +1,22 @@
-                </section><!--#content-->
-            </div><!--#main-->
+            </section><!--#content-->
         </div><!--#wrapper-->
         <footer id="footer" class="container">
             <div id="footer-content">
                 <div class="row">
                     <h2 class="hidden">Footer</h2>
-                    <div class="qbutton">
-                        <a class="png-bg" href="<?php echo stripslashes(get_option('sf_slogan_url')); ?>"><?php echo stripslashes(get_option('sf_slogan_quote')); ?></a>
-                    </div>
                     <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Home Widget') ) : ?>
                     <?php endif; ?>
                 </div><!--.row-->
                 <div id="end" class="row">
-                    <p id="copyright" class="columns large-12 small-12">&copy; 2008 - 2012 Lawrence Naman. All rights reserved.</p>
-                    <p id="cinerama" class="columns large-12 small-12"><span>This Website is brought to you in...</span> <span id="cinerama-logo">Cinerama</span></p>
+                    <p id="copyright" class="columns large-12 small-12">&copy; 2008 - 2014 Lawrence Naman. All rights reserved.</p>
                 </div><!--#end-->
             </div><!--#footer-content-->
         </footer><!--footer-->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="assets/js/libs/jquery.js"><\/script>')</script>
+        <script src="<?php bloginfo('template_url'); ?>/assets/js/libs/underscore.js?301"></script>
+        <script src="<?php bloginfo('template_url'); ?>/assets/js/svgicons-config.js?301"></script>
+        <script src="<?php bloginfo('template_url'); ?>/assets/js/svgicons.js?301"></script>
         <script src="<?php bloginfo('template_url'); ?>/assets/js/script.js?301"></script>
         <script src="//localhost:35729/livereload.js"></script>
 

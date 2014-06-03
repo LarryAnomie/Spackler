@@ -1,3 +1,12 @@
-.format-aside {
+.post {
+	&.format-aside {
+		padding: 2em;
+	    background-color: lighten($yellow, 10%);
+	    margin-top: 0;
 
+	    a {
+	    	color: #fff;
+	    	text-decoration: underline;
+	    }
+	}
 }

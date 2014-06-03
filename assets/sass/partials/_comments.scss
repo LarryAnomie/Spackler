@@ -1,15 +1,43 @@
 /*comments*/
 
 #comments {
-    padding-top: 10px;
+    padding-top: 1em;
     margin-bottom: 0;
 }
 
-
-
 #comment-form {
-    padding: 10px 0;
-    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 1em;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1) inset, 0 0 16px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+#commentform {
+    label small {
+        font-size: 10px;
+        color: #a0a0a0;
+    }
+    input {
+        width: 100%;
+    }
+    @include mq($from: desktop) {
+        input {
+            width: 60%;
+        }
+    }
+    textarea {
+        width: 100%;
+        max-width: 100%;
+        background: #fff;
+    }
+}
+
+#commentSubmit {
+    width: 100px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-weight: normal;
 }
 
 .nocomments {
@@ -24,7 +52,7 @@
     .comment,
     .pingback,
     .trackback {
-        margin-bottom: 14px;
+        margin-bottom: 1em;
         padding: 1em;
         border: 1px solid #ccc;
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.1) inset, 0 0 16px rgba(0, 0, 0, 0.1);
@@ -48,14 +76,7 @@
     }
 }
 
-#comment-form {
-    margin:10px 0;
-    line-height:18px;
-    padding:10px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1) inset, 0 0 16px rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 255, 255, 0.4);
-}
+
 
 .children{
     list-style: none;
@@ -76,7 +97,7 @@
     float: left;
     border: 1px solid #dddddd;
     padding: 0;
-    margin-right: 10px;
+    margin-right: 1em;
 }
 .comment-meta {
     font-size:.9em;
@@ -89,28 +110,9 @@
     padding: 0;
     white-space: normal;
 }
-#commentform {
-    label small {
-        font-size:10px;
-        color:#a0a0a0;
-    }
-    input {
-        width:400px;
-    }
-    textarea {
-        width:98%;
-        max-width: 98%;
-        background: #fff;
-    }
 
-}
 
-#commentSubmit {
-    width:100px;
-    text-transform: uppercase;
-    font-family: 'Oswald', sans-serif;
-    font-weight: normal;
-}
+
 
 .reply {
     font-size: .9em;

@@ -13,13 +13,12 @@ relative_assets = true
 #Wordpress compiling http://css-tricks.com/compass-compiling-and-wordpress-themes/
 
 
-
 #lets enable the sass debug info
 #sass_options = {:debug_info => true, :quiet => true}
 output_style = (environment == :production) ? :compressed : :expanded
 
 #options for output_style: ":nested", ":expanded", ":compact", ":compressed"
-output_style = :expanded
+output_style = :compressed
 
 #kill the built in cache buster
 asset_cache_buster :none

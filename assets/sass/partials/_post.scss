@@ -3,15 +3,20 @@
 Blog
 */
 
+
 .post {
-    padding: 20px 0;
+    padding: 0 0 1em 0;
     overflow:hidden;
-    border-bottom: 1px solid #fff;
-    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    //font-size: emCalc(22);
 
     &::first-child {
         border-top: none;
         padding: 0 0 20px 0;
+    }
+
+    &.post-nonstandard {
+        margin-top: 1em;
     }
 }
 
@@ -20,9 +25,6 @@ Blog
 }
 
 .entry-title {
-    margin:0 0 20px 0;
-    font-weight: normal;
-    font-size: 2em;
 
     a, a:hover {
         border: none;
@@ -42,13 +44,13 @@ Blog
 }
 
 .date {
-    background-color: $red;
-    //background: #666;
+    //background-color: $red;
+    background-color: darken($red, 10%);
     text-align: center;
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
     padding: 10px;
-    margin-bottom: 14px;
+    margin-bottom: 1em;
     float: left;
 
     a {
@@ -73,14 +75,14 @@ Blog
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
     margin-bottom: emCalc(10);
+    font-size: .9em;
 
     i {
         float: left;
         margin-right: 1px;
         padding: 0 3px;
-        background: $red;
-        color: #fff;
-        line-height: 1.57em;
+        color: #666;
+        line-height: 1.5em;
         display: inline-block;
     }
 
@@ -94,11 +96,12 @@ Blog
         padding: 4px;
         display: block;
         float: left;
-        background: $blue;
+        background-color: $red;
         color: #fff;
         border: none;
 
         &:hover {
+            background: $red;
             border: none;
         }
     }
@@ -126,13 +129,14 @@ Blog
 
     a {
         color: #fff;
-        background: $blue;
+        background-color: $red;
         border: none;
         display: block;
         padding: 10px;
 
         &:hover {
             border: none;
+            background: $red;
         }
     }
     .comments-off {

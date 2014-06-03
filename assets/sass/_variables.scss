@@ -1,10 +1,64 @@
+// Larry Varaibles
+/*Colors*/
+
+/* $red: #ed552d;
+$orange: lighten($red, 10%);
+
+$blue: #52bad5;
+$yellow: #ddb240;
+
+$blueHighlight: #1c3e6c;
+$blueLowlight: #09264b;
+$deepBlue: #0c2b55;
+
+$lightGrey: #cccccc;
+$darkGrey: #333333; */
+
+
+$offWhite: #f6f6f6;
+
+$red : #ff634e;
+$darkRed : darken($red, 10%);
+$lightRed : lighten($red, 10%);
+
+$orange: #ffda3e;
+$darkOrange: darken($orange, 10%);;
+$lightOrange: lighten($orange, 10%);
+
+$yellow : #e4ee5c;
+$darkyellow: darken($yellow, 10%);;
+$lightyellow: lighten($yellow, 10%);
+
+$blue : #56d2fe;
+$darkBlue : darken($blue, 10%);
+$lightBlue : lighten($blue, 10%);
+
+$green : #9dd862;
+$darkGreen : darken($green, 10%);
+$lightGreen: lighten($green, 10%);
+
+$purple : #ba99ff;
+$darkPurple : darken($purple, 10%);
+$lightPurple : lighten($purple, 10%);
+
+$grey : #707c7c;
+$darkGrey : darken($grey, 10%);
+$lightGrey : lighten($grey, 10%);
+
+
+/*Font Families*/
+
+$FFhelvetica : "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+
+
 //
 // Foundation Variables
 //
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
-$base-font-size: 100% !default;
+/* $base-font-size: 100% !default; */
+$base-font-size: 22px;
 
 //$base-line-height is 24px while $base-font-size is 16px
 $base-line-height: 150%;
@@ -14,8 +68,8 @@ $base-line-height: 150%;
 // Since the typical default browser font-size is 16px, that makes the calculation for grid size.
 // If you want your base font-size to be a different size and not have it effect grid size too,
 // set the value of $em-base to $base-font-size ($em-base: $base-font-size;)
-$em-base: 16 !default;
-//$em-base: $base-font-size;
+//$em-base: 16 !default;
+$em-base: $base-font-size;
 
 // It strips the unit of measure and returns it
 @function strip-unit($num) {
@@ -54,7 +108,7 @@ $default-float: left;
 
 $body-bg: #fff;
 $body-font-color: #222;
-$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: 'Droid Serif', serif;
 $body-font-weight: normal;
 $body-font-style: normal;
 
@@ -164,7 +218,7 @@ $total-columns: 12;
 $header-font-family: 'Oswald', sans-serif;
 $header-font-weight: normal;
 $header-font-style: normal;
-$header-font-color: #222;
+$header-font-color: #444;
 $header-line-height: 1.4;
 $header-top-margin: .2em;
 $header-bottom-margin: .5em;
@@ -225,12 +279,12 @@ $paragraph-text-rendering: optimizeLegibility;
 
 // Style lists
 
-// $list-style-position: outside;
-// $list-side-margin: 0;
-// $list-nested-margin: emCalc(20);
-// $definition-list-header-weight: bold;
-// $definition-list-header-margin-bottom: .3em;
-// $definition-list-margin-bottom: emCalc(12);
+$list-style-position: outside;
+$list-side-margin: 0;
+$list-nested-margin: emCalc(20);
+$definition-list-header-weight: bold;
+$definition-list-header-margin-bottom: .3em;
+$definition-list-margin-bottom: emCalc(12);
 
 // Style blockquotes
 

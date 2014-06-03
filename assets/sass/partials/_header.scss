@@ -1,0 +1,124 @@
+#header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 20px 0;
+	z-index: 900;
+	width: 100%;
+	-webkit-transform: translate(0,0);
+	-moz-transform: translate(0,0);
+	-ms-transform: translate(0,0);
+	-o-transform: translate(0,0);
+	transform: translate(0,0);
+	-webkit-transition: -webkit-transform .5s .5s,background .5s,color .1s;
+	-moz-transition: -moz-transform .5s .5s,background .5s,color .1s;
+	-o-transition: -o-transform .5s .5s,background .5s,color .1s;
+	transition: transform .5s .5s,background .5s,color .1s;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+
+	&.visible {
+		background: rgba(255,255,255,0.7);
+		opacity: 1;
+		-webkit-transform: translate(0,0);
+		-moz-transform: translate(0,0);
+		-ms-transform: translate(0,0);
+		-o-transform: translate(0,0);
+		transform: translate(0,0);
+		-webkit-transition: -webkit-transform .2s,background .3s,color .3s;
+		-moz-transition: -moz-transform .2s,background .3s,color .3s;
+		-o-transition: -o-transform .2s,background .3s,color .3s;
+		transition: transform .2s,background .3s,color .3s;
+	}
+
+	&.header-hidden {
+		opacity: 0;
+		-webkit-transform: translate(0,-60px);
+		-moz-transform: translate(0,-60px);
+		-ms-transform: translate(0,-60px);
+		-o-transform: translate(0,-60px);
+		transform: translate(0,-60px);
+		-webkit-transition: -webkit-transform .2s,background .3s,color .3s,opacity 0 .3s;
+		-moz-transition: -moz-transform .2s,background .3s,color .3s,opacity 0 .3s;
+		-o-transition: -o-transform .2s,background .3s,color .3s,opacity 0 .3s;
+		transition: transform .2s,background .3s,color .3s,opacity 0 .3s;
+	}
+
+	&.active {
+		background: rgba(255,255,255,1);
+	}
+
+	&:hover {
+		background: rgba(255,255,255,1);
+		cursor: pointer;
+	}
+
+	.row {text-align: left;}
+
+	.logo,
+	.nav-opener {
+		display: inline-block;
+		font-size: 1.1em;
+		font-family: 'Oswald', sans-serif;
+		line-height: normal;
+		text-transform: uppercase;
+		margin: 0;
+
+			@include mq($from: tablet) {
+				font-size: 1.2em;
+    		}
+	}
+
+	.logo {
+	    margin: 0 0 0 1em;
+	    padding: 0;
+
+	    a {
+	        background: none;
+	        border: none;
+	        padding: 0;
+	        color: #444;
+	        display: inline-block;
+
+	        &:hover {
+	        	color: darken($blue, 10);
+	        }
+
+	    }
+	}
+
+	.nav-opener {
+		float: right;
+		margin: 0 1em 0 0;
+
+		.text {
+			display: none;
+
+			@include mq($from: tablet) {
+				display: inline;
+    		}
+		}
+
+		a {
+			border-bottom: none;
+			padding: 0;
+			color: #444;
+
+	        &:hover {
+	        	color: darken($blue, 10);
+
+	        	svg path {
+	        		stroke : darken($blue, 10);
+	        	}
+	        }
+		}
+	}
+
+}
+
+
+
+

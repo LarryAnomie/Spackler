@@ -30,9 +30,9 @@
     <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="<?php bloginfo('atom_url'); ?>" />
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Comments Feed" href="<?php bloginfo('comments_rss2_url'); ?>" />
     <link rel="shortcut icon" href="<?php echo sf_get_favicon(); ?>" title="Favicon" />
-    <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="screen" />
-    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>?v=123" type="text/css" media="screen" />
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
     <!--[if lte IE 6]>
         <link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection">
     <![endif]-->
@@ -64,28 +64,21 @@
     </head>
     <body id="<?php echo $page;?>" class="<?php larry_body_class() ?>">
         <div id="wrapper" class="container">
-            <div id="main">
-                <div id="header-container">
-                    <header id="header" role="banner" class="row">
-                        <div class="columns small-12 large-4">
-                            <?php if ( is_front_page() ) { echo "<h1 id='logo' class='clearfix columns'>";} else {echo "<p id='logo' class='clearfix'>";} ?>
-                                <a href="<?php bloginfo('home'); ?>">
-                                    <span id="larry">Lawrence Naman</span>
-                                    <!--span id="designer">Web Designer</span><span> / </span><span id="dev">Web Developer</span-->
-                                </a>
-                            <?php if ( is_front_page() ) { echo "</h1>";} else {echo "</p>"; }  ?>
-                        </div>
-<!--                         <nav id="access" role="navigation" class="columns small-12 large-8">
-                            <ul class="<?php //echo "current-".$page;?> clearfix" id="nav">
-                            <?php //wp_list_pages('title_li='); ?>
-                            </ul>
-                        </nav> -->
-                        <nav id="access" class="main-navigation columns small-12 large-8" role="navigation">
-                            <h3 class="menu-toggle"><i class="icon-reorder"></i> <?php _e( 'Menu', 'larry' ); ?></h3>
-                            <a class="assistive-text visuallyhidden skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'larry' ); ?>"><?php _e( 'Skip to content', 'larry' ); ?></a>
-                            <?php wp_nav_menu( array( 'menu_id' => 'nav','container' => false, 'theme_location' => 'header-menu', 'menu_class' => 'nav-menu' ) ); ?>
-                        </nav><!-- #site-navigation -->
 
-                    </header><!--end header-->
+            <header class="header visible" id="header">
+                <div class="row">
+                    <?php if ( is_front_page() ) { echo "<h1 id='logo' class='logo'>";} else {echo "<p id='logo' class='clearfix logo'>";} ?><a class="home-link" href="<?php bloginfo('home'); ?>">Lawrence Naman</a><?php if ( is_front_page() ) { echo "</h1>";} else {echo "</p>"; }  ?>
+
+                    <p id="nav-opener" class="nav-opener">
+                        <a href="#access"><span class="text">Menu</span><span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span></a>
+                    </p>
                 </div>
-                <section id="content" role="main" class="row">
+            </header>
+
+            <div class="overlay" id="nav-overlay">
+                <nav id="access" class="main-navigation" role="navigation">
+                    <?php wp_nav_menu( array( 'menu_id' => 'nav','container' => false, 'theme_location' => 'header-menu', 'menu_class' => 'nav-menu', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
+                </nav><!-- #site-navigation -->
+            </div>
+
+            <section id="content" role="main" class="row">

@@ -3,7 +3,7 @@ Links */
 
 a,
 a:visited {
-    color: #3084d9;
+    color: $blue;
     border-bottom: 1px solid #ccc;
     padding-bottom: 1px;
     text-decoration: none;
@@ -14,7 +14,7 @@ a:visited {
     -webkit-transition: color 0.3s, border 0.3s;
 }
 a:hover, a:focus, a:active {
-    color: $blue;
-    border-color: $blue;
+    color: darken($blue, 10);
+    border-color: darken($blue, 10);
     text-decoration: none;
 }
