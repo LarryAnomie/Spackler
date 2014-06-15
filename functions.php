@@ -711,7 +711,7 @@ function custom_post_type() {
     );
 
     $rewrite = array(
-        'slug'                => 'project',
+        'slug'                => 'projects',
         'with_front'          => true,
         'pages'               => true,
         'feeds'               => true,

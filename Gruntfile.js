@@ -1,5 +1,4 @@
-
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     "use strict";
     // load all grunt tasks matching the `grunt-*` pattern
     require("load-grunt-tasks")(grunt);
@@ -17,7 +16,9 @@ module.exports = function(grunt) {
                 tasks: ["jshint", "uglify"]
             },
             livereload: {
-                options: { livereload: true },
+                options: {
+                    livereload: true
+                },
                 files: ["style.css", "assets/js/*.js", "*.html", "*.php", "assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}"]
             }
         },
@@ -44,15 +45,23 @@ module.exports = function(grunt) {
             ]
         },
 
+        pagespeed: {
+            options: {
+                nokey: true,
+                url: "http://lawrencenaman.com",
+                strategy: "mobile"
+            }
+        },
+
         // uglify to concat, minify, and make source maps
-        uglify : {
-            main : {
-                options : {
+        uglify: {
+            main: {
+                options: {
                     sourceMap: "assets/js/script.js.map",
                     sourceMappingURL: "script.js.map",
                     sourceMapPrefix: 2
                 },
-                files : {
+                files: {
                     "assets/js/dist/script.min.js": [
                         "assets/js/script.js" //,
                         // "assets/js/vendor/yourplugin/yourplugin.js",
@@ -107,5 +116,7 @@ module.exports = function(grunt) {
 
     // register task
     grunt.registerTask("default", ["watch"]);
+
+    grunt.registerTask("pagespeed", ["pagespeed"]);
 
 };
