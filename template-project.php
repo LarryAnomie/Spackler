@@ -9,7 +9,7 @@ Template Name: Projects
   $count =0;
 ?>
 <div class="portfolio">
-    <h1 class="visuallyhidden">Portfolio</h1>
+    <h1 class="visuallyhidden">Projects</h1>
 <?php if($loop) { ?>
     <ul id="folio">
         <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>

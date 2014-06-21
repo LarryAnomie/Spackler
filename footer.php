@@ -8,7 +8,22 @@
                     <?php endif; ?>
                 </div><!--.row-->
                 <div id="end" class="row">
-                    <p id="copyright" class="columns large-12 small-12">&copy; 2008 - 2014 Lawrence Naman. All rights reserved.</p>
+
+                    <div class="social columns small-centered large-centered large-6 small-12">
+                        <a class="si-icon-twitter svg-icon-link" href="https://twitter.com/LarryNaman">
+                            <span class="visuallyhidden">Twitter</span>
+                        </a>
+                        <a class="si-icon-git-hub svg-icon-link" href="https://github.com/LarryAnomie">
+                            <span class="visuallyhidden">GitHub</span>
+                        </a>
+                        <a class="si-icon-instagram svg-icon-link" href="http://instagram.com/larrynaman">
+                            <span class="visuallyhidden">Instagram</span>
+                        </a>
+                        <a class="si-icon-li svg-icon-link" href="https://www.linkedin.com/in/larrynaman10101">
+                            <span class="visuallyhidden">Instagram</span>
+                        </a>
+                    </div>
+                     <p id="copyright" class="copyright columns small-centered large-centered large-8 small-12">&copy; 2008 - 2014 Lawrence Naman. All rights reserved.</p>
                 </div><!--#end-->
             </div><!--#footer-content-->
         </footer><!--footer-->

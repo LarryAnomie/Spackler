@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
 <div class="main-content columns small-12 large-10 large-centered">
-
     <?php if ( have_posts() ) : ?>
 
         <?php /* The loop */ ?>

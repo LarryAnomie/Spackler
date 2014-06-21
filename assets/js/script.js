@@ -23,17 +23,27 @@ var LN = {
     },
     isTouch: Modernizr.touch,
 
-    isotopeInit: function () {
+    isotopeInit: function() {
         var $folio = $('#folio'),
             $folioNav = $('.portfnav');
 
-        $folio.isotope({
+                $folio.isotope({
             masonry: {
                 columnWidth: 320
             }
         });
 
-        $folioNav.find('a').on('click', function (e) {
+        /*        // initialize Isotope
+        $folio.isotope({
+            // options...
+            resizable: false, // disable normal resizing
+            // set columnWidth to a percentage of container width
+            masonry: {
+                columnWidth: $folio.width() / 5
+            }
+        });*/
+
+        $folioNav.find('a').on('click', function(e) {
             var $self = $(this),
                 text = $self.text(),
                 filter;
@@ -62,7 +72,7 @@ var LN = {
     },
     /*stuff common to everypage on site*/
     common: {
-        init: function () {
+        init: function() {
 
             var self = this,
                 $nav = $('#nav-overlay'),
@@ -88,7 +98,7 @@ var LN = {
                  * calculates whether nav should be visible or hidden
                  *
                  */
-                calculateNav = function () {
+                calculateNav = function() {
                     var currentTop = $window.scrollTop();
 
                     if (!$nav.hasClass('show')) {
@@ -118,13 +128,13 @@ var LN = {
              * Throttle window resize event and check window width after resize
              *
              */
-            $window.on('resize', function () {
+            $window.on('resize', function() {
 
                 if (resizeTimeout) {
                     clearTimeout(resizeTimeout);
                 }
 
-                resizeTimeout = setTimeout(function () {
+                resizeTimeout = setTimeout(function() {
                     var width = $window.width();
 
                     if (isSmallScreen && width >= BREAK_POINTS.tablet) {
@@ -151,7 +161,7 @@ var LN = {
 
             yepnope({
                 load: LN.webRoot + LN.jsRoot + LN.scripts.snap + LN.cacheBust,
-                callback: function () {
+                callback: function() {
 
                     hamburgerIcon = new svgIcon(document.querySelector('.si-icon-hamburger-cross'), svgIconConfig, {
                         //easing: mina.backin
@@ -162,7 +172,7 @@ var LN = {
 
             // Navigation toggle behaviour for small screens
 
-            $header.on('click', function (e) {
+            $header.on('click', function(e) {
 
                 var $self = $(e.target);
 
@@ -201,7 +211,7 @@ var LN = {
             });
         },
 
-        finalize: function () {
+        finalize: function() {
 
             var $footerWidgets = $('#footer-content').find('.widget');
 
@@ -216,9 +226,9 @@ var LN = {
      */
 
     's-category-portfolio': {
-        init: function () {
+        init: function() {
             var $slider = $('.bx-slider'),
-                sliderInit = function () {
+                sliderInit = function() {
                     $slider.bxSlider();
                 };
             yepnope({
@@ -233,16 +243,22 @@ var LN = {
      *This needs a towel DRY
      */
     wp: {
-        blog: function () {
+        blog: function() {
 
         },
-        about: function () {
+        about: function() {
 
         },
-        contact: function () {
+        contact: function() {
 
         },
-        portfolio: function () {
+        projects: function() {
+            yepnope({
+                load: LN.webRoot + LN.jsRoot + LN.scripts.isotope + LN.cacheBust,
+                callback: LN.isotopeInit
+            });
+        },
+        portfolio: function() {
 
             /*                $('.project').hover(function () {
                     var $self = $(this),
@@ -264,10 +280,10 @@ var LN = {
         }
     },
     home: {
-        init: function () {
+        init: function() {
 
             var $slider = $('.bx-slider'),
-                sliderInit = function () {
+                sliderInit = function() {
                     $slider.bxSlider();
                 };
             yepnope({
@@ -291,7 +307,7 @@ var LN = {
          * @param {string - arguments for fn being called}
          *
          */
-        fire: function (func, funcname, args) {
+        fire: function(func, funcname, args) {
 
             var namespace = LN;
 
@@ -308,7 +324,7 @@ var LN = {
          * fire functions from body classes and id
          *
          */
-        loadEvents: function () {
+        loadEvents: function() {
 
             var bodyId = document.body.id,
                 classnames = document.body.className.split(/\s+/);
@@ -317,7 +333,7 @@ var LN = {
             UTIL.fire('common');
 
             // do all the classes too.
-            $.each(classnames, function (i, classnm) {
+            $.each(classnames, function(i, classnm) {
                 UTIL.fire(classnm);
                 UTIL.fire(classnm, bodyId);
             });
@@ -331,11 +347,11 @@ var LN = {
          * @retun {object} The equalised group
          *
          */
-        equalHeight: function (group) {
+        equalHeight: function(group) {
 
             var tallest = 0;
 
-            group.each(function () {
+            group.each(function() {
                 var thisHeight = $(this).height();
 
                 if (thisHeight > tallest) {

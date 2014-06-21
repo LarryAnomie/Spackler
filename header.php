@@ -62,7 +62,9 @@
 		};
     ?>
     </head>
-    <body id="<?php echo $page;?>" class="<?php larry_body_class() ?>">
+
+    <body id="<?php echo $page;?>" class="<?php ln_body_class() ?>">
+        <?php require('svg.html'); ?>
         <div id="wrapper" class="container">
 
             <header class="header visible" id="header">

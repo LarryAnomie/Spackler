@@ -228,17 +228,14 @@ Blog
 }
 
 .featured-post {
-    background: transparent image_url("ribbon.png") no-repeat 0 0;
-    width: 211px;
-    height: 40px;
+    background: $green;
+    padding: .5em;
     color: #fff;
     text-transform: uppercase;
     font-family: "Oswald";
-    float: right;
     text-align: center;
 
-    span {
-        display: block;
-        padding: 7px;
+    @include mq($from: tablet) {
+        float: right;
     }
 }

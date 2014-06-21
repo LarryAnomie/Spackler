@@ -15,7 +15,7 @@
  *
  * @return void
  */
-function larry_setup() {
+function ln_setup() {
     /*
      * Makes Twenty Thirteen available for translation.
      *
@@ -58,18 +58,18 @@ function larry_setup() {
     // This theme uses its own gallery styles.
     add_filter( 'use_default_gallery_style', '__return_false' );
 }
-add_action( 'after_setup_theme', 'larry_setup' );
+add_action( 'after_setup_theme', 'ln_setup' );
 
 
 // Generates semantic classes for BODY element
-function larry_body_class( $print = true ) {
+function ln_body_class( $print = true ) {
     global $wp_query, $current_user;
 
     // It's surely a WordPress blog, right?
     $c = array('wp');
 
     // Applies the time- and date-based classes (below) to BODY element
-    sandbox_date_classes( time(), $c );
+    ln_date_classes( time(), $c );
 
     // Generic semantic classes for what type of content is displayed
     is_front_page()  ? $c[] = 'home'       : null; // For the front page, if set
@@ -91,7 +91,7 @@ function larry_body_class( $print = true ) {
 
         // Adds classes for the month, day, and hour when the post was published
         if ( isset( $wp_query->post->post_date ) )
-            sandbox_date_classes( mysql2date( 'U', $wp_query->post->post_date ), $c, 's-' );
+            ln_date_classes( mysql2date( 'U', $wp_query->post->post_date ), $c, 's-' );
 
         // Adds category classes for each category on single posts
         if ( $cats = get_the_category() )
@@ -196,7 +196,7 @@ function larry_body_class( $print = true ) {
 }
 
 // Generates semantic classes for each post DIV element
-function sandbox_post_class( $print = true ) {
+function ln_post_class( $print = true ) {
     global $post, $sandbox_post_alt;
 
     // hentry for hAtom compliace, gets 'alt' for every other post DIV, describes the post type and p[n]
@@ -222,7 +222,7 @@ function sandbox_post_class( $print = true ) {
         $c[] = 'protected';
 
     // Applies the time- and date-based classes (below) to post DIV
-    sandbox_date_classes( mysql2date( 'U', $post->post_date ), $c );
+    ln_date_classes( mysql2date( 'U', $post->post_date ), $c );
 
     // If it's the other to the every, then add 'alt' class
     if ( ++$sandbox_post_alt % 2 )
@@ -239,7 +239,7 @@ function sandbox_post_class( $print = true ) {
 $sandbox_post_alt = 1;
 
 // Generates semantic classes for each comment LI element
-function sandbox_comment_class( $print = true ) {
+function ln_comment_class( $print = true ) {
     global $comment, $post, $sandbox_comment_alt;
 
     // Collects the comment type (comment, trackback),
@@ -263,7 +263,7 @@ function sandbox_comment_class( $print = true ) {
     }
 
     // If it's the other to the every, then add 'alt' class; collects time- and date-based classes
-    sandbox_date_classes( mysql2date( 'U', $comment->comment_date ), $c, 'c-' );
+    ln_date_classes( mysql2date( 'U', $comment->comment_date ), $c, 'c-' );
     if ( ++$sandbox_comment_alt % 2 )
         $c[] = 'alt';
 
@@ -275,7 +275,7 @@ function sandbox_comment_class( $print = true ) {
 }
 
 // Generates time- and date-based classes for BODY, post DIVs, and comment LIs; relative to GMT (UTC)
-function sandbox_date_classes( $t, &$c, $p = '' ) {
+function ln_date_classes( $t, &$c, $p = '' ) {
     $t = $t + ( get_option('gmt_offset') * 3600 );
     $c[] = $p . 'y' . gmdate( 'Y', $t ); // Year
     $c[] = $p . 'm' . gmdate( 'm', $t ); // Month
@@ -690,107 +690,6 @@ function twentythirteen_entry_meta() {
 }
 endif;
 
-
-
-// Register Custom Post Type
-function custom_post_type() {
-    $labels = array(
-        'name'                => _x( 'Projects', 'Post Type General Name', 'text_domain' ),
-        'singular_name'       => _x( 'Project', 'Post Type Singular Name', 'text_domain' ),
-        'menu_name'           => __( 'Project', 'text_domain' ),
-        'parent_item_colon'   => __( 'Parent Projects:', 'text_domain' ),
-        'all_items'           => __( 'All Projects', 'text_domain' ),
-        'view_item'           => __( 'View Project', 'text_domain' ),
-        'add_new_item'        => __( 'Add New Project', 'text_domain' ),
-        'add_new'             => __( 'New Project', 'text_domain' ),
-        'edit_item'           => __( 'Edit Project', 'text_domain' ),
-        'update_item'         => __( 'Update Project', 'text_domain' ),
-        'search_items'        => __( 'Search projects', 'text_domain' ),
-        'not_found'           => __( 'No projects found', 'text_domain' ),
-        'not_found_in_trash'  => __( 'No projects found in Trash', 'text_domain' ),
-    );
-
-    $rewrite = array(
-        'slug'                => 'projects',
-        'with_front'          => true,
-        'pages'               => true,
-        'feeds'               => true,
-    );
-
-    $args = array(
-        'label'               => __( 'project', 'text_domain' ),
-        'description'         => __( 'Product information pages', 'text_domain' ),
-        'labels'              => $labels,
-        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'trackbacks', 'revisions', 'custom-fields', 'page-attributes', 'post-formats', ),
-        'taxonomies'          => array( 'category', 'post_tag' ),
-        'hierarchical'        => false,
-        'public'              => true,
-        'show_ui'             => true,
-        'show_in_menu'        => true,
-        'show_in_nav_menus'   => true,
-        'show_in_admin_bar'   => true,
-        'menu_position'       => 5,
-        'menu_icon'           => '',
-        'can_export'          => true,
-        'has_archive'         => true,
-        'exclude_from_search' => false,
-        'publicly_queryable'  => true,
-        'query_var'           => 'project',
-        'rewrite'             => $rewrite,
-        'capability_type'     => 'page',
-    );
-
-    register_post_type( 'project', $args );
-}
-
-// Add filter to ensure the text Project, or project, is displayed when a user updates a book
-add_filter('post_updated_messages', 'project_updated_messages');
-function project_updated_messages( $messages ) {
-  global $post, $post_ID;
-
-  $messages['project'] = array(
-    0 => '', // Unused. Messages start at index 1.
-    1 => sprintf( __('Project updated. <a href="%s">View project</a>'), esc_url( get_permalink($post_ID) ) ),
-    2 => __('Custom field updated.'),
-    3 => __('Custom field deleted.'),
-    4 => __('Project updated.'),
-    /* translators: %s: date and time of the revision */
-    5 => isset($_GET['revision']) ? sprintf( __('Project restored to revision from %s'), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-    6 => sprintf( __('Project published. <a href="%s">View project</a>'), esc_url( get_permalink($post_ID) ) ),
-    7 => __('Project saved.'),
-    8 => sprintf( __('Project submitted. <a target="_blank" href="%s">Preview project</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
-    9 => sprintf( __('Project scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview project</a>'),
-      // translators: Publish box date format, see http://php.net/date
-      date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),
-    10 => sprintf( __('Project draft updated. <a target="_blank" href="%s">Preview project</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
-  );
-
-  return $messages;
-}
-
-// Initialize New Taxonomy Labels
-  $labels = array(
-    'name' => _x( 'Tags', 'taxonomy general name' ),
-    'singular_name' => _x( 'Tag', 'taxonomy singular name' ),
-    'search_items' =>  __( 'Search Types' ),
-    'all_items' => __( 'All Tags' ),
-    'parent_item' => __( 'Parent Tag' ),
-    'parent_item_colon' => __( 'Parent Tag:' ),
-    'edit_item' => __( 'Edit Tags' ),
-    'update_item' => __( 'Update Tag' ),
-    'add_new_item' => __( 'Add New Tag' ),
-    'new_item_name' => __( 'New Tag Name' ),
-  );
-// Custom taxonomy for Project Tags
-register_taxonomy('tag',array('project'), array(
-    'hierarchical' => false,
-    'labels' => $labels,
-    'show_ui' => true,
-    'query_var' => true,
-    'rewrite' => array( 'slug' => 'tag' ),
-  ));
-
-
 // Adding Variable Excerpt Length
 function folio_excerpt_length($length) {
     return 80;
@@ -814,8 +713,7 @@ function folio_excerpt($length_callback='', $more_callback='') {
 }
 
 
-// Hook into the 'init' action
-add_action( 'init', 'custom_post_type', 0 );
+require_once('project-type.php');
 
 
 
