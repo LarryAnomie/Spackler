@@ -1,0 +1,250 @@
+
+/*============================================================
+Blog
+*/
+
+
+.post {
+    padding: 0 0 1em 0;
+    overflow:hidden;
+    border-bottom: 1px solid #ccc;
+    //font-size: emCalc(22);
+
+    &::first-child {
+        border-top: none;
+        padding: 0 0 20px 0;
+    }
+
+    &.post-nonstandard {
+        margin-top: 1em;
+    }
+}
+
+.single .post {
+    border: none;
+}
+
+.entry-title {
+
+    a, a:hover {
+        border: none;
+    }
+}
+
+// meta
+.entry-meta {
+    color: #666;
+    margin-bottom: emCalc(14);
+    font-size: .8em;
+
+}
+
+.featured-post {
+    display: block;
+}
+
+.date {
+    //background-color: $red;
+    background-color: darken($red, 10%);
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    padding: 10px;
+    margin-bottom: 1em;
+    float: left;
+
+    a {
+        color: #fff;
+        border: none;
+    }
+}
+.month, .day, .year {
+}
+.month {
+
+}
+.day {
+    padding: 3px;
+}
+.year {
+
+}
+
+.filter-links {
+    clear: left;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: emCalc(10);
+    font-size: .9em;
+
+    i {
+        float: left;
+        margin-right: 1px;
+        //padding: 4px 5px;
+        color: #666;
+        line-height: 1.6em;
+        display: inline-block;
+        padding: 0 4px;
+    }
+}
+
+
+.filter {
+    margin-right: 1px;
+    display: inline-block;
+
+    a {
+        padding: 4px;
+        display: block;
+        float: left;
+        background-color: $red;
+        color: #fff;
+        border: none;
+
+        &:hover {
+            background: $red;
+            border: none;
+        }
+    }
+}
+
+.tags-links {
+
+}
+
+.tag {
+
+}
+
+.entry-content {
+    clear: left;
+}
+
+
+.comments {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    float: left;
+
+    a {
+        color: #fff;
+        background-color: $red;
+        border: none;
+        display: block;
+        padding: 10px;
+
+        &:hover {
+            border: none;
+            background: $red;
+        }
+    }
+    .comments-off {
+        background: #ccc;
+        padding: 10px;
+        display: block;
+    }
+    .comments-none {
+
+    }
+    .comments-plural {
+
+    }
+}
+
+.author {
+    border: none;
+    padding: 10px;
+
+    a {
+        font-style: italic;
+    }
+}
+
+.edit-link {
+    display: block;
+    clear: left;
+}
+
+//pagination for paged content
+
+.page-links {
+    margin-bottom: 14px;
+    overflow: hidden;
+    font-family: "Oswald";
+    text-transform: uppercase;
+    font-style: italic;
+
+    .page-links-title {
+        border: none;
+        color: #444;
+    }
+
+    span {
+        display: block;
+        float: left;
+        margin-right: 10px;
+        color: #ccc;
+        padding: 2px;
+    }
+
+    a {
+        display: block;
+        float: left;
+        margin-right: 15px;
+        padding: 2px;
+        border: none;
+    }
+
+    a span {
+        display: inline;
+        float: none;
+        margin: 0;
+        border: none;
+        color: $blue;
+
+    }
+
+}
+
+.post-navigation {
+    padding: 10px;
+}
+.nav-links {
+    line-height: 1.6em;
+
+    a {
+        font-family: 'Oswald';
+        text-transform: uppercase;
+        font-style: italic;
+    }
+
+}
+.nav-previous {
+    float: left;
+}
+.nav-next {
+    float: right;
+}
+
+.featured-post {
+    background: $green;
+    padding: .5em;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Oswald";
+    text-align: center;
+
+/*     @include mq($from: tablet) {
+        float: right;
+    } */
+
+    @include respond-min(45em) {
+        float: right;
+    }
+
+            input {
+            width: 60%;
+        }
+}

@@ -1,3 +1,31 @@
+<?php
+
+    if ($_SERVER['SERVER_NAME'] == 'lawrencenaman.dev') {
+        $environment = 'local';
+    } else {
+        $environment = 'production';
+    }
+
+    $page = $_SERVER['REQUEST_URI'];
+    $arr = explode('/', $page);
+    $page = '';
+    //this handles local host and live urls
+    if ($arr[1] == 'wordpress') {
+        //on local host
+        if (!$arr[2]){
+            $page = 'home';
+        } else {
+            $page = $arr[3];
+        }
+    } else {
+        //live website
+        if (!$arr[1]){
+            $page = 'home';
+        } else {
+            $page = $arr[1];
+        }
+    };
+?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
@@ -30,57 +58,60 @@
     <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="<?php bloginfo('atom_url'); ?>" />
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Comments Feed" href="<?php bloginfo('comments_rss2_url'); ?>" />
     <link rel="shortcut icon" href="<?php echo sf_get_favicon(); ?>" title="Favicon" />
-    <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>?v=123" type="text/css" media="screen" />
+
+    <?php if ($environment == 'local') : ?>
+        <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/app/css/style.css?v=1231243" type="text/css" media="screen" />
+    <?php else : ?>
+        <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/dist/css/style.css?v=1231243" type="text/css" media="screen" />
+    <?php endif; ?>
+
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+    <script src="<?php bloginfo('template_url'); ?>/assets/app/scripts/vendor/modernizr.js"></script>
     <!--[if lte IE 6]>
         <link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection">
     <![endif]-->
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-    <script src="<?php bloginfo('template_url'); ?>/assets/js/libs/modernizr.js"></script>
     <?php wp_head(); ?>
 	<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
-	<?php
-		$page = $_SERVER['REQUEST_URI'];
-		$arr = explode('/', $page);
-		$page = '';
-		//this handles local host and live urls
-		if ($arr[1] == 'wordpress') {
-			//on local host
-		  	if (!$arr[2]){
-				$page = 'home';
-			} else {
-				$page = $arr[3];
-			}
-		} else {
-			//live website
-			if (!$arr[1]){
-				$page = 'home';
-			} else {
-				$page = $arr[1];
-			}
-		};
-    ?>
+
     </head>
 
     <body id="<?php echo $page;?>" class="<?php ln_body_class() ?>">
-        <?php require('svg.html'); ?>
-        <div id="wrapper" class="container">
 
+    <?php echo $environment; ?>
+        <div id="wrapper" class="container">
             <header class="header visible" id="header">
                 <div class="row">
                     <?php if ( is_front_page() ) { echo "<h1 id='logo' class='logo'>";} else {echo "<p id='logo' class='clearfix logo'>";} ?><a class="home-link" href="<?php bloginfo('home'); ?>">Lawrence Naman</a><?php if ( is_front_page() ) { echo "</h1>";} else {echo "</p>"; }  ?>
 
-                    <p id="nav-opener" class="nav-opener">
+                    <p id="nav-opener" class="nav-opener js-nav-opener">
                         <a href="#access"><span class="text">Menu</span><span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span></a>
                     </p>
                 </div>
             </header>
 
             <div class="overlay" id="nav-overlay">
-                <nav id="access" class="main-navigation" role="navigation">
-                    <?php wp_nav_menu( array( 'menu_id' => 'nav','container' => false, 'theme_location' => 'header-menu', 'menu_class' => 'nav-menu', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
-                </nav><!-- #site-navigation -->
+                <div class="absolute-center">
+                    <nav id="access" class="main-navigation" role="navigation">
+                        <?php wp_nav_menu( array( 'menu_id' => 'nav','container' => false, 'theme_location' => 'header-menu', 'menu_class' => 'nav-menu', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
+                    </nav><!-- #site-navigation -->
+                    <p>Say Hello...</p>
+                    <div class="social columns small-centered large-centered large-6 small-12">
+                        <a class="si-icon-twitter svg-icon-link" title="Twitter" href="https://twitter.com/LarryNaman">
+                            <span class="visuallyhidden">Twitter</span>
+                        </a>
+                        <a class="si-icon-git-hub svg-icon-link" title="GitHub" href="https://github.com/LarryAnomie">
+                            <span class="visuallyhidden">GitHub</span>
+                        </a>
+                        <a class="si-icon-instagram svg-icon-link" title="Instagram" href="http://instagram.com/larrynaman">
+                            <span class="visuallyhidden">Instagram</span>
+                        </a>
+                        <a class="si-icon-li svg-icon-link" title="LinkedIn" href="https://www.linkedin.com/in/larrynaman10101">
+                            <span class="visuallyhidden">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <section id="content" role="main" class="row">

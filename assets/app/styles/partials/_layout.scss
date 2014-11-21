@@ -1,0 +1,43 @@
+/*====================================================
+Layout
+*/
+
+html,
+body,
+#wrapper {
+    height: 100%;
+}
+body > #wrapper {
+    height: auto;
+    min-height: 100%;
+}
+body {
+    background: #fcfcfc image_url("bg.jpg") repeat;
+    overflow-x: hidden;
+    font-size: 18px;
+
+     @include respond-min(45em) {
+        font-size: 22px;
+     }
+
+}
+#wrapper {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+#main {
+    padding-bottom: 340px; /* must be same height as the footer */
+}
+#header {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    display: block;
+}
+#content {
+    padding-top: 5em;
+    margin-bottom: 1em;
+}
+#footer {
+
+}

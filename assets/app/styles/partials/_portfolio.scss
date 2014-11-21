@@ -1,0 +1,119 @@
+/*==============================================================
+Portfolio
+*/
+.portfolio {
+
+    h1 {
+        margin-top: 0;
+    }
+    .title h2 {
+        color: #444;
+    }
+}
+
+#folio {
+    list-style: none;
+    display: block;
+    padding: 0;
+    overflow: hidden;
+
+    li:nth-child(3n + 1) .back {
+        background: $purple;
+        //overflow: hidden;
+    }
+    li:nth-child(3n + 2) .back {
+        background: $green;
+        //overflow: hidden;
+        color: #fff;
+    }
+    li:nth-child(3n + 3) .back {
+        background: $blue;
+    }
+    .project-wrapper {
+-webkit-perspective:1000;
+   -moz-perspective:1000;
+    -ms-perspective:1000;
+     -o-perspective:1000;
+        perspective:1000;
+        cursor: pointer;
+
+        &.hover .project,
+        &:hover .project {
+        -webkit-transform:rotateY(180deg);
+           -moz-transform:rotateY(180deg);
+            -ms-transform:rotateY(180deg);
+             -o-transform:rotateY(180deg);
+                transform:rotateY(180deg);
+        }
+    }
+    .project,
+    .back,
+    .front {
+        width: 320px;
+        height: 199px;
+    }
+    .project {
+        -webkit-transition: 0.6s;
+        -webkit-transform-style: preserve-3d;
+        -moz-transition: 0.6s;
+        -moz-transform-style: preserve-3d;
+        -o-transition: 0.6s;
+        -o-transform-style: preserve-3d;
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        position: relative;
+
+        font-size: .65em;
+
+/*         @include mq($from: desktop) {
+
+        } */
+
+        .front,
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-backface-visibility:hidden;
+               -moz-backface-visibility:hidden;
+                -ms-backface-visibility:hidden;
+                 -o-backface-visibility:hidden;
+                    backface-visibility:hidden;
+
+        }
+
+        .front {
+            z-index: 2;
+        }
+
+        // .back starts off flipped
+        .back {
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+            -ms-transform: rotateY(180deg);
+            -o-transform:rotateY(180deg);
+            background: $orange;
+
+            a, p {
+                color: #fff;
+            }
+
+            a {
+                border-color: #fff;
+
+                &:hover {
+                    border: none;
+                }
+            }
+        }
+
+        .project-title,
+        .project-description {
+            margin-right: 10px;
+            margin-left: 10px;
+
+        }
+    }
+
+}//#folio

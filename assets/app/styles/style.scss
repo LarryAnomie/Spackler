@@ -1,0 +1,164 @@
+/*
+Theme Name: Larry3
+Theme URI: http://www.lawrencenaman.com/
+Description: My theme
+Version: 3.1
+Author: Lawrence Naman
+Author URI: http://www.lawrencenaman.com/
+*/
+
+
+/*
+=======================================================
+Contents:
+0. Foundation
+1. Base & Resets - standard, HTML5, WP, Colours
+2. Links
+3. Layout
+4. Typography
+5. Header
+6. Specific
+    6a. Home page
+    6b. Portfolio
+    6c. Blog
+7. Sidebar
+8. Footer
+9. 404
+10. Mobile
+*/
+
+
+
+
+
+// Boilerplate and WP resets
+@import "partials/resets";
+
+// our version of foundation variables
+@import "variables";
+
+// just the foundation modules we use
+@import
+  "../vendor/foundation-scss-standalone/scss/foundation/components/global",
+  "../vendor/foundation-scss-standalone/scss/foundation/components/grid",
+  "../vendor/foundation-scss-standalone/scss/foundation/components/visibility",
+  "../vendor/foundation-scss-standalone/scss/foundation/components/block-grid",
+  "../vendor/foundation-scss-standalone/scss/foundation/components/type",
+  "../vendor/foundation-scss-standalone/scss/foundation/components/tables";
+
+// Comment out this import if you are customizing you imports below
+//@import "../vendor/foundation-scss-standalone/scss/foundation";
+
+@import "partials/utils";
+
+// To enable support for browsers that do not support @media queries,
+// (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false
+// Create a separate stylesheet served exclusively to these browsers,
+// meaning @media queries will be rasterized, relying on the cascade itself
+$mq-responsive: true;
+
+// Name your breakpoints in a way that creates a ubiquitous language
+// across team members. It will improve communication between
+// stakeholders, designers, developers, and testers.
+$mq-breakpoints: (
+    (mobile  300px)
+    (tablet  768px)
+    (desktop 992px)
+    (wide    1260px)
+
+    // Tweakpoints
+    (desktopAd 810px)
+    (mobileLandscape 480px)
+);
+
+
+// Define the breakpoint from the $mq-breakpoints list that should
+// be used as the target width when outputting a static stylesheet
+// (i.e. when $mq-responsive is set to 'false').
+$mq-static-breakpoint: desktop;
+
+//@import "../bower_components/sass-mq/mq.scss";
+
+// ===================================================================================
+// Larry Styles
+
+
+// link styles
+@import "partials/links";
+
+// layout styles
+@import "partials/layout";
+
+// Typography
+@import "partials/typography";
+
+// Forms
+@import "partials/forms";
+
+.vcard {
+    border: none;
+    padding: 0;
+}
+
+/*====================================================
+Header
+*/
+@import "partials/header",
+        "partials/navigation",
+        "partials/svg";
+
+/*====================================================
+page title
+*/
+
+h1.title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/*====================================================
+Home Page
+*/
+
+@import "partials/bx-slider";
+@import "partials/portfolio";
+@import "partials/isotope";
+@import "partials/post";
+
+// content types - keep these after post for specificity
+@import "partials/content-types/quote";
+@import "partials/content-types/link";
+@import "partials/content-types/aside";
+
+@import "partials/comments";
+@import "partials/sidebar";
+@import "partials/footer";
+@import "partials/404";
+
+
+
+@media only screen and (min-width: 1382px) {
+  /* 1382 =================================================== */
+
+}
+
+/* iPhone 4, Opera Mobile 11 and other high pixel ratio devices ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+
+
+}
+
+/* iPad 3? ------------------------------------------------------------------*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (min-width: 768px) {
+
+}
+
+
+/*====================================================================
+Font Awesome
+*/
+@import "modules/font-awesome/font-awesome";
