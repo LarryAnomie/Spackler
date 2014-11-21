@@ -1,0 +1,14 @@
+{
+  "name": "Spackler",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass-official": "~3.1.0",
+    "modernizr": "~2.6.2",
+    "jquery": "~1.11.0",
+    "lodash": "~2.4.1",
+    "almond": "~0.3.0",
+    "requirejs": "~2.1.14",
+    "requirejs-text": "~2.0.12"
+  },
+  "devDependencies": {}
+}

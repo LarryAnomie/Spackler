@@ -3,33 +3,76 @@ module.exports = function(grunt) {
     // load all grunt tasks matching the `grunt-*` pattern
     require('load-grunt-tasks')(grunt);
 
+    // Time how long tasks take. Can help when optimizing build times
+    require('time-grunt')(grunt);
+
     grunt.initConfig({
+
+        // Project settings
+        config: {
+            // Configurable paths
+            app: 'assets/app',
+            dist: 'assets/dist',
+            theme: '/wp-content/themes/spackler'
+        },
 
         // watch for changes and trigger compass, jshint, uglify and livereload
         watch: {
             compass: {
-                files: ['assets/sass/**/*.{scss,sass}'],
-                tasks: ['compass']
-            },
-            js: {
-                files: 'assets/js/script.js',
-                tasks: ['jshint', 'uglify']
+                files: ['assets/app/styles/**/*.{scss,sass}'],
+                tasks: ['compass', 'autoprefixer']
             },
             livereload: {
                 options: {
                     livereload: true
                 },
-                files: ['style.css', 'assets/js/*.js', '*.html', '*.php', 'assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}']
+                files: ['style.css', 'assets/app/scripts/*.js', '*.html', '*.php', 'assets/app/i/**/*.{png,jpg,jpeg,gif,webp,svg}']
             }
         },
 
         // compass and scss
+
         compass: {
+            options: {
+                sassDir: '<%= config.app %>/styles',
+                cssDir: '<%= config.app %>/css',
+                generatedImagesDir: '.tmp/i/generated',
+                imagesDir: '<%= config.app %>/i',
+                javascriptsDir: '<%= config.app %>/scripts',
+                fontsDir: '<%= config.app %>/fonts',
+                importPath: '<%= config.app %>/bower_components',
+                httpImagesPath: '<%= config.theme %>/assets/dist/i',
+                httpGeneratedImagesPath: '/assets/i/generated',
+                httpFontsPath: '/fonts',
+                relativeAssets: false,
+                assetCacheBuster: false
+            },
             dist: {
                 options: {
-                    config: 'config.rb',
-                    force: true
+                    generatedImagesDir: '<%= config.dist %>/assets/images/generated',
+                    cssDir: '<%= config.dist %>/css',
+                    outputStyle: 'compressed'
                 }
+            },
+            server: {
+                options: {
+                    debugInfo: true
+                }
+            }
+        },
+
+        // Add vendor prefixed styles
+        autoprefixer: {
+            options: {
+                browsers: ['last 1 version']
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.dist %>/css/',
+                    src: '{,*/}*.css',
+                    dest: '<%= config.dist %>/css/'
+                }]
             }
         },
 
@@ -41,7 +84,8 @@ module.exports = function(grunt) {
             },
             all: [
                 'Gruntfile.js',
-                'assets/js/script.js'
+                '<%= config.app %>/scripts/*.js',
+                '!<%= config.app %>/scripts/require.js'
             ]
         },
 
@@ -73,15 +117,11 @@ module.exports = function(grunt) {
         // image optimization
         imagemin: {
             dist: {
-                options: {
-                    optimizationLevel: 7,
-                    progressive: true
-                },
                 files: [{
                     expand: true,
-                    cwd: 'assets/i/',
-                    src: '**/*',
-                    dest: 'assets/i/compressed'
+                    cwd: '<%= config.app %>/i/',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: '<%= config.dist %>/i/'
                 }]
             }
         },
@@ -90,13 +130,47 @@ module.exports = function(grunt) {
             social: {
                 files: [{
                     expand: true,
-                    cwd: 'assets/svg/social/src',
+                    cwd: '<%= config.app %>/i/svg/social/src',
                     src: ['*.svg', '*.png'],
-                    dest: "assets/svg/social/dist"
+                    dest: "<%= config.app %>/assets/svg/social/dist"
                 }],
                 options: {}
             }
         },
+
+        // pretty standard require set up - use almond in production
+        // removes combined files - good for Cordova apps
+        requirejs: {
+            compile: {
+                options: {
+                    removeCombined: true,
+                    include: ['main'],
+                    optimize: 'uglify',
+                    findNestedDependencies: true, // this is need because of seperate config and main files
+                    baseUrl: '<%= config.app %>/scripts/',
+                    mainConfigFile: '<%= config.app %>/scripts/require-config.js',
+                    name: '../bower_components/almond/almond', // base path is app/assets/scripts
+                    out: '<%= config.dist %>/scripts/main.js',
+                    uglify: {
+                       preserveComments: false
+                    }
+                }
+            }
+        },
+
+        cssmin: {
+            options : {
+                keepSpecialComments : 0
+            },
+            dist: {
+                files: {
+                    '<%= config.dist %>/css/style.css': [
+                        '.tmp/styles/{,*/}*.css',
+                        '<%= config.app %>/styles/{,*/}*.css'
+                    ]
+                }
+            }
+         },
 
         // deploy via rsync
         deploy: {
@@ -126,10 +200,22 @@ module.exports = function(grunt) {
     // rename tasks
     grunt.renameTask('rsync', 'deploy');
 
+    grunt.registerTask('images', ['newer:imagemin:dist']);
+
     grunt.registerTask('svg', 'grunticon:social');
 
+    grunt.registerTask('build', [
+        //'grunticon:social'
+        'jshint',
+        'compass:dist',
+        'autoprefixer',
+        'cssmin',
+        'requirejs',
+        'images'
+    ]);
+
     // register task
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', ['build']);
 
     grunt.registerTask('pagespeed', ['pagespeed']);
 
