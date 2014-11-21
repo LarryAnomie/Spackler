@@ -78,8 +78,6 @@
     </head>
 
     <body id="<?php echo $page;?>" class="<?php ln_body_class() ?>">
-
-    <?php echo $environment; ?>
         <div id="wrapper" class="container">
             <header class="header visible" id="header">
                 <div class="row">

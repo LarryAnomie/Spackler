@@ -16,8 +16,6 @@ define([
 
     'use strict';
 
-
-
     /*** helper functions ***/
 
     // from https://github.com/desandro/classie/blob/master/classie.js

@@ -132,7 +132,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: '<%= config.app %>/i/svg/social/src',
                     src: ['*.svg', '*.png'],
-                    dest: "<%= config.app %>/assets/svg/social/dist"
+                    dest: '<%= config.app %>/assets/svg/social/dist'
                 }],
                 options: {}
             }
@@ -151,6 +151,7 @@ module.exports = function(grunt) {
                     mainConfigFile: '<%= config.app %>/scripts/require-config.js',
                     name: '../bower_components/almond/almond', // base path is app/assets/scripts
                     out: '<%= config.dist %>/scripts/main.js',
+                    preserveLicenseComments: false,
                     uglify: {
                        preserveComments: false
                     }
@@ -177,7 +178,17 @@ module.exports = function(grunt) {
             options: {
                 src: './',
                 args: ['--verbose'],
-                exclude: ['.git*', 'node_modules', '.sass-cache', 'Gruntfile.js', 'package.json', '.DS_Store', 'README.md', 'config.rb', '.jshintrc'],
+                exclude: [
+                    '.git*',
+                    'node_modules',
+                    '.sass-cache',
+                    'Gruntfile.js',
+                    'package.json',
+                    '.DS_Store',
+                    'README.md',
+                    'config.rb',
+                    '.jshintrc'
+                ],
                 recursive: true,
                 syncDestIgnoreExcl: true
             },
