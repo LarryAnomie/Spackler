@@ -126,7 +126,7 @@ module.exports = function(grunt) {
             }
         },
 
-        grunticon: {
+/*        grunticon: {
             social: {
                 files: [{
                     expand: true,
@@ -136,7 +136,7 @@ module.exports = function(grunt) {
                 }],
                 options: {}
             }
-        },
+        },*/
 
         // pretty standard require set up - use almond in production
         // removes combined files - good for Cordova apps
@@ -171,7 +171,22 @@ module.exports = function(grunt) {
                     ]
                 }
             }
-         },
+        },
+
+        // Copies remaining files to places other tasks can use
+        copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= config.app %>',
+                    dest: '<%= config.dist %>',
+                    src: [
+                        'fonts/{,*/}*.*',
+                    ]
+                }]
+            }
+        },
 
         // deploy via rsync
         deploy: {
@@ -222,7 +237,8 @@ module.exports = function(grunt) {
         'autoprefixer',
         'cssmin',
         'requirejs',
-        'images'
+        'images',
+        'copy'
     ]);
 
     // register task
