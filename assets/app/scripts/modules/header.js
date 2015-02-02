@@ -11,24 +11,29 @@ define([
 
     'use strict';
 
-    var Header = function($header) {
+    var Header = function($el) {
 
         if ( !(this instanceof Header) ) {
-            return new Header( $header );
+            return new Header( $el );
         }
-
-        this.$el = $header;
+        this.$el = $el;
+        this.$body = $('body');
         this.window = window;
         this.$window = $(window);
 
-        this.$nav = $('#nav-overlay');
-        this.$navToggle = this.$el.find('.nav-opener');
+        this.$nav = $('.js-nav-overlay');
+        this.$navToggle = this.$el.find('.js-nav-opener');
 
         this.ticking = false;
         this.latestKnownScrollY = 0;
         this.previousY = 0;
         this.HEADER_HEIGHT = 82;
 
+        this.noScrollClass = 'no-scroll';
+        this.expandedClass = 'nav-overlay--expanded';
+        this.hiddenClass = 'header--hidden';
+        this.visibleClass = 'header--visible';
+        this.activeClass = 'header--active';
         this.hamburgerIcon = new svgIcon(this.$el.find('.si-icon-hamburger-cross')[0], svgIconConfig, {
                 //easing: mina.backin
         });
@@ -60,14 +65,14 @@ define([
         // capture the next onScroll
         this.ticking = false;
 
-        if (!this.$el.hasClass('show')) {
+        if (!this.$nav.hasClass(this.expandedClass)) {
 
             if (this.latestKnownScrollY > this.HEADER_HEIGHT) {
 
                 if (this.latestKnownScrollY < this.previousY) {
-                    this.$el.removeClass('header-hidden').addClass('visible');
+                    this.$el.removeClass(this.hiddenClass).addClass(this.visibleClass);
                 } else {
-                    this.$el.removeClass('visible').addClass('header-hidden');
+                    this.$el.removeClass(this.visibleClass).addClass(this.hiddenClass);
                 }
             }
 
@@ -92,12 +97,13 @@ define([
 
         e.preventDefault();
 
-        this.$el.toggleClass('active');
+        this.$el.toggleClass(this.activeClass);
+        this.$body.toggleClass( this.noScrollClass );
 
         this.hamburgerIcon.toggle(true);
 
-        this.$nav.toggleClass('show');
-        this.$navToggle.toggleClass('active');
+        this.$nav.toggleClass(this.expandedClass);
+
     };
 
 

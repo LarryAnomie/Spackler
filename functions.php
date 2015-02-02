@@ -15,7 +15,10 @@
  *
  * @return void
  */
-function ln_setup() {
+
+//require_once locate_template('/inc/extras.php');           // Utility functions
+
+function spackler_setup() {
     /*
      * Makes Twenty Thirteen available for translation.
      *
@@ -57,19 +60,21 @@ function ln_setup() {
 
     // This theme uses its own gallery styles.
     add_filter( 'use_default_gallery_style', '__return_false' );
+
+    add_filter('show_admin_bar', '__return_false');
 }
-add_action( 'after_setup_theme', 'ln_setup' );
+add_action( 'after_setup_theme', 'spackler_setup' );
 
 
 // Generates semantic classes for BODY element
-function ln_body_class( $print = true ) {
+function spackler_body_class( $print = true ) {
     global $wp_query, $current_user;
 
     // It's surely a WordPress blog, right?
     $c = array('wp');
 
     // Applies the time- and date-based classes (below) to BODY element
-    ln_date_classes( time(), $c );
+    spackler_date_classes( time(), $c );
 
     // Generic semantic classes for what type of content is displayed
     is_front_page()  ? $c[] = 'home'       : null; // For the front page, if set
@@ -91,7 +96,7 @@ function ln_body_class( $print = true ) {
 
         // Adds classes for the month, day, and hour when the post was published
         if ( isset( $wp_query->post->post_date ) )
-            ln_date_classes( mysql2date( 'U', $wp_query->post->post_date ), $c, 's-' );
+            spackler_date_classes( mysql2date( 'U', $wp_query->post->post_date ), $c, 's-' );
 
         // Adds category classes for each category on single posts
         if ( $cats = get_the_category() )
@@ -195,12 +200,17 @@ function ln_body_class( $print = true ) {
     return $print ? print($c) : $c;
 }
 
-// Generates semantic classes for each post DIV element
-function ln_post_class( $print = true ) {
-    global $post, $sandbox_post_alt;
+/**
+ * spackler_post_class Generates semantic classes for each post DIV element
+ * @param  String  $classes String of optional classes to add to post
+ * @param  boolean $print   whether to print classes
+ * @return [type]           [description]
+ */
+function spackler_post_class($classes = '', $print = true) {
+    global $post, $spackler_post_alt;
 
     // hentry for hAtom compliace, gets 'alt' for every other post DIV, describes the post type and p[n]
-    $c = array( 'hentry', "p$sandbox_post_alt", $post->post_type, $post->post_status );
+    $c = array( 'hentry', "p$spackler_post_alt", $post->post_type, $classes, $post->post_status );
 
     // Author for the post queried
     $c[] = 'author-' . sanitize_title_with_dashes(strtolower(get_the_author('login')));
@@ -222,10 +232,10 @@ function ln_post_class( $print = true ) {
         $c[] = 'protected';
 
     // Applies the time- and date-based classes (below) to post DIV
-    ln_date_classes( mysql2date( 'U', $post->post_date ), $c );
+    spackler_date_classes( mysql2date( 'U', $post->post_date ), $c );
 
     // If it's the other to the every, then add 'alt' class
-    if ( ++$sandbox_post_alt % 2 )
+    if ( ++$spackler_post_alt % 2 )
         $c[] = 'alt';
 
     // Separates classes with a single space, collates classes for post DIV
@@ -235,11 +245,9 @@ function ln_post_class( $print = true ) {
     return $print ? print($c) : $c;
 }
 
-// Define the num val for 'alt' classes (in post DIV and comment LI)
-$sandbox_post_alt = 1;
 
 // Generates semantic classes for each comment LI element
-function ln_comment_class( $print = true ) {
+function spackler_comment_class( $print = true ) {
     global $comment, $post, $sandbox_comment_alt;
 
     // Collects the comment type (comment, trackback),
@@ -263,7 +271,7 @@ function ln_comment_class( $print = true ) {
     }
 
     // If it's the other to the every, then add 'alt' class; collects time- and date-based classes
-    ln_date_classes( mysql2date( 'U', $comment->comment_date ), $c, 'c-' );
+    spackler_date_classes( mysql2date( 'U', $comment->comment_date ), $c, 'c-' );
     if ( ++$sandbox_comment_alt % 2 )
         $c[] = 'alt';
 
@@ -275,7 +283,7 @@ function ln_comment_class( $print = true ) {
 }
 
 // Generates time- and date-based classes for BODY, post DIVs, and comment LIs; relative to GMT (UTC)
-function ln_date_classes( $t, &$c, $p = '' ) {
+function spackler_date_classes( $t, &$c, $p = '' ) {
     $t = $t + ( get_option('gmt_offset') * 3600 );
     $c[] = $p . 'y' . gmdate( 'Y', $t ); // Year
     $c[] = $p . 'm' . gmdate( 'm', $t ); // Month
@@ -307,220 +315,73 @@ add_filter( 'archive_meta', 'convert_smilies' );
 add_filter( 'archive_meta', 'convert_chars' );
 add_filter( 'archive_meta', 'wpautop' );
 
-// end sandbox
-
-//begin simple folio
 
 
-    /* Register Widgets */
-        if ( function_exists('register_sidebar') ) {
-            register_sidebar(array(
-                'name' => 'Sidebar Widget',
-                'before_widget' => '<div class="widget %2$s">',
-                'after_widget' => '</div>',
-                'before_title' => '<h3>',
-                'after_title' => '</h3>',
-            ));
-            register_sidebar(array(
-                'name' => 'Home Widget',
-                'before_widget' => '<div class="columns small-12 large-4 widget %2$s">',
-                'after_widget' => '</div>',
-                'before_title' => '<h3>',
-                'after_title' => '</h3>',
-            ));
-        }
+/* Function To Limit Output Of Content.*/
+function the_content_limit($max_char, $more_link_text = '(more...)', $stripteaser = 0, $more_file = '') {
+    $content = get_the_content($more_link_text, $stripteaser, $more_file);
+    $content = apply_filters('the_content', $content);
+    $content = str_replace(']]>', ']]&gt;', $content);
+    $content = strip_tags($content);
 
-    /* Un-Register WP-PageNavi Style Page Include */
-        function my_deregister_styles() {
-            wp_deregister_style('wp-pagenavi');
-        }
-        add_action('wp_print_styles','my_deregister_styles',100);
-
-    /* Function To Limit Output Of Content.*/
-        function the_content_limit($max_char, $more_link_text = '(more...)', $stripteaser = 0, $more_file = '') {
-            $content = get_the_content($more_link_text, $stripteaser, $more_file);
-            $content = apply_filters('the_content', $content);
-            $content = str_replace(']]>', ']]&gt;', $content);
-            $content = strip_tags($content);
-
-           if (strlen($_GET['p']) > 0) {
-              echo $content;
-           }
-           else if ((strlen($content)>$max_char) && ($espacio = strpos($content, " ", $max_char ))) {
-                $content = substr($content, 0, $espacio);
-                $content = $content;
-                echo $content;
-                echo "...";
-           }
-           else {
-              echo $content;
-           }
-        }
-
-    /* Exclude Portfolio Category & Child Categories From Blog Posts */
-        function sf_portfolio_filter($query) {
-            global $wpdb;
-            if(!is_archive() && !is_admin() && !is_single()){
-                $category = sf_get_category_id(get_option('sf_portfolio_category'));
-                if (!empty($category) && get_option('sf_portfolio_exclude')) {
-                    $array = array($category => $category);
-                    $array2 = array();
-                    $categories = get_categories('child_of='.$category);
-                    foreach($categories as $k) {
-                        $array2[$k->term_id] = $k->term_id;
-                    }
-                    $array2 = array_merge($array,$array2);
-                    $query = sf_portfolio_remove_category($query,$array2);
-                }
-            }
-            return $query;
-        }
-        function sf_portfolio_remove_category($query,$category){
-            $cat = $query->get('category__in');
-            $cat2 = array_merge($query->get('category__not_in'),$category);
-            if($cat && $cat2){
-                foreach($cat2 as $k=>$c){
-                    if(in_array($c,$cat)){
-                        unset($cat2[$k]);
-                    }
-                }
-            }
-            $query->set('category__not_in',$cat2);
-
-            return $query;
-        }
-        add_filter('pre_get_posts', 'sf_portfolio_filter');
-
-    /* Exclude Portfolio Category & Child Categories From Category List And Dropdown Widget */
-        function sf_category_filter($args) {
-            $category = sf_get_category_id(get_option('sf_portfolio_category'));
-            if (!empty($category) && get_option('sf_portfolio_exclude')) {
-                $myarray = array(
-                        'exclude'    => $category,
-                        'exclude_tree'    => $category,
-                        );
-                $args = array_merge($args, $myarray);
-            }
-            return $args;
-        }
-        add_filter('widget_categories_args', 'sf_category_filter');
-        add_filter('widget_categories_dropdown_args', 'sf_category_filter');
-
-    /* Generate a list of child categories of the portfolio category for filtering on the portfolio items by category */
-        function sf_list_portfolio_child_categories($topcat,$active,$pagepermalink) {
-            $categories = get_categories('child_of='.$topcat);
-            if (hasQuestionMark($pagepermalink)) {
-                $pagepermlinkadd = $pagepermalink."&";
-            }
-            else {
-                $pagepermlinkadd = $pagepermalink."?";
-            }
-            $array2 = array();
-            foreach($categories as $k) {
-                $array2[$k->term_id] = $k->name;
-            }
-            foreach ($array2 as $x => $y) {
-                if ($x == $active) { $addtoclass = " class=\"active\""; }
-                echo "<li".$addtoclass."><a href=\"".$pagepermlinkadd."pcat=".$x."\">".$y."</a></li>";
-                unset($addtoclass);
-            }
-        }
-
-    /* Go threw a string to see if it contains a certain character */
-        function hasQuestionMark($string) {
-            $length = strlen($string);
-            for($i = 0; $i < $length; $i++) {
-                $char = $string[$i];
-                if($char == '?') { return true; }
-            }
-            return false;
-        }
-
-    /* Get the Category ID */
-        function sf_get_category_id($cat_name) {
-            $categories = get_categories();
-            foreach($categories as $category){ //loop through categories
-                if($category->name == $cat_name){
-                    $cat_id = $category->term_id;
-                    break;
-                }
-            }
-            if (empty($cat_id)) { return 0; }
-            return $cat_id;
-        }
-
-    /**
-     * Tests if any of a post's assigned categories are descendants of target categories
-     *
-     * @param int|array $cats The target categories. Integer ID or array of integer IDs
-     * @param int|object $_post The post. Omit to test the current post in the Loop or main query
-     * @return bool True if at least 1 of the post's categories is a descendant of any of the target categories
-     * @see get_term_by() You can get a category by name or slug, then pass ID to this function
-     * @uses get_term_children() Passes $cats
-     * @uses in_category() Passes $_post (can be empty)
-     * @version 2.7
-     * @link http://codex.wordpress.org/Function_Reference/in_category#Testing_if_a_post_is_in_a_descendant_category
-     */
-        function post_is_in_descendant_category( $cats, $_post = null ) {
-            foreach ( (array) $cats as $cat ) {
-                // get_term_children() accepts integer ID only
-                $descendants = get_term_children( (int) $cat, 'category');
-                if ( $descendants && in_category( $descendants, $_post ) )
-                    return true;
-            }
-            return false;
-        }
-
-    /* Generate Custom Logo & Favicon */
-        function sf_get_logo() {
-            $default_logo = get_bloginfo('template_directory')."/images/logo.png";
-            $custom_logo = get_option('sf_basic_logo');
-            $logo = (empty($custom_logo)) ? $default_logo : $custom_logo;
-            return $logo;
-        }
-        function sf_get_favicon() {
-            $default_favicon = get_bloginfo('template_directory')."/images/favicon.ico";
-            $custom_favicon = get_option('sf_basic_favicon');
-            $favicon = (empty($custom_favicon)) ? $default_favicon : $custom_favicon;
-            return $favicon;
-        }
-
-    /* Include Admin Option Panel File */
-        include(TEMPLATEPATH . "/admin/index.php");
-
-    /* RSS Custom Widget */
-        function sf_rss_widget($args) {
-            extract($args);
-            ?>
-                        <div class="widget widget_rssfeed">
-                            <ul>
-                                <?php if (get_option('sf_feedburner')): ?> <li class="rss"><a href="<?php echo "http://feeds2.feedburner.com/".get_option('sf_feedburner'); ?>">Subscribe to RSS Feed</a></li>
-                                <?php else: ?> <li class="rss"><a href="<?php bloginfo('rss2_url'); ?>">Subscribe to RSS Feed</a></li> <?php endif; ?>
-
-                                <?php if (get_option('sf_email') && get_option('sf_feedburner')) { ?><li class="email"><a href="http://feedburner.google.com/fb/a/mailverify?uri=<?php echo get_option('sf_feedburner'); ?>&amp;loc=en_US">Subscribe by Email</a></li> <?php } ?>
-                                <?php if (get_option('sf_twitter')) { ?><li class="twitter"><a href="<?php echo "http://twitter.com/".get_option('sf_twitter'); ?>">Follow me on Twitter</a></li> <?php } ?>
-                            </ul>
-                        </div>
-            <?php
-        }
-        function sf_widgets() {
-            register_sidebar_widget('RSS Feed Subscribe', 'sf_rss_widget');
-        }
-        add_action('widgets_init','sf_widgets');
+   if (strlen($_GET['p']) > 0) {
+      echo $content;
+   }
+   else if ((strlen($content)>$max_char) && ($espacio = strpos($content, " ", $max_char ))) {
+        $content = substr($content, 0, $espacio);
+        $content = $content;
+        echo $content;
+        echo "...";
+   }
+   else {
+      echo $content;
+   }
+}
 
 
-if ( ! function_exists( 'twentythirteen_entry_date' ) ) :
+/**
+* Tests if any of a post's assigned categories are descendants of target categories
+*
+* @param int|array $cats The target categories. Integer ID or array of integer IDs
+* @param int|object $_post The post. Omit to test the current post in the Loop or main query
+* @return bool True if at least 1 of the post's categories is a descendant of any of the target categories
+* @see get_term_by() You can get a category by name or slug, then pass ID to this function
+* @uses get_term_children() Passes $cats
+* @uses in_category() Passes $_post (can be empty)
+* @version 2.7
+* @link http://codex.wordpress.org/Function_Reference/in_category#Testing_if_a_post_is_in_a_descendant_category
+*/
+function post_is_in_descendant_category( $cats, $_post = null ) {
+    foreach ( (array) $cats as $cat ) {
+        // get_term_children() accepts integer ID only
+        $descendants = get_term_children( (int) $cat, 'category');
+        if ( $descendants && in_category( $descendants, $_post ) )
+            return true;
+    }
+    return false;
+}
+
+
+function spackler_get_favicon() {
+    $default_favicon = get_bloginfo('template_directory')."/images/favicon.ico";
+    $custom_favicon = get_option('sf_basic_favicon');
+    $favicon = (empty($custom_favicon)) ? $default_favicon : $custom_favicon;
+    return $favicon;
+}
+
+
+if ( ! function_exists( 'spackler_entry_date' ) ) :
 /**
  * Prints HTML with date information for current post.
  *
- * Create your own twentythirteen_entry_date() to override in a child theme.
+ * Create your own spackler_entry_date() to override in a child theme.
  *
  * @since Twenty Thirteen 1.0
  *
  * @param boolean $echo Whether to echo the date. Default true.
  * @return string
  */
-function twentythirteen_entry_date( $echo = true ) {
+function spackler_entry_date( $echo = true ) {
     $format_prefix = ( has_post_format( 'chat' ) || has_post_format( 'status' ) ) ? _x( '%1$s on %2$s', '1: post format name. 2: date', 'twentythirteen' ): '%2$s';
 
     $date = sprintf( '<div class="date"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a></div>',
@@ -537,7 +398,7 @@ function twentythirteen_entry_date( $echo = true ) {
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_get_first_url' ) ) :
+if ( ! function_exists( 'spackler_get_first_url' ) ) :
 /**
  * Return the URL for the first link in the post content or the permalink if no
  * URL is found.
@@ -545,7 +406,7 @@ if ( ! function_exists( 'twentythirteen_get_first_url' ) ) :
  * @since Twenty Thirteen 1.0
  * @return string URL
  */
-function twentythirteen_get_first_url() {
+function spackler_get_first_url() {
     $has_url = preg_match( '/<a\s[^>]*?href=[\'"](.+?)[\'"]/is', get_the_content(), $match );
     $link    = ( $has_url ) ? $match[1] : apply_filters( 'the_permalink', get_permalink() );
 
@@ -553,7 +414,7 @@ function twentythirteen_get_first_url() {
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_featured_gallery' ) ) :
+if ( ! function_exists( 'spackler_featured_gallery' ) ) :
 /**
  * Displays first gallery from post content. Changes image size from thumbnail
  * to large, to display a larger first image.
@@ -562,7 +423,7 @@ if ( ! function_exists( 'twentythirteen_featured_gallery' ) ) :
  *
  * @return void
  */
-function twentythirteen_featured_gallery() {
+function spackler_featured_gallery() {
     $pattern = get_shortcode_regex();
 
     if ( preg_match( "/$pattern/s", get_the_content(), $match ) ) {
@@ -576,7 +437,7 @@ function twentythirteen_featured_gallery() {
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_post_nav' ) ) :
+if ( ! function_exists( 'spackler_post_nav' ) ) :
 /**
  * Displays navigation to next/previous post when applicable.
 *
@@ -584,7 +445,7 @@ if ( ! function_exists( 'twentythirteen_post_nav' ) ) :
 *
 * @return void
 */
-function twentythirteen_post_nav() {
+function spackler_post_nav() {
     global $post;
 
     // Don't print empty markup if there's nowhere to navigate.
@@ -607,7 +468,7 @@ function twentythirteen_post_nav() {
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_paging_nav' ) ) :
+if ( ! function_exists( 'spackler_paging_nav' ) ) :
 /**
  * Displays navigation to next/previous set of posts when applicable.
  *
@@ -615,7 +476,7 @@ if ( ! function_exists( 'twentythirteen_paging_nav' ) ) :
  *
  * @return void
  */
-function twentythirteen_paging_nav() {
+function spackler_paging_nav() {
     global $wp_query;
 
     // Don't print empty markup if there's only one page.
@@ -640,81 +501,58 @@ function twentythirteen_paging_nav() {
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_entry_meta' ) ) :
+if ( ! function_exists( 'spackler_entry_meta' ) ) :
 /**
  * Prints HTML with meta information for current post: categories, tags, permalink, author, and date.
  *
- * Create your own twentythirteen_entry_meta() to override in a child theme.
+ * Create your own spackler_entry_meta() to override in a child theme.
  *
  * @since Twenty Thirteen 1.0
  *
  * @return void
  */
-function twentythirteen_entry_meta() {
+function spackler_entry_meta() {
 
     if ( is_sticky() && is_home() && ! is_paged() ) {
-        echo '<div class="featured-post"><span>' . __( 'Featured Post', 'twentythirteen' ) . '</span></div>';
+        echo '<div class="post__featured"><span>' . __( 'Featured Post', 'twentythirteen' ) . '</span></div>';
     }
 
     if ( ! has_post_format( 'aside' ) && ! has_post_format( 'link' ) && 'post' == get_post_type() ) {
-        twentythirteen_entry_date();
+        spackler_entry_date();
 
-            echo '<div class="comments">';
-            comments_popup_link('<span class=\'comments-none\'>No comments</span>', '<span class=\'comments-1\'>1 comment</span>', '<span class=\'comments-plural\'>% comments</span>', '', '<span class=\'comments-off\'>Comments Off</span>' );
-            echo '</div>';
+        echo '<div class="post__comments-count">';
+        comments_popup_link('<span class=\'comments-none\'>No comments</span>', '<span class=\'comments-1\'>1 comment</span>', '<span class=\'comments-plural\'>% comments</span>', '', '<span class=\'comments-off\'>Comments Off</span>' );
+        echo '</div>';
     }
 
     // Post author
-    if ( 'post' == get_post_type() ) {
-        printf( '<div class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></div>',
+/*    if ( 'post' == get_post_type() ) {
+        printf( '<div class="post__author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></div>',
             esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-            esc_attr( sprintf( __( 'View all posts by %s', 'twentythirteen' ), get_the_author() ) ),
+            esc_attr( sprintf( __( 'View all posts by %s', 'spackler' ), get_the_author() ) ),
             get_the_author()
         );
-    }
+    }*/
 
     // Translators: used between list items, there is a space after the comma.
     $categories_list = get_the_category_list( __( '</span><span class="category filter"> ', 'twentythirteen' ) );
 
     if ( $categories_list ) {
-        echo '<div class="categories-links filter-links clearfix"><i class="icon-folder-open"></i><span class="filter category">' . $categories_list . '</span></div>';
+        echo '<div class="categories-links filter-links clearfix"><span class="si-icon si-icon-small si-icon-folder"></span><span class="filter category">' . $categories_list . '</span></div>';
     }
 
+    $tag_icon = '<span class="si-icon si-icon-small si-icon-tags"></span>';
+
     // Translators: used between list items, there is a space after the comma.
-    $tag_list = get_the_tag_list( '', __( '</span><span class="tag filter">', 'twentythirteen' ) );
+    $tag_list = get_the_tag_list( '', __( '</span><span class="tag filter">', 'spackler' ) );
+
     if ( $tag_list ) {
-        echo '<div class="tags-links filter-links clearfix"><i class="icon-tag"></i><span class="tag filter">' . $tag_list . '</span></div>';
+        echo '<div class="tags-links filter-links clearfix">' . $tag_icon . '<span class="tag filter">' . $tag_list . '</span></div>';
     }
 
 
 }
 endif;
-
-// Adding Variable Excerpt Length
-function folio_excerpt_length($length) {
-    return 80;
-}
-function folio_excerpt_more($more) {
-    return ' ... <span class="excerpt_more"><a href="'.get_permalink().'">Read more</a></span>';
-}
-function folio_excerpt($length_callback='', $more_callback='') {
-    global $post;
-    if(function_exists($length_callback)){
-        add_filter('excerpt_length', $length_callback);
-    }
-    if(function_exists($more_callback)){
-        add_filter('excerpt_more', $more_callback);
-    }
-    $output = get_the_excerpt();
-    $output = apply_filters('wptexturize', $output);
-    $output = apply_filters('convert_chars', $output);
-    $output = '<p>'.$output.'</p>';
-    echo $output;
-}
-
-
-require_once('project-type.php');
-
 
 
 function register_my_menus() {
@@ -729,4 +567,34 @@ function register_my_menus() {
 add_action( 'init', 'register_my_menus' );
 
 
+function spackler_social_links() {
 ?>
+    <div class="share">
+        <h2 class="share__title">Share</h2>
+        <ul class="share__btns">
+          <li>
+            <a class="icon-fallback-text share__btn share__btn--facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>&amp;t=<?php echo get_the_title(); ?>" target="_blank" title="Share on Facebook">
+              <span class="si-icon si-icon-fb si-icon-medium"></span>
+              <span class="visuallyhidden">Facebook</span>
+            </a>
+          </li>
+          <li>
+            <a class="icon-fallback-text share__btn share__btn--twitter" href="https://twitter.com/intent/tweet?source=<?php echo get_permalink(); ?>&amp;text=<?php echo get_the_title(); ?>:<?php echo get_permalink(); ?>" target="_blank" title="Tweet">
+              <span class="si-icon si-icon-twitter-bird si-icon-medium"></span>
+              <span class="visuallyhidden">Twitter</span>
+            </a>
+          </li>
+          <li>
+            <a class="icon-fallback-text share__btn share__btn--google" href="https://plus.google.com/share?url=<?php echo get_permalink(); ?>" target="_blank" title="Share on Google+">
+              <span class="si-icon si-icon-google si-icon-medium" aria-hidden="true"></span>
+              <span class="visuallyhidden">Google+</span>
+            </a></li>
+        </ul>
+      </div>
+<?php
+}
+
+
+require_once('inc/project-type.php');       // cutom post type for projects
+require_once('inc/extras.php');             // Utility functions
+

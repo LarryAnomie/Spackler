@@ -45,7 +45,7 @@ get_header(); ?>
             </li>
         <?php endwhile; ?>
         </ul>
-        <?php twentythirteen_paging_nav(); ?>
+        <?php spackler_paging_nav(); ?>
 
     <?php else : ?>
         <?php get_template_part( 'content', 'none' ); ?>

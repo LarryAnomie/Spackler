@@ -1,0 +1,21 @@
+.share {
+
+}
+
+.share__btns {
+
+    li {
+        display: inline-block;
+        float: left;
+        margin-right: 15px;
+    }
+}
+
+.share__btn {
+    border: none;
+    display: inline-block;
+
+    &:hover {
+        border: none;
+    }
+}

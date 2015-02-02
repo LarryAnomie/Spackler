@@ -10,5 +10,7 @@
     "requirejs": "~2.1.14",
     "requirejs-text": "~2.0.12"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "snap.svg": "~0.3.0"
+  }
 }

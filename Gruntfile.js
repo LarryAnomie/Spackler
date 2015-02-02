@@ -6,6 +6,8 @@ module.exports = function(grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
+    grunt.loadNpmTasks('grunt-rev');
+
     grunt.initConfig({
 
         // Project settings
@@ -13,14 +15,14 @@ module.exports = function(grunt) {
             // Configurable paths
             app: 'assets/app',
             dist: 'assets/dist',
-            theme: '/wp-content/themes/spackler'
+            theme: ''
         },
 
-        // watch for changes and trigger compass, jshint, uglify and livereload
+        //
         watch: {
-            compass: {
+            sass: {
                 files: ['assets/app/styles/**/*.{scss,sass}'],
-                tasks: ['compass', 'autoprefixer']
+                tasks: ['sass', 'autoprefixer']
             },
             livereload: {
                 options: {
@@ -30,33 +32,14 @@ module.exports = function(grunt) {
             }
         },
 
-        // compass and scss
-
-        compass: {
+        sass: {
             options: {
-                sassDir: '<%= config.app %>/styles',
-                cssDir: '<%= config.app %>/css',
-                generatedImagesDir: '.tmp/i/generated',
-                imagesDir: '<%= config.app %>/i',
-                javascriptsDir: '<%= config.app %>/scripts',
-                fontsDir: '<%= config.app %>/fonts',
-                importPath: '<%= config.app %>/bower_components',
-                httpImagesPath: '<%= config.theme %>/assets/dist/i',
-                httpGeneratedImagesPath: '/assets/i/generated',
-                httpFontsPath: '/fonts',
-                relativeAssets: false,
-                assetCacheBuster: false
+                sourceMap: true,
+                imagePath : '<%= config.app %>/i'
             },
             dist: {
-                options: {
-                    generatedImagesDir: '<%= config.dist %>/assets/images/generated',
-                    cssDir: '<%= config.dist %>/css',
-                    outputStyle: 'compressed'
-                }
-            },
-            server: {
-                options: {
-                    debugInfo: true
+                files: {
+                    '<%= config.app %>/css/style.css': '<%= config.app %>/styles/style.scss'
                 }
             }
         },
@@ -69,12 +52,61 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= config.dist %>/css/',
+                    cwd: '<%= config.app %>/css/',
                     src: '{,*/}*.css',
-                    dest: '<%= config.dist %>/css/'
+                    dest: '<%= config.app %>/css/'
                 }]
             }
         },
+
+        // creates a minified css file in dist dir
+        cssmin: {
+
+            dist1: {
+                files: {
+                    '<%= config.app %>/css/style.min.css': [
+                        '<%= config.app %>/styles/style.css'
+                    ]
+                }
+            },
+            production: {
+                expand: true,
+                cwd: '<%= config.app %>/css',
+                src: ['*.css'],
+                dest: '<%= config.dist %>/css'
+              }
+        },
+
+        // Copies remaining files to places other tasks can use
+        copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= config.app %>',
+                    dest: '<%= config.dist %>',
+                    src: [
+                        'fonts/{,*/}*.*',
+                        'scripts/vendor/modernizr.js'
+                    ]
+                }]
+            }
+        },
+
+        // Empties folders to start fresh
+        clean: {
+            dist: {
+                files: [{
+                    dot: true,
+                    src: [
+                        '.tmp',
+                        '<%= config.dist %>/*',
+                        '!<%= config.dist %>/.git*'
+                    ]
+                }]
+            }
+        },
+
 
         // javascript linting with jshint
         jshint: {
@@ -97,18 +129,15 @@ module.exports = function(grunt) {
             }
         },
 
-        // uglify to concat, minify, and make source maps
+        // uglify modernizr
         uglify: {
             main: {
                 options: {
-                    sourceMap: 'assets/js/script.js.map',
-                    sourceMappingURL: 'script.js.map',
-                    sourceMapPrefix: 2
+
                 },
                 files: {
-                    'assets/js/dist/script.min.js': [
-                        'assets/js/script.js' //,
-                        // 'assets/js/vendor/yourplugin/yourplugin.js',
+                    '<%= config.dist %>/scripts/vendor/modernizr.js': [
+                        '<%= config.app %>/scripts/vendor/modernizr.js'
                     ]
                 }
             }
@@ -126,7 +155,7 @@ module.exports = function(grunt) {
             }
         },
 
-/*        grunticon: {
+        grunticon: {
             social: {
                 files: [{
                     expand: true,
@@ -136,7 +165,7 @@ module.exports = function(grunt) {
                 }],
                 options: {}
             }
-        },*/
+        },
 
         // pretty standard require set up - use almond in production
         // removes combined files - good for Cordova apps
@@ -159,65 +188,24 @@ module.exports = function(grunt) {
             }
         },
 
-        cssmin: {
-            options : {
-                keepSpecialComments : 0
-            },
-            dist: {
-                files: {
-                    '<%= config.dist %>/css/style.css': [
-                        '.tmp/styles/{,*/}*.css',
-                        '<%= config.app %>/styles/{,*/}*.css'
-                    ]
-                }
-            }
-        },
 
-        // Copies remaining files to places other tasks can use
-        copy: {
-            dist: {
+
+        wpRev: {
+            options: {
+                encoding: 'utf8',
+                algorithm: 'md5',
+                length: 8,
+                file: 'header.php'
+            },
+            assets: {
                 files: [{
-                    expand: true,
-                    dot: true,
-                    cwd: '<%= config.app %>',
-                    dest: '<%= config.dist %>',
                     src: [
-                        'fonts/{,*/}*.*',
+                        'scripts/{,*/}*.js',
+                        'assets/app/css/{,*/}*.css',
+                        'img/**/*.{jpg,jpeg,gif,png}',
+                        'fonts/**/*.{eot,svg,ttf,woff}'
                     ]
                 }]
-            }
-        },
-
-        // deploy via rsync
-        deploy: {
-            options: {
-                src: './',
-                args: ['--verbose'],
-                exclude: [
-                    '.git*',
-                    'node_modules',
-                    '.sass-cache',
-                    'Gruntfile.js',
-                    'package.json',
-                    '.DS_Store',
-                    'README.md',
-                    'config.rb',
-                    '.jshintrc'
-                ],
-                recursive: true,
-                syncDestIgnoreExcl: true
-            },
-            staging: {
-                options: {
-                    dest: '~/path/to/theme',
-                    host: 'user@host.com'
-                }
-            },
-            production: {
-                options: {
-                    dest: '~/path/to/theme',
-                    host: 'user@host.com'
-                }
             }
         }
 
@@ -232,17 +220,21 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         //'grunticon:social'
+        'clean',
         'jshint',
-        'compass:dist',
+        'sass',
         'autoprefixer',
-        'cssmin',
+        'cssmin:production',
         'requirejs',
         'images',
-        'copy'
+        'copy',
+        'uglify'
     ]);
 
     // register task
     grunt.registerTask('default', ['build']);
+
+    grunt.registerTask('dev', ['watch']);
 
     grunt.registerTask('pagespeed', ['pagespeed']);
 

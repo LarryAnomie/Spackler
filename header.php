@@ -25,6 +25,9 @@
             $page = $arr[1];
         }
     };
+
+    // for dev
+    //$environment = 'production';
 ?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
@@ -57,19 +60,21 @@
     <link rel="alternate" type="text/xml" title="RSS .92" href="<?php bloginfo('rss_url'); ?>" />
     <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="<?php bloginfo('atom_url'); ?>" />
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Comments Feed" href="<?php bloginfo('comments_rss2_url'); ?>" />
-    <link rel="shortcut icon" href="<?php echo sf_get_favicon(); ?>" title="Favicon" />
+    <link rel="shortcut icon" href="<?php echo spackler_get_favicon(); ?>" title="Favicon" />
 
     <?php if ($environment == 'local') : ?>
-        <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/app/css/style.css?v=1231243" type="text/css" media="screen" />
+        <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/app/css/style.css?v=1.1.2" type="text/css" media="screen" />
+        <script src="<?php bloginfo('template_url'); ?>/assets/app/scripts/vendor/modernizr.js?v=1.0.0"></script>
     <?php else : ?>
-        <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/dist/css/style.css?v=1231243" type="text/css" media="screen" />
+        <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/dist/css/style.css?v=1.0.2" type="text/css" media="screen" />
+        <script src="<?php bloginfo('template_url'); ?>/assets/dist/scripts/vendor/modernizr.js?v=1.0.0"></script>
     <?php endif; ?>
 
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
-    <script src="<?php bloginfo('template_url'); ?>/assets/app/scripts/vendor/modernizr.js"></script>
+
     <!--[if lte IE 6]>
-        <link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection">
+        <link rel="stylesheet" href="http://universal-8b8e.ie6.css.googlecode.com/files/ie6.1.1.css" media="screen, projection">
     <![endif]-->
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <?php wp_head(); ?>
@@ -77,19 +82,19 @@
 
     </head>
 
-    <body id="<?php echo $page;?>" class="<?php ln_body_class() ?>">
+    <body id="<?php echo $page;?>" class="<?php spackler_body_class() ?>">
         <div id="wrapper" class="container">
             <header class="header visible" id="header">
                 <div class="row">
                     <?php if ( is_front_page() ) { echo "<h1 id='logo' class='logo'>";} else {echo "<p id='logo' class='clearfix logo'>";} ?><a class="home-link" href="<?php bloginfo('home'); ?>">Lawrence Naman</a><?php if ( is_front_page() ) { echo "</h1>";} else {echo "</p>"; }  ?>
 
-                    <p id="nav-opener" class="nav-opener js-nav-opener">
-                        <a href="#access"><span class="text">Menu</span><span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span></a>
+                    <p class="nav-opener js-nav-opener">
+                        <a class="nav-opener__link" href="#access"><span class="nav-opener__text">Menu</span><span class="si-icon si-icon-hamburger-cross nav-opener__icon" data-icon-name="hamburgerCross"></span></a>
                     </p>
                 </div>
             </header>
 
-            <div class="overlay" id="nav-overlay">
+            <div class="nav-overlay js-nav-overlay" id="nav-overlay">
                 <div class="absolute-center">
                     <nav id="access" class="main-navigation" role="navigation">
                         <?php wp_nav_menu( array( 'menu_id' => 'nav','container' => false, 'theme_location' => 'header-menu', 'menu_class' => 'nav-menu', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>

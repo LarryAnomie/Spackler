@@ -35,3 +35,12 @@ $old-ie: false !default;
         @content;
     }
 }
+
+/*nav*/
+.absolute-center {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    height: 60%;
+    transform: translateY(-50%);
+}

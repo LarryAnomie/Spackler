@@ -1,30 +1,26 @@
-
-/*============================================================
-Blog
-*/
-
-
 .post {
     padding: 0 0 1em 0;
     overflow:hidden;
-    border-bottom: 1px solid #ccc;
-    //font-size: emCalc(22);
-
-    &::first-child {
-        border-top: none;
-        padding: 0 0 20px 0;
-    }
 
     &.post-nonstandard {
         margin-top: 1em;
     }
 }
 
-.single .post {
-    border: none;
+.post--list-view {
+    border-bottom: 1px solid #ccc;
+    //font-size: emCalc(22);
+    padding: 1em 0 1em 0;
+
+    &:first-child {
+        padding-top: 0;
+        border-top: none;
+    }
 }
 
-.entry-title {
+.post__title {
+
+    margin-top: 0;
 
     a, a:hover {
         border: none;
@@ -32,16 +28,27 @@ Blog
 }
 
 // meta
-.entry-meta {
+.post__meta {
     color: #666;
     margin-bottom: emCalc(14);
     font-size: .8em;
 
 }
 
-.featured-post {
+.post__featured {
     display: block;
+    background: $green;
+    padding: .5em;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Oswald";
+    text-align: center;
+
+    @include respond-min(45em) {
+        float: right;
+    }
 }
+
 
 .date {
     //background-color: $red;
@@ -77,14 +84,8 @@ Blog
     margin-bottom: emCalc(10);
     font-size: .9em;
 
-    i {
-        float: left;
-        margin-right: 1px;
-        //padding: 4px 5px;
-        color: #666;
-        line-height: 1.6em;
-        display: inline-block;
-        padding: 0 4px;
+    .si-icon {
+        margin-right: 5px;
     }
 }
 
@@ -116,12 +117,12 @@ Blog
 
 }
 
-.entry-content {
+.post__content {
     clear: left;
 }
 
 
-.comments {
+.post__comments-count {
     color: #fff;
     text-align: center;
     text-transform: uppercase;
@@ -153,6 +154,12 @@ Blog
     }
 }
 
+.post__author {
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    padding: 0 5px;
+}
+
 .author {
     border: none;
     padding: 10px;
@@ -175,25 +182,21 @@ Blog
     font-family: "Oswald";
     text-transform: uppercase;
     font-style: italic;
+    text-align: center;
 
     .page-links-title {
         border: none;
         color: #444;
-    }
-
-    span {
-        display: block;
-        float: left;
+        display: inline-block;
         margin-right: 10px;
         color: #ccc;
         padding: 2px;
     }
 
-    a {
-        display: block;
-        float: left;
+    a, span {
+        display: inline-block;
         margin-right: 15px;
-        padding: 2px;
+        //padding: 2px;
         border: none;
     }
 
@@ -209,42 +212,28 @@ Blog
 }
 
 .post-navigation {
-    padding: 10px;
 }
+
 .nav-links {
-    line-height: 1.6em;
+    padding: 1em 0;
+    position: relative;
 
     a {
         font-family: 'Oswald';
         text-transform: uppercase;
         font-style: italic;
+        padding: 0 2px;
+        border: none;
     }
-
 }
+
 .nav-previous {
-    float: left;
+    position: absolute;
+    left: 0;
 }
+
 .nav-next {
-    float: right;
+    position: absolute;
+    right: 0;
 }
 
-.featured-post {
-    background: $green;
-    padding: .5em;
-    color: #fff;
-    text-transform: uppercase;
-    font-family: "Oswald";
-    text-align: center;
-
-/*     @include mq($from: tablet) {
-        float: right;
-    } */
-
-    @include respond-min(45em) {
-        float: right;
-    }
-
-            input {
-            width: 60%;
-        }
-}
