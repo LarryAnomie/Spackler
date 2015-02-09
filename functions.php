@@ -572,23 +572,24 @@ function spackler_social_links() {
     <div class="share">
         <h2 class="share__title">Share</h2>
         <ul class="share__btns">
-          <li>
-            <a class="icon-fallback-text share__btn share__btn--facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>&amp;t=<?php echo get_the_title(); ?>" target="_blank" title="Share on Facebook">
-              <span class="si-icon si-icon-fb si-icon-medium"></span>
-              <span class="visuallyhidden">Facebook</span>
-            </a>
-          </li>
-          <li>
-            <a class="icon-fallback-text share__btn share__btn--twitter" href="https://twitter.com/intent/tweet?source=<?php echo get_permalink(); ?>&amp;text=<?php echo get_the_title(); ?>:<?php echo get_permalink(); ?>" target="_blank" title="Tweet">
-              <span class="si-icon si-icon-twitter-bird si-icon-medium"></span>
-              <span class="visuallyhidden">Twitter</span>
-            </a>
-          </li>
-          <li>
-            <a class="icon-fallback-text share__btn share__btn--google" href="https://plus.google.com/share?url=<?php echo get_permalink(); ?>" target="_blank" title="Share on Google+">
-              <span class="si-icon si-icon-google si-icon-medium" aria-hidden="true"></span>
-              <span class="visuallyhidden">Google+</span>
-            </a></li>
+            <li>
+                <a class="js-social-share icon-fallback-text share__btn share__btn--facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>&amp;t=<?php echo get_the_title(); ?>" target="_blank" title="Share on Facebook">
+                  <span class="si-icon si-icon-fb si-icon-medium"></span>
+                  <span class="visuallyhidden">Facebook</span>
+                </a>
+            </li>
+            <li>
+                <a class="js-social-share icon-fallback-text share__btn share__btn--twitter" href="https://twitter.com/intent/tweet?source=<?php echo get_permalink(); ?>&amp;text=<?php echo get_the_title(); ?>:<?php echo get_permalink(); ?>" target="_blank" title="Tweet">
+                  <span class="si-icon si-icon-twitter-bird si-icon-medium"></span>
+                  <span class="visuallyhidden">Twitter</span>
+                </a>
+            </li>
+            <li>
+                <a class="js-social-share icon-fallback-text share__btn share__btn--google" href="https://plus.google.com/share?url=<?php echo get_permalink(); ?>" target="_blank" title="Share on Google+">
+                  <span class="si-icon si-icon-google si-icon-medium" aria-hidden="true"></span>
+                  <span class="visuallyhidden">Google+</span>
+                </a>
+            </li>
         </ul>
       </div>
 <?php

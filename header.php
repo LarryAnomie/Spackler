@@ -84,7 +84,7 @@
 
     <body id="<?php echo $page;?>" class="<?php spackler_body_class() ?>">
         <div id="wrapper" class="container">
-            <header class="header visible" id="header">
+            <header class="header visible js-header" id="header">
                 <div class="row">
                     <?php if ( is_front_page() ) { echo "<h1 id='logo' class='logo'>";} else {echo "<p id='logo' class='clearfix logo'>";} ?><a class="home-link" href="<?php bloginfo('home'); ?>">Lawrence Naman</a><?php if ( is_front_page() ) { echo "</h1>";} else {echo "</p>"; }  ?>
 
